@@ -18,16 +18,16 @@
     <title>Bino html5 free Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/iconfont.css">
-    <link rel="stylesheet" href="assets/css/stylesheet.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/iconfont.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/stylesheet.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/magnific-popup.css">
     <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
     <!--For Plugins external css-->
-    <link rel="stylesheet" href="assets/css/plugins.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/plugins.css" />
     <!--Theme custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Theme Responsive css-->
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="nave_menu">
-                        <nav class="navbar navbar-default">/
+                        <nav class="navbar navbar-default">
                             <div class="container-fluid">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
@@ -90,13 +90,20 @@
         </div>
     </header>
     <!--End of header -->
-
+    <!-- title section -->
+    <section id="home_camping" class="home_camping">
+        <div class="overlay" style="height: 300px">
+            <div class="cam_subtitle">
+                <h1>Sub Title</h1>
+            </div>
+        </div>
+    </section>
+    <!--End of title -->
     <!--home Section -->
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 " style="height: 1000px">
-
+                <div class="col-sm-12 " style="height: 1500px">
                 </div>
             </div>
         </div>
@@ -145,6 +152,9 @@
 
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!--slick slide js -->
+<script src="assets/css/slick/slick.min.js"></script>
 
 </body>
 </html>
