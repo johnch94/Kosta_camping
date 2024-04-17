@@ -140,58 +140,59 @@
     </section>
     <!--End of home section -->
     <!--tour section-->
-    <section id="tour">
-        <div class="container" style="height: 600px">
-            <div class="row">
-                <div class="main_feature text-center">
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-clone"></i>
-                            </div>
-                            <h4>SLEEK DESIGN</h4>
-                            <div class="separator3"></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
-                                Lorem Ipsum has been the industry.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-heart-o"></i>
-                            </div>
-                            <h4>CLEAN CODE</h4>
-                            <div class="separator3"></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
-                                Lorem Ipsum has been the industry.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-lightbulb-o"></i>
-                            </div>
-                            <h4>CREATIVE IDEAS</h4>
-                            <div class="separator3"></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
-                                Lorem Ipsum has been the industry.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-comments-o"></i>
-                            </div>
-                            <h4>FREE SUPPORT</h4>
-                            <div class="separator3"></div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
-                                Lorem Ipsum has been the industry.</p>
-                        </div>
-                    </div>
+    <div class="container" style="margin-top: 50px; margin-bottom: -30px">
+        <div class="row">
+            <div class="text-center">
+                <h2 style="margin-bottom: 80px">추천 관광지</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 50px">
+        <div class="col-sm-3">
+            <div class="single_feature">
+                <div class="flex_center" style="margin-top: 50px;">
+                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
+                    <h4>관광지 1</h4>
+                    <div class="separator3"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-sm-3">
+            <div class="single_feature">
+                <div class="flex_center" style="margin-top: 50px;">
+                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
+                    <h4>관광지 1</h4>
+                    <div class="separator3"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="single_feature">
+                <div class="flex_center" style="margin-top: 50px;">
+                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
+                    <h4>관광지 1</h4>
+                    <div class="separator3"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="single_feature">
+                <div class="flex_center" style="margin-top: 50px;">
+                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
+                    <h4>관광지 1</h4>
+                    <div class="separator3"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                        Lorem Ipsum has been the industry.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--End of tour section-->
     <!--Footer section-->
     <section class="footer">

@@ -666,6 +666,10 @@ input::-ms-input-placeholder {
     background: url(../images/homebg1.jpg) no-repeat center center;
     background-size: cover;
 }
+.home_camping{
+    background-image: url("../images/glamping1.jpg");
+    background-size: cover;
+}
 .home_skew_border{
     position: relative;
 }
@@ -779,6 +783,27 @@ input::-ms-input-placeholder {
     padding-top: 4px;
     margin-left: 5px;
 }
+.cam_subtitle{
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+.flex_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*=================================================================
+                        index tour section
+===================================================================*/
+.tour{
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*=================================================================
                         footer section
 ===================================================================*/
