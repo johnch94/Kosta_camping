@@ -58,7 +58,15 @@ public class CamWeatherHandler implements Handler {
 			for(int i=0; i<forecast.getLength(); i++) {
 				 	Element forecastdata = (Element) forecast.item(i);
 				 	String weaT = forecastdata.getAttribute("to");
-				 	String weaTime = "null";
+					String weaTime = "null";
+				 	String weaName = "";
+				 	String rainPb = "";
+				 	String rainType = "";
+				 	String tmpValue = "";
+				 	String tmpMin = "";
+				 	String tmpMax = "";
+				 	String humValue = "";
+				 	String icon = "";
 				 	if (weaT.contains("12:00") || weaT.contains("00:00:00")) {
 				 		 Date date = inputFormat.parse(weaT);
 				 		 System.out.println(date);
