@@ -1,12 +1,10 @@
 package Handlers.Comment;
 
 import Handlers.Handler;
-import VOS.CamComment;
 import VOS.Service.CamCommentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 
 public class CmtListHandler implements Handler {
   @Override

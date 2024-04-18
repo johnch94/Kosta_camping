@@ -1,7 +1,7 @@
 package Handlers.Board;
 
 import Handlers.Handler;
-import VOS.CamBoard;
+import VOS.Board.CamBoard;
 import VOS.Service.CamBoardService;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;

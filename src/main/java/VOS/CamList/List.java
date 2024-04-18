@@ -1,4 +1,4 @@
-package VOS;
+package VOS.CamList;
 
 public class List {
     private String contentId; //아영장명

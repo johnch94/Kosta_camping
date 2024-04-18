@@ -1,4 +1,4 @@
-package Handlers.location;
+package Handlers.Weather;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,14 +13,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import VOS.WeatherVo.CamLocationList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import handlers.Handler;
-import vo.CamLocation;
-import vo.CamLocationList;
+import Handlers.Handler;
+import VOS.WeatherVo.CamLocation;
 
 public class CamLocationHandler implements Handler {
 
@@ -38,7 +38,7 @@ public class CamLocationHandler implements Handler {
 			URLConnection conn = url.openConnection();
 			InputStream is = conn.getInputStream();
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(is);
 			
@@ -75,7 +75,7 @@ public class CamLocationHandler implements Handler {
 				String addr2 = data.getElementsByTagName("addr2").item(0).getTextContent();
 				String tel = data.getElementsByTagName("tel").item(0).getTextContent();
 				String homepage = data.getElementsByTagName("homepage").item(0).getTextContent();
-				list.add(new CamLocation(mapX, mapY, contentId, facltNm, lineIntro, intro, induty, manageSttus, 
+				list.add(new CamLocation(mapX, mapY, contentId, facltNm, lineIntro, intro, induty, manageSttus,
 						hvofBgnde, hvofEnddle, featureNm, lctCl, doNm, sigunguNm, zipcode, addr1, addr2, tel, homepage));
 			}
 			total.add(new CamLocationList(list, totalCount));

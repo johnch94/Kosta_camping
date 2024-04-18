@@ -60,7 +60,7 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="/index.jsp">HOME</a></li>
                                         <li><a href="#tour">추천 관광지</a></li>
-                                        <li><a href="#portfolio">캠핑</a></li>
+                                        <li><a href="/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
                                         <li><a href="#pricing">장터</a></li>
                                         <li></li>
@@ -111,12 +111,16 @@
                                         <h3>weather</h3>
                                         <h1>오늘날씨</h1>
                                         <div class="separator"></div>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                            standard dummy text ever since the 1500s, when an unknown printer took a galley
-                                            of type and scrambled it to make a type specimen book.</p>
-                                        <div class="home_btn">
-                                            <a href="" class="btn btn-lg m_t_10">GET STARTED NOW</a>
-                                            <a href="" class="btn btn-default">LEARN MORE</a>
+                                        <div id="weather_wrapper">
+                                            <div class="weatherCard">
+                                                <div class="currentWeather">
+                                                    <span class="conditions">&#xf00d;</span>
+                                                    <div class="info">
+                                                        <span class="rain">1.3 MM</span>
+                                                        <span class="temp">10 'C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

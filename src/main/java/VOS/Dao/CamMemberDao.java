@@ -1,6 +1,6 @@
 package VOS.Dao;
 
-import VOS.CamMember;
+import VOS.Board.CamMember;
 import conn.DBConnect;
 
 import java.sql.Connection;

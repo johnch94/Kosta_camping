@@ -1,6 +1,6 @@
 package Handlers.Camping;
 
-import VOS.List;
+import VOS.CamList.List;
 import Handlers.Handler;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;

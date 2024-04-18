@@ -1,9 +1,6 @@
 package VOS.Service;
 
-import VOS.CamComment;
 import VOS.Dao.CamCommentDao;
-
-import java.util.ArrayList;
 
 public class CamCommentService {
   private CamCommentDao dao;

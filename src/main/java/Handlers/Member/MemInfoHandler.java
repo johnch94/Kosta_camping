@@ -1,7 +1,7 @@
 package Handlers.Member;
 
 import Handlers.Handler;
-import VOS.CamMember;
+import VOS.Board.CamMember;
 import VOS.Service.CamMemberService;
 
 import javax.servlet.http.HttpServletRequest;
