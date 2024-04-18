@@ -17,13 +17,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import VOS.WeatherVo.CamWeather;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Handlers.Handler;
-import VOS.WeatherVO.CamWeather;
+import VOS.WeatherVo.CamWeather;
 
 public class CamWeatherHandler implements Handler {
 

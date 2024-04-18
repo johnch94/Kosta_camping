@@ -25,7 +25,7 @@ public class CamInfoHandler implements Handler {
 //      String serviceKey = "SZf%2BRflDYMf6sMf5DXZ17HAUiVff2aDe9Kp669N3GIMbikpuGzqOuduXjuKnmx93PkYHfg6xul3DHmB%2Fy6bCZg%3D%3D";
         String keyword = request.getParameter("kw");
         String encoded = null;
-
+        System.out.println(keyword);
         try {
             encoded = URLEncoder.encode(keyword, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -114,7 +114,7 @@ public class CamInfoHandler implements Handler {
             e.printStackTrace();
         }
 
-        return "/list/info.jsp";
+        return "/camping/info.jsp";
     }
 
 }
