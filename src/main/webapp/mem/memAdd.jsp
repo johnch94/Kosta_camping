@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 2024-04-16
-  Time: 오전 10:46
+  Date: 2024-04-18
+  Time: 오전 11:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -34,14 +34,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css" />
 
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    <style>
-        #myDiv{
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    </style>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -62,8 +54,8 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="#home">
-                                        <img src="assets/images/cam_logo.png" style="width: 55px; height: 52px"/>
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
+                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px"/>
                                     </a>
                                 </div>
 
@@ -80,13 +72,13 @@
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
-                                            <li><a href="/mem/add.do">회원가입</a></li>
-                                            <li><a href="/mem/login.do">로그인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
                                             <%--                                            로그인--%>
-                                            <li><a href="/mem/info.do">내정보 확인</a></li>
-                                            <li><a href="/mem/logout.do">로그아웃</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/info.do">내정보 확인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a></li>
                                         </c:if>
                                     </ul>
                                 </div>
@@ -102,78 +94,36 @@
     <section id="home_camping" class="home_camping">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
-                <h1>Sub Title</h1>
+                <h1>회원가입</h1>
             </div>
         </div>
     </section>
     <!--End of title -->
     <!--home Section -->
-    <section>
+    <section style="background-color: rgba(0,0,0,0.11)">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 " style="height: 3250px">
-                    <div style="margin-top: 50px">
-                        <c:if test="${not empty list}">
-                            <c:forEach var="camp" items="${list}">
-                                <div style="float: left; margin: 10px;">
-                                    <c:if test="${not empty camp.firstImageUrl}">
-                                        <img src="${camp.firstImageUrl}" style="display:inline-block; vertical-align:top; width:250px ; height:250px">
-                                    </c:if>
-                                    <c:if test="${empty camp.firstImageUrl}">
-                                        <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg" style="display:inline-block;vertical-align:top; width:250px ; height:250px">
-                                    </c:if>
-                                </div>
-                                <div style="display:inline-block;height: 75px; margin-top:7px; margin-left:15px;">
-                                    <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}" style="font-size: 25px">🚗${camp.facltNm}</a>
-                                </div><br>
-                                <div style="display:inline-block;height: 70px; font-size: 15px; margin-left:15px;">🚀${camp.addr1}${camp.addr2}</div><br>
-                                <div id="myDiv" style="display:inline-block;height: 70px; width: 500px; font-size: 15px; margin-left:15px">
-                                    🏞️${camp.lineIntro}
-                                    <c:if test="${empty camp.lineIntro}">
-                                        ${camp.intro}
-                                        <c:if test="${empty camp.intro}">
-                                            ${camp.featureNm}
-                                            <c:if test="${empty camp.featureNm }">
-                                                <div style="display:inline-block;height: 90px">...</div>
-                                            </c:if>
-                                        </c:if>
-                                    </c:if>
-                                </div><br>
-                                <div style="display:inline-block;height: 70px; font-size: 15px; margin-left:15px;">🛸${camp.sbrsCl}
-                                    <c:if test="${empty camp.sbrsCl }">
-                                        <div style="display:inline-block;height: 90px">...</div>
-                                    </c:if>
-                                </div><br>
-                                <hr width=”100%” color=”red” noshade />
-                            </c:forEach>
-
-                            <!-- 페이지 인덱스 -->
-                            <div style="text-align: center;">
-                                <!-- 이전 페이지로 이동 -->
-                                <input type="button" value="처음으로" onclick="previousPage(1)">
-                                <!-- 페이지 번호로 이동 -->
-                                <c:set var="startPage" value="${pageNum - 2 }" />
-                                <c:set var="endPage" value="${pageNum + 2 }" />
-                                <c:if test="${startPage < 1 }">
-                                    <c:set var="startPage" value="1" />
-                                    <c:set var="endPage" value="5" />
-                                </c:if>
-                                <c:if test="${endPage > totalCount }">
-                                    <c:set var="endPage" value="${totalCount }" />
-                                    <c:set var="startPage" value="${totalCount - 4 }" />
-                                </c:if>
-                                <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                    <input type="button" value="${i }" onclick="goToPage(${i})">
-                                </c:forEach>
-                                <!-- 다음 페이지로 이동 -->
-                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}')"><br/>
-                                현재 페이지: ${pageNum}
-                            </div>
-                        </c:if>
-
-                        <c:if test="${empty list}">
-                            <p>No camping sites found.</p>
-                        </c:if>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 box-center" style="height: 500px; background-color: white">
+                    <div>
+                        <b>ID</b>
+                        <span><input type="text"></span>
+                    </div>
+                    <div>
+                        <b>PW</b>
+                        <span><input type="text"></span>
+                    </div>
+                    <div>
+                        <b>NAME</b>
+                        <span><input type="text"></span>
+                    </div>
+                    <div>
+                        <b>TEL</b>
+                        <span><input type="text"></span>
+                    </div>
+                    <div>
+                        <b>E-MAIL</b>
+                        <span><input type="text"></span>
                     </div>
                 </div>
             </div>
@@ -213,58 +163,6 @@
     </section><!-- End off footer Section-->
 </div>
 
-<!-- list page js -->
-<script type="text/javascript">
-    let pageNum = 1;
-
-    const previousPage = (pageNum) => {
-
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/camping/list.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-
-    const nextPage = (pageNum) => {
-
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/camping/list.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-
-    const goToPage = (pageNum) => {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/camping/list.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
-
 <script src="${pageContext.request.contextPath}/assets/js/vendor/jquery-1.11.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/vendor/bootstrap.min.js"></script>
 
@@ -273,11 +171,52 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.easing.1.3.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.masonry.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/assets/js/plugins.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 
 <!--slick slide js -->
 <script src="${pageContext.request.contextPath}/assets/css/slick/slick.min.js"></script>
+
+<!-- mem add js -->
+<script type="text/javascript">
+    const check = () => {
+        if(f.id.value.length<=0){
+            alert("id는 필수 입력 사항");
+            f.id.focus();
+            return;
+        }
+        if(f.pwd.value.length<=0){
+            alert("pwd는 필수 입력 사항");
+            f.pwd.focus();
+            return;
+        }
+        if(!flag){
+            alert("id 중복체크 필요");
+            return;
+        }
+        f.submit();//폼을 action에 지정된 서버로 제출
+    }
+
+    // id 중복체크 결과 저장
+    let flag = false;
+    const a=()=>{ // id 중복체크
+        flag = false;
+        const req = new XMLHttpRequest();
+        req.onload = () => {
+            let obj = JSON.parse(req.responseText);
+            let txt = "중복된 아이디";
+            if(obj.flag){
+                txt = "사용가능한 아이디";
+                flag = true;
+            }
+            document.getElementById('res').innerHTML = txt;
+        }
+        let id = document.getElementById('id').value;
+        req.open('get', '/mem/idcheck.do?id='+id);
+        req.send();
+    }
+</script>
+
 </body>
 </html>
+
 

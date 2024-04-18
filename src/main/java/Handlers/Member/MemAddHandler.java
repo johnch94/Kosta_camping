@@ -25,7 +25,7 @@ public class MemAddHandler implements Handler {
       view = "/index.jsp";
 
     }else {
-      request.setAttribute("view", "/mem/join.jsp");
+      request.setAttribute("view", "${pageContext.request.contextPath}//mem/memAdd.jsp");
     }
     return view;
   }

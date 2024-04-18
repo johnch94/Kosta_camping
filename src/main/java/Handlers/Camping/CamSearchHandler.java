@@ -64,7 +64,7 @@ public class CamSearchHandler implements Handler {
 				list.add(new CamSearch(contentId, facltNm, lineIntro, intro, featureNm, addr1, addr2, sbrsCl, firstImageUrl));
 			}
 			int page = list.size();
-			System.out.println((int) Math.ceil( (double) totalCount) / 10);
+
 			
 			request.setAttribute("list", list);
 			request.setAttribute("pageNum", pageNum);
