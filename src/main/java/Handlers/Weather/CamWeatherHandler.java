@@ -1,4 +1,4 @@
-package Handlers.weather;
+package Handlers.Weather;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,8 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import handlers.Handler;
-import vo.CamWeather;
+import Handlers.Handler;
 
 public class CamWeatherHandler implements Handler {
 
@@ -39,18 +38,18 @@ public class CamWeatherHandler implements Handler {
 			URLConnection conn = url.openConnection();
 			InputStream is = conn.getInputStream();
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(is);
-			ArrayList<CamWeather> list = new ArrayList<>();
-			CamWeather locN = new CamWeather();
+			ArrayList<Handlers.vo.CamWeather> list = new ArrayList<>();
+			Handlers.vo.CamWeather locN = new Handlers.vo.CamWeather();
  			Element root = doc.getDocumentElement();
  			String locaName="";
  			NodeList locations  = root.getElementsByTagName("location");
  			for(int i=0; i<locations.getLength(); i++) {
  				Element loc = (Element) locations.item(0);
  				locaName = loc.getElementsByTagName("name").item(0).getTextContent();
- 				locN = new CamWeather(locaName);
+ 				locN = new Handlers.vo.CamWeather(locaName);
  			} 
  			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
  			SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd E", Locale.KOREAN);
@@ -79,7 +78,7 @@ public class CamWeatherHandler implements Handler {
 			        String humValue = ((Element) forecastdata.getElementsByTagName("humidity").item(0)).getAttribute("value") + "%";
 			        
 			        if(!weaTime.equals("null")) {
-			        list.add(new CamWeather(weaTime, weaName, rainPb, rainType, tmpValue, tmpMin, tmpMax, humValue, icon));
+			        list.add(new Handlers.vo.CamWeather(weaTime, weaName, rainPb, rainType, tmpValue, tmpMin, tmpMax, humValue, icon));
 			        }
 			}
 			request.setAttribute("list", list);

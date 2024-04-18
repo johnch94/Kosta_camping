@@ -1,4 +1,4 @@
-package VOS;
+package VOS.Board;
 
 public class CamComment {
 

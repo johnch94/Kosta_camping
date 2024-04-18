@@ -1,4 +1,4 @@
-package vos;
+package VOS.Image;
 
 import java.util.ArrayList;
 

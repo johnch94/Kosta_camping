@@ -1,4 +1,4 @@
-package camping;
+package VOS.Board;
 
 public class CamSearch {
 	private String contentId;		// 컨텐트 ID

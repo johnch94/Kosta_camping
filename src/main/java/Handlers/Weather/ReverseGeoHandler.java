@@ -1,4 +1,4 @@
-package Handlers.reversegeo;
+package Handlers.Weather;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import handlers.Handler;
-import vo.ReverseGeo;
+import Handlers.Handler;
 
 public class ReverseGeoHandler implements Handler {
 
@@ -33,14 +32,14 @@ public class ReverseGeoHandler implements Handler {
 			URLConnection conn = url.openConnection();
 			JSONParser parser = new JSONParser();
 			JSONArray jsonarray = (JSONArray) parser.parse(new InputStreamReader(conn.getInputStream()));
-			ArrayList<ReverseGeo> list = new ArrayList<>();
+			ArrayList<Handlers.vo.ReverseGeo> list = new ArrayList<>();
 			for (Object obj : jsonarray) {
 				JSONObject jsonObj = (JSONObject) obj;
 				String weatherlat = jsonObj.get("lat").toString();
 				String weatherlon = jsonObj.get("lon").toString();
 				JSONObject nameObj = (JSONObject) jsonObj.get("local_names");
 				String name = (String) nameObj.get("ko");
-				list.add(new ReverseGeo(weatherlat, weatherlon, name));
+				list.add(new Handlers.vo.ReverseGeo(weatherlat, weatherlon, name));
 			}
 			String wlat = list.get(0).getWeatherlat();
 			String wlon = list.get(0).getWeatherlon();

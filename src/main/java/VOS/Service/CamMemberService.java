@@ -1,6 +1,6 @@
 package VOS.Service;
 
-import VOS.CamMember;
+import VOS.Board.CamMember;
 import VOS.Dao.CamMemberDao;
 
 import java.util.ArrayList;

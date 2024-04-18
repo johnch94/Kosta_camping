@@ -1,4 +1,4 @@
-package handlers.img;
+package Handlers.Img;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import handlers.Handler;
+import Handlers.Handler;
 import vos.Img;
 
 public class CamImgHandler implements Handler {
@@ -31,7 +31,7 @@ public class CamImgHandler implements Handler {
 			URL url  = new URL(path);
 			URLConnection conn = url.openConnection();
 			InputStream is = conn.getInputStream();
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(is);

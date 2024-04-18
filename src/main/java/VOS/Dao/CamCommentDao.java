@@ -1,13 +1,6 @@
 package VOS.Dao;
 
-import VOS.CamComment;
 import conn.DBConnect;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class CamCommentDao {
   private DBConnect db;

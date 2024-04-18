@@ -1,4 +1,4 @@
-package Handlers.vo;
+package VOS.WeatherVo;
 
 public class ReverseGeo {
 	

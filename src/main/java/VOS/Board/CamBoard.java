@@ -1,4 +1,4 @@
-package VOS;
+package VOS.Board;
 
 public class CamBoard {
   private int bnum;

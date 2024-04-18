@@ -1,4 +1,4 @@
-package handlers.camping;
+package Handlers.Camping;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +15,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import camping.CamSearch;
-import handlers.Handler;
+import VOS.Board.CamSearch;
+import Handlers.Handler;
 
 public class CamSearchHandler implements Handler {
 
