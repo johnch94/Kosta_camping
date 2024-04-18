@@ -111,19 +111,44 @@
                                         <h3>weather</h3>
                                         <h1>오늘날씨</h1>
                                         <div class="separator"></div>
-                                        <div id="weather_wrapper">
-                                            <div class="weatherCard">
-                                                <div class="currentWeather">
-                                                    <span class="conditions">&#xf00d;</span>
-                                                    <div class="info">
-                                                        <span class="rain">1.3 MM</span>
-                                                        <span class="temp">10 'C</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+     <section class="container">
+      <div class="weather-forecast">
+     		<div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>
+			<div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>	<div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>	<div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>
+            <div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>
+            <div class="forecast-day">
+            <span id="humidity">날짜</span><span>시간</span>
+           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
+            <p class="weather">기온</p>
+            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
+            </div>
+        </div>
+      </section>
                                 <div class="single_home_slider">
                                     <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                         <h3>keyword</h3>
@@ -264,6 +289,8 @@
 <script src="assets/js/main.js"></script>
 
 <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
+<!-- 날씨 script -->
+<script src="${pageContext.request.contextPath }js/weather.js"></script>
 
 </body>
 </html>
