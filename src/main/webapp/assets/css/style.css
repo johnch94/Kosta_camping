@@ -895,7 +895,17 @@ input::-ms-input-placeholder {
     position: absolute;
     top: 5px;
 }
+/*===================================================================*/
+.weather-forecast {
+    display: flex; /* flexbox를 사용하여 아이템들을 가로로 배열 */
+    justify-content: center;
+}
 
+.forecast-day {
+    flex: 0 0 auto; /* 컨테이너가 늘어날 수 있지만 줄어들지도 늘어나지도 않음 */
+    margin-right: 10px; /* 날짜 사이에 일정한 간격 추가 */
+}
+/*=================================================================
 
 /*=================================================================
                         index tour section
