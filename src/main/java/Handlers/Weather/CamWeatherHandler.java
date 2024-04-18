@@ -41,15 +41,15 @@ public class CamWeatherHandler implements Handler {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(is);
-			ArrayList<Handlers.vo.CamWeather> list = new ArrayList<>();
-			Handlers.vo.CamWeather locN = new Handlers.vo.CamWeather();
+			ArrayList<CamWeather> list = new ArrayList<>();
+			CamWeather locN = new CamWeather();
  			Element root = doc.getDocumentElement();
  			String locaName="";
  			NodeList locations  = root.getElementsByTagName("location");
  			for(int i=0; i<locations.getLength(); i++) {
  				Element loc = (Element) locations.item(0);
  				locaName = loc.getElementsByTagName("name").item(0).getTextContent();
- 				locN = new Handlers.vo.CamWeather(locaName);
+ 				locN = new CamWeather(locaName);
  			} 
  			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
  			SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd E", Locale.KOREAN);
@@ -78,7 +78,7 @@ public class CamWeatherHandler implements Handler {
 			        String humValue = ((Element) forecastdata.getElementsByTagName("humidity").item(0)).getAttribute("value") + "%";
 			        
 			        if(!weaTime.equals("null")) {
-			        list.add(new Handlers.vo.CamWeather(weaTime, weaName, rainPb, rainType, tmpValue, tmpMin, tmpMax, humValue, icon));
+			        list.add(new CamWeather(weaTime, weaName, rainPb, rainType, tmpValue, tmpMin, tmpMax, humValue, icon));
 			        }
 			}
 			request.setAttribute("list", list);
