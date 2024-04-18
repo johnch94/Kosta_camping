@@ -104,6 +104,94 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 " style="height: 1500px">
+                    <h1>Camping Information</h1>
+                    <p>검색 키워드: <%= request.getAttribute("keyword") %></p>
+
+                    <%-- 캠핑 정보 테이블 --%>
+                    <table border="1">
+                        <thead>
+                        <tr>
+                            <th>Content ID</th>
+                            <th>Facility Name</th>
+                            <th>Line Introduction</th>
+                            <th>Introduction</th>
+                            <th>Allar</th>
+                            <th>Facility Division Name</th>
+                            <th>Management Status</th>
+                            <th>Feature Name</th>
+                            <th>Industry</th>
+                            <th>Location</th>
+                            <th>Address</th>
+                            <th>Map Coordinates</th>
+                            <th>Telephone</th>
+                            <th>Reservation URL</th>
+                            <th>General Site Count</th>
+                            <th>Auto Site Count</th>
+                            <th>Glamp Site Count</th>
+                            <th>Caravan Site Count</th>
+                            <th>Individual Caravan Site Count</th>
+                            <th>Glamp Inner Facilities</th>
+                            <th>Caravan Inner Facilities</th>
+                            <th>Operation Period Classification</th>
+                            <th>Operation Date Classification</th>
+                            <th>Toilet Count</th>
+                            <th>Shower Room Count</th>
+                            <th>Water Play Count</th>
+                            <th>Brazier Classification</th>
+                            <th>Submerged Classification</th>
+                            <th>Possible Facility Classification</th>
+                            <th>Experience Program At</th>
+                            <th>Experience Program</th>
+                            <th>Animal Coming Classification</th>
+                            <th>First Image URL</th>
+                            <th>Created Time</th>
+                            <th>Modified Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%-- list 속성에 담긴 캠핑 정보 출력 --%>
+                        <c:forEach var="campInfo" items="${list}">
+                            <tr>
+                                <td>${campInfo.contentId}</td> <!-- 콘텐츠 ID -->
+                                <td>${campInfo.facltNm}</td> <!-- 시설명 -->
+                                <td>${campInfo.lineIntro}</td> <!-- 한 줄 소개 -->
+                                <td>${campInfo.intro}</td> <!-- 상세 소개 -->
+                                <td>${campInfo.allar}</td> <!-- 평점 -->
+                                <td>${campInfo.facltDivNm}</td> <!-- 시설 구분명 -->
+                                <td>${campInfo.manageSttus}</td> <!-- 관리 상태 -->
+                                <td>${campInfo.featureNm}</td> <!-- 특징명 -->
+                                <td>${campInfo.induty}</td> <!-- 업종 -->
+                                <td>${campInfo.lctCl}, ${campInfo.doNm}, ${campInfo.sigunguNm}</td> <!-- 위치 -->
+                                <td>${campInfo.addr1}, ${campInfo.addr2}</td> <!-- 주소 -->
+                                <td>${campInfo.mapX}, ${campInfo.mapY}</td> <!-- 지도 좌표 -->
+                                <td>${campInfo.tel}</td> <!-- 전화번호 -->
+                                <td>${campInfo.resveUrl}</td> <!-- 예약 URL -->
+                                <td>${campInfo.gnrlSiteCo}</td> <!-- 일반 캠핑장 수 -->
+                                <td>${campInfo.autoSiteCo}</td> <!-- 자동차 캠핑장 수 -->
+                                <td>${campInfo.glampSiteCo}</td> <!-- 글램핑장 수 -->
+                                <td>${campInfo.caravSiteCo}</td> <!-- 캐러밴 수 -->
+                                <td>${campInfo.indvdlCaravSiteCo}</td> <!-- 개별 캐러밴 수 -->
+                                <td>${campInfo.glampInnerFclty}</td> <!-- 글램핑 내부 시설 -->
+                                <td>${campInfo.caravInnerFclty}</td> <!-- 캐러밴 내부 시설 -->
+                                <td>${campInfo.operPdCl}</td> <!-- 운영 기간 분류 -->
+                                <td>${campInfo.operDeCl}</td> <!-- 운영 일 분류 -->
+                                <td>${campInfo.toiletCo}</td> <!-- 화장실 수 -->
+                                <td>${campInfo.swrmCo}</td> <!-- 샤워실 수 -->
+                                <td>${campInfo.wtrplCo}</td> <!-- 물놀이 수 -->
+                                <td>${campInfo.brazierCl}</td> <!-- 불씨 분류 -->
+                                <td>${campInfo.sbrsCl}</td> <!-- 침수 분류 -->
+                                <td>${campInfo.posbFcltyCl}</td> <!-- 가능 시설 분류 -->
+                                <td>${campInfo.exprnProgrmAt}</td> <!-- 체험 프로그램 위치 -->
+                                <td>${campInfo.exprnProgrm}</td> <!-- 체험 프로그램 -->
+                                <td>${campInfo.animalCmgCl}</td> <!-- 동물 출몰 분류 -->
+                                <td>${campInfo.firstImageUrl}</td> <!-- 첫 번째 이미지 URL -->
+                                <td>${campInfo.createdtime}</td> <!-- 생성 시간 -->
+                                <td>${campInfo.modifiedtime}</td> <!-- 수정 시간 -->
+                            </tr>
+
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
