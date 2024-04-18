@@ -23,14 +23,15 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Handlers.Handler;
+import VOS.WeatherVO.CamWeather;
 
 public class CamWeatherHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		String key = "d8837c0fc8f973c07fdd90ac194e7d7a";
-		String lat = (String) request.getAttribute("wlat");
-		String lon = (String) request.getAttribute("wlon");
+		String lat = request.getParameter("wlat");
+		String lon = request.getParameter("wlon");
 		String path = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&mode=xml&appid="+ key;
 		
 		try {
@@ -58,25 +59,31 @@ public class CamWeatherHandler implements Handler {
 				 	Element forecastdata = (Element) forecast.item(i);
 				 	String weaT = forecastdata.getAttribute("to");
 				 	String weaTime = "null";
-				 	if (weaT.contains("06:00") || weaT.contains("12:00") || weaT.contains("18:00")) {
+				 	if (weaT.contains("12:00") || weaT.contains("00:00:00")) {
 				 		 Date date = inputFormat.parse(weaT);
 				 		 System.out.println(date);
 				 		 weaTime = outputFormat.format(date);
 				 		 System.out.println(weaTime);
-					}
-			        String weaName = ((Element) forecastdata.getElementsByTagName("symbol").item(0)).getAttribute("name");
-			        String icon = ((Element) forecastdata.getElementsByTagName("symbol").item(0)).getAttribute("var");
-			        Float rainP = Float.parseFloat(((Element) forecastdata.getElementsByTagName("precipitation").item(0)).getAttribute("probability")) * 100;
-			        String rainPb = String.valueOf(Math.round(rainP * 10.0)/10.0) + "%";
-			        String rainType = ((Element) forecastdata.getElementsByTagName("precipitation").item(0)).getAttribute("type");
-			        Double tmpVa = Double.parseDouble( ((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("value")) - 273.15;
-			        String tmpValue = String.valueOf(Math.round(tmpVa * 10.0) / 10.0);
-			        Double tmpMi = Double.parseDouble(((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("min")) - 273.15;
-			        String tmpMin = String.valueOf(Math.round(tmpMi * 10.0) / 10.0);
-			        Double tmpMa = Double.parseDouble(((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("max")) - 273.15;
-			        String tmpMax = String.valueOf(Math.round(tmpMa * 10.0) / 10.0);
-			        String humValue = ((Element) forecastdata.getElementsByTagName("humidity").item(0)).getAttribute("value") + "%";
-			        
+				 		 weaName = ((Element) forecastdata.getElementsByTagName("symbol").item(0)).getAttribute("name");
+					        if(weaName.equals("온흐림")) {
+					        	weaName = "흐림";
+					        }
+					        if(weaName.equals("실 비")) {
+					        	weaName = "옅은 비";
+					        }
+					         icon = ((Element) forecastdata.getElementsByTagName("symbol").item(0)).getAttribute("var");
+					        Float rainP = Float.parseFloat(((Element) forecastdata.getElementsByTagName("precipitation").item(0)).getAttribute("probability")) * 100;
+					         rainPb = String.valueOf(Math.round(rainP * 10.0)/10.0) + "%";
+					         rainType = ((Element) forecastdata.getElementsByTagName("precipitation").item(0)).getAttribute("type");
+					        Double tmpVa = Double.parseDouble( ((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("value")) - 273.15;
+					         tmpValue = String.valueOf(Math.round(tmpVa * 10.0) / 10.0);
+					        System.out.println(tmpValue);
+					        Double tmpMi = Double.parseDouble(((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("min")) - 273.15;
+					         tmpMin = String.valueOf(Math.round(tmpMi * 10.0) / 10.0);
+					        Double tmpMa = Double.parseDouble(((Element) forecastdata.getElementsByTagName("temperature").item(0)).getAttribute("max")) - 273.15;
+					         tmpMax = String.valueOf(Math.round(tmpMa * 10.0) / 10.0);
+					         humValue = ((Element) forecastdata.getElementsByTagName("humidity").item(0)).getAttribute("value") + "%";
+				 	}
 			        if(!weaTime.equals("null")) {
 			        list.add(new CamWeather(weaTime, weaName, rainPb, rainType, tmpValue, tmpMin, tmpMax, humValue, icon));
 			        }
@@ -102,7 +109,7 @@ public class CamWeatherHandler implements Handler {
 		}
 
 		
-		return "/weather/w2.jsp";
+		return "/js/weather.js";
 	}
 
 }
