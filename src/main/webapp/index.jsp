@@ -66,13 +66,13 @@
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
 <%--                                            비로그인--%>
-                                            <li><a href="/mem/add.do">회원가입</a></li>
-                                            <li><a href="/mem/login.do">로그인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
 <%--                                            로그인--%>
-                                            <li><a href="/mem/info.do">내정보 확인</a></li>
-                                            <li><a href="/mem/logout.do">로그아웃</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/info.do">내정보 확인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a></li>
                                         </c:if>
                                     </ul>
                                 </div>
@@ -111,44 +111,44 @@
                                         <h3>weather</h3>
                                         <h1>오늘날씨</h1>
                                         <div class="separator"></div>
-     <section class="container">
-      <div class="weather-forecast">
-     		<div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>
-			<div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>	<div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>	<div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>
-            <div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>
-            <div class="forecast-day">
-            <span id="humidity">날짜</span><span>시간</span>
-           	<img src="https://openweathermap.org/img/wn/10d@2x.png">
-            <p class="weather">기온</p>
-            <span id="humidity">최저온도</span><span>~</span><span>최고온도</span>
-            </div>
-        </div>
-      </section>
+                                        <div class="weather-forecast">
+                                            <div class="forecast-day">
+                                                <span >날짜</span><span>시간</span>
+                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                                <p class="weather">기온</p>
+                                                <span >최저온도</span><span>~</span><span>최고온도</span>
+                                            </div>
+                                            <div class="forecast-day">
+                                                <span >날짜</span><span>시간</span>
+                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                                <p class="weather">기온</p>
+                                                <span >최저온도</span><span>~</span><span>최고온도</span>
+                                            </div>	<div class="forecast-day">
+                                            <span >날짜</span><span>시간</span>
+                                            <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                            <p class="weather">기온</p>
+                                            <span >최저온도</span><span>~</span><span>최고온도</span>
+                                        </div>	<div class="forecast-day">
+                                            <span >날짜</span><span>시간</span>
+                                            <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                            <p class="weather">기온</p>
+                                            <span >최저온도</span><span>~</span><span>최고온도</span>
+                                        </div>
+                                            <div class="forecast-day">
+                                                <span >날짜</span><span>시간</span>
+                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                                <p class="weather">기온</p>
+                                                <span >최저온도</span><span>~</span><span>최고온도</span>
+                                            </div>
+                                            <div class="forecast-day">
+                                                <span >날짜</span><span>시간</span>
+                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
+                                                <p class="weather">기온</p>
+                                                <span >최저온도</span><span>~</span><span>최고온도</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="single_home_slider">
                                     <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                         <h3>keyword</h3>
