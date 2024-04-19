@@ -48,14 +48,6 @@ body {
     background-size: cover;
     margin: -20px 0 0 -20px;
 }
-img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    user-drag: none;
-}
 a,
 a:hover,
 a:active,
@@ -919,7 +911,19 @@ input::-ms-input-placeholder {
 /*=================================================================
                         list section
 ===================================================================*/
-
+.list_content{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.list img{
+    display: inline-block;
+    width: 275px;
+    height: 200px;
+    vertical-align: top;
+    position: relative;
+}
 
 /*=================================================================
                         footer section

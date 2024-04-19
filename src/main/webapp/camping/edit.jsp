@@ -13,28 +13,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Bino html5 free Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/iconfont.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/stylesheet.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
-    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-    <!--For Plugins external css-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/plugins.css" />
-    <!--Theme custom css -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
-    <!--Theme Responsive css-->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css" />
-
-    <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
     <style>
         #myDiv{
             white-space: nowrap;
@@ -42,6 +20,27 @@
             text-overflow: ellipsis;
         }
     </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bino html5 free Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="webapp/assets/css/iconfont.css">
+    <link rel="stylesheet" href="webapp/assets/css/stylesheet.css">
+    <link rel="stylesheet" href="webapp/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="webapp/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="webapp/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="webapp/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webapp/assets/css/magnific-popup.css">
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/plugins.css" />
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/style.css">
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="${pageContext.request.contextPath} assets/css/responsive.css" />
+
+    <script src="${pageContext.request.contextPath} assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -111,76 +110,72 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10" style="margin-bottom: 100px;">
-                    <div class="list" style="margin-top: 50px">
-                        <c:if test="${not empty list}">
-                            <c:forEach var="camp" items="${list}">
-                                <div class="list_content">
-                                    <c:if test="${not empty camp.firstImageUrl}">
-                                        <img src="${camp.firstImageUrl}">
-                                    </c:if>
-                                    <c:if test="${empty camp.firstImageUrl}">
-                                        <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg">
-                                    </c:if>
-                                    <div style="margin-left: 20px">
-                                        <div style="display:inline-block">
-                                            <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}" style="font-size: 25px">🚗${camp.facltNm}</a>
-                                        </div><br>
+                <div class="col-sm-12 " style="height: 3250px">
 
-                                        <div style="display:inline-block;">🚀${camp.addr1}${camp.addr2}</div><br>
-
-                                        <div id="myDiv" style="display:inline-block;font-size: 15px;">
-                                            🏞️${camp.lineIntro}
-                                            <c:if test="${empty camp.lineIntro}">
-                                                ${camp.intro}
-                                                <c:if test="${empty camp.intro}">
-                                                    ${camp.featureNm}
-                                                    <c:if test="${empty camp.featureNm }">
-                                                        <div style="display:inline-block">...</div>
-                                                    </c:if>
-                                                </c:if>
-                                            </c:if>
-                                        </div><br>
-
-                                        <div style="display:inline-block;font-size: 15px">🛸${camp.sbrsCl}
-                                            <c:if test="${empty camp.sbrsCl }">
-                                                <div style="display:inline-block; margin-top: 20px; margin-bottom: 20px">...</div>
-                                            </c:if>
-                                        </div><br>
-                                    </div>
-                                </div>
-                                <hr width=”100%” color=”red” noshade />
-                            </c:forEach>
-
-                            <!-- 페이지 인덱스 -->
-                            <div style="text-align: center;">
-                                <!-- 이전 페이지로 이동 -->
-                                <input type="button" value="처음으로" onclick="previousPage(1)">
-                                <!-- 페이지 번호로 이동 -->
-                                <c:set var="startPage" value="${pageNum - 2 }" />
-                                <c:set var="endPage" value="${pageNum + 2 }" />
-                                <c:if test="${startPage < 1 }">
-                                    <c:set var="startPage" value="1" />
-                                    <c:set var="endPage" value="5" />
+                    <h1>기본 정보 목록 조회</h1>
+                    <c:if test="${not empty list}">
+                        <c:forEach var="camp" items="${list}">
+                            <div style="float: left; margin: 10px;">
+                                <c:if test="${not empty camp.firstImageUrl}">
+                                    <img src="${camp.firstImageUrl}" style="display:inline-block; vertical-align:top; width:250px ; height:250px">
                                 </c:if>
-                                <c:if test="${endPage > totalCount }">
-                                    <c:set var="endPage" value="${totalCount }" />
-                                    <c:set var="startPage" value="${totalCount - 4 }" />
+                                <c:if test="${empty camp.firstImageUrl}">
+                                    <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg" style="display:inline-block;vertical-align:top; width:250px ; height:250px">
                                 </c:if>
-                                <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                    <input type="button" value="${i }" onclick="goToPage(${i})">
-                                </c:forEach>
-                                <!-- 다음 페이지로 이동 -->
-                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}')"><br/>
-                                현재 페이지: ${pageNum}
                             </div>
-                        </c:if>
+                            <div style="display:inline-block;height: 75px; margin-top:7px; margin-left:15px;">
+                                <a href="${pageContext.request.contextPath}/camping/info.do?kw=${camp.facltNm}" style="font-size: 25px">🚗${camp.facltNm}</a>
+                            </div><br>
+                            <div style="display:inline-block;height: 70px; font-size: 15px; margin-left:15px;">🚀${camp.addr1}${camp.addr2}</div><br>
 
-                        <c:if test="${empty list}">
-                            <p>No camping sites found.</p>
-                        </c:if>
-                    </div>
+
+                            <div id="myDiv" style="display:inline-block;height: 70px; width: 500px; font-size: 15px; margin-left:15px">
+                                🏞️${camp.lineIntro}
+                                <c:if test="${empty camp.lineIntro}">
+                                    ${camp.intro}
+                                    <c:if test="${empty camp.intro}">
+                                        ${camp.featureNm}
+                                        <c:if test="${empty camp.featureNm }">
+                                            <div style="display:inline-block;height: 90px">...</div>
+                                        </c:if>
+                                    </c:if>
+                                </c:if>
+                            </div><br>
+                            <div style="display:inline-block;height: 70px; font-size: 15px; margin-left:15px;">🛸${camp.sbrsCl}
+                                <c:if test="${empty camp.sbrsCl }">
+                                    <div style="display:inline-block;height: 90px">...</div>
+                                </c:if>
+                            </div><br>
+                            <hr width=”100%” color=”red” noshade />
+                        </c:forEach>
+
+                        <div style="text-align: center;">
+                            <!-- 이전 페이지로 이동 -->
+                            <input type="button" value="처음으로" onclick="previousPage(1)">
+                            <!-- 페이지 번호로 이동 -->
+                            <c:set var="startPage" value="${pageNum - 2 }" />
+                            <c:set var="endPage" value="${pageNum + 2 }" />
+                            <c:if test="${startPage < 1 }">
+                                <c:set var="startPage" value="1" />
+                                <c:set var="endPage" value="5" />
+                            </c:if>
+                            <c:if test="${endPage > totalCount }">
+                                <c:set var="endPage" value="${totalCount }" />
+                                <c:set var="startPage" value="${totalCount - 4 }" />
+                            </c:if>
+                            <c:forEach var="i" begin="${startPage }" end="${endPage }">
+                                <input type="button" value="${i }" onclick="goToPage(${i})">
+                            </c:forEach>
+                            <!-- 다음 페이지로 이동 -->
+                            <input type="button" value="마지막으로" onclick="nextPage('${totalCount}')"><br/>
+                            현재 페이지: ${pageNum}
+                        </div>
+                    </c:if>
+
+                    <c:if test="${empty list}">
+                        <p>No camping sites found.</p>
+                    </c:if>
+
                 </div>
             </div>
         </div>
@@ -218,6 +213,20 @@
         </div>
     </section><!-- End off footer Section-->
 </div>
+
+<script src="${pageContext.request.contextPath}assets/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="${pageContext.request.contextPath}assets/js/vendor/bootstrap.min.js"></script>
+
+<script src="${pageContext.request.contextPath}assets/js/jquery.magnific-popup.js"></script>
+<script src="${pageContext.request.contextPath}assets/js/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}assets/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}assets/js/jquery.masonry.min.js"></script>
+
+<script src="${pageContext.request.contextPath}assets/js/plugins.js"></script>
+<script src="${pageContext.request.contextPath}assets/js/main.js"></script>
+
+<!--slick slide js -->
+<script src="${pageContext.request.contextPath}assets/css/slick/slick.min.js"></script>
 
 <!-- list page js -->
 <script type="text/javascript">
@@ -270,20 +279,6 @@
         form.submit();
     }
 </script>
-
-<script src="${pageContext.request.contextPath}/assets/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/vendor/bootstrap.min.js"></script>
-
-<script src="${pageContext.request.contextPath}/assets/js/jquery.magnific-popup.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/jquery.mixitup.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/jquery.easing.1.3.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/jquery.masonry.min.js"></script>
-
-<script src="${pageContext.request.contextPath}/assets/js/plugins.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-
-<!--slick slide js -->
-<script src="${pageContext.request.contextPath}/assets/css/slick/slick.min.js"></script>
 </body>
 </html>
 
