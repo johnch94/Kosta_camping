@@ -24,30 +24,30 @@ public class ReverseGeoHandler implements Handler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		String lat = request.getParameter("weatherlat");
 		String lon = request.getParameter("weatherlon");
-		String key = "d8837c0fc8f973c07fdd90ac194e7d7a";
 		String path = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1"
-				+ "&appid=" + key;
+				+ "&appid=d8837c0fc8f973c07fdd90ac194e7d7a";
 
 		try {
 			URL url = new URL(path);
 			URLConnection conn = url.openConnection();
 			JSONParser parser = new JSONParser();
 			JSONArray jsonarray = (JSONArray) parser.parse(new InputStreamReader(conn.getInputStream()));
-			ArrayList<ReverseGeo> list = new ArrayList<>();
+			JSONArray geoList = new JSONArray();
+			JSONObject geoDetail = new JSONObject();
 			for (Object obj : jsonarray) {
 				JSONObject jsonObj = (JSONObject) obj;
 				String weatherlat = jsonObj.get("lat").toString();
 				String weatherlon = jsonObj.get("lon").toString();
 				JSONObject nameObj = (JSONObject) jsonObj.get("local_names");
 				String name = (String) nameObj.get("ko");
-				list.add(new ReverseGeo(weatherlat, weatherlon, name));
+				geoDetail.put("lat", weatherlat);
+				geoDetail.put("lon", weatherlon);
+				geoDetail.put("name", name);
+				System.out.println(weatherlat);
+				geoList.add(geoDetail);
 			}
-			String wlat = list.get(0).getWeatherlat();
-			String wlon = list.get(0).getWeatherlon();
-			String wname = list.get(0).getName();
-			request.setAttribute("wlat", wlat);
-			request.setAttribute("wlon", wlon);
-			request.setAttribute("wname", wname);
+			response.getWriter().write(geoList.toJSONString());
+			return null;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class ReverseGeoHandler implements Handler {
 			e.printStackTrace();
 		}
 
-		return "/weather/listwea.do";
+		return null;
 	}
 
 }
