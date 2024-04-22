@@ -35,13 +35,6 @@
 
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-    <style>
-        #myDiv{
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    </style>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -62,31 +55,31 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="#home">
-                                        <img src="assets/images/cam_logo.png" style="width: 55px; height: 52px"/>
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
+                                            <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/index.jsp">HOME</a></li>
-                                        <li><a href="/index.jsp">추천 관광지</a></li>
-                                        <li><a href="#portfolio">캠핑</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
                                         <li><a href="#pricing">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
-                                            <%--                                            비로그인--%>
-                                            <li><a href="/mem/add.do">회원가입</a></li>
-                                            <li><a href="/mem/login.do">로그인</a></li>
+                                            <%--비로그인--%>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
-                                            <%--                                            로그인--%>
-                                            <li><a href="/mem/info.do">내정보 확인</a></li>
-                                            <li><a href="/mem/logout.do">로그아웃</a></li>
+                                            <%--로그인--%>
+                                            <li><a href="${pageContext.request.contextPath}/mem/info.do">내정보 확인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a></li>
                                         </c:if>
                                     </ul>
                                 </div>
@@ -102,7 +95,7 @@
     <section id="home_camping" class="home_camping">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
-                <h1>Sub Title</h1>
+                <h1>캠핑장 목록</h1>
             </div>
         </div>
     </section>
@@ -123,14 +116,12 @@
                                     <c:if test="${empty camp.firstImageUrl}">
                                         <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg">
                                     </c:if>
-                                    <div style="margin-left: 20px">
-                                        <div style="display:inline-block">
-                                            <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}" style="font-size: 25px">🚗${camp.facltNm}</a>
+                                    <div style="height: 200px">
+                                        <div>
+                                            <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}" style="font-size: 25px"><b>${camp.facltNm}</b></a>
                                         </div><br>
-
-                                        <div style="display:inline-block;">🚀${camp.addr1}${camp.addr2}</div><br>
-
-                                        <div id="myDiv" style="display:inline-block;font-size: 15px;">
+                                        <div>🚀${camp.addr1}${camp.addr2}</div><br>
+                                        <div class="myDiv">
                                             🏞️${camp.lineIntro}
                                             <c:if test="${empty camp.lineIntro}">
                                                 ${camp.intro}
@@ -141,18 +132,18 @@
                                                     </c:if>
                                                 </c:if>
                                             </c:if>
-                                        </div><br>
-
-                                        <div style="display:inline-block;font-size: 15px">🛸${camp.sbrsCl}
+                                        </div>
+                                        <br>
+                                        <div style="font-size: 15px; word-break: break-all">🛸${camp.sbrsCl}
                                             <c:if test="${empty camp.sbrsCl }">
-                                                <div style="display:inline-block; margin-top: 20px; margin-bottom: 20px">...</div>
+                                                <div style="margin-top: 20px; margin-bottom: 20px">...</div>
                                             </c:if>
-                                        </div><br>
+                                        </div>
+                                        <br>
                                     </div>
                                 </div>
                                 <hr width=”100%” color=”red” noshade />
                             </c:forEach>
-
                             <!-- 페이지 인덱스 -->
                             <div style="text-align: center;">
                                 <!-- 이전 페이지로 이동 -->

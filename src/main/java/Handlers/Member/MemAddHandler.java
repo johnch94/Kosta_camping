@@ -18,15 +18,16 @@ public class MemAddHandler implements Handler {
       String tel = request.getParameter("tel");
       String name = request.getParameter("name");
       String email = request.getParameter("email");
-
+      System.out.println(id);
+      System.out.println(pwd);
       CamMemberService service = new CamMemberService();
       service.addMem(new CamMember(0, id, pwd, tel, name, email));
 
       view = "/index.jsp";
 
     }else {
-      request.setAttribute("view", "${pageContext.request.contextPath}//mem/memAdd.jsp");
+      request.setAttribute("view", "/mem/memAdd.jsp");
     }
-    return view;
+    return "redirect:/mem/memSuccess.jsp";
   }
 }

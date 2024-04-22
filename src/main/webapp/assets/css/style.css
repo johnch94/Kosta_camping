@@ -13,7 +13,7 @@ html,
 body {
     background-color: #fff;
     font-size: 14px;
-    color: #797979;
+    color: #000000;
     width: 100%;
     padding: 0;
     margin-left: 0;
@@ -542,19 +542,18 @@ input::-ms-input-placeholder {
     z-index: 300;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    background-color:rgba(34, 61, 97, 0.64);
+    background-color: rgba(0, 0, 0, 0.44); /*navbar color*/
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
     height: 75px;
-
 }
 .main_menu_bg{
     margin-top: 0px;
-    background-color: transparent;
+    background-color: transparent; /* here */
 }
 .main_menu_bg .navbar-default {
-    background-color: transparent; 
+    background-color: transparent;
     border-color: transparent; 
     transition: all .6s;
     margin: 15px auto;
@@ -599,11 +598,11 @@ input::-ms-input-placeholder {
     font-size: 14px;
     text-align: left;
     list-style: none;
-    background-color: transparent;
+    background-color: black;
     -webkit-background-clip: padding-box;
     background-clip: padding-box; 
-    border: 0px solid #ccc; 
-    border: 0px solid rgba(0,0,0,.15); 
+    border: 0px solid #ccc;
+    border: 0px solid rgba(0,0,0,.15);
     border-radius: 0px; 
     -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.175); 
     box-shadow: 0 0px 0px 
@@ -662,6 +661,10 @@ input::-ms-input-placeholder {
 }
 .home_camping{
     background-image: url("../images/glamping1.jpg");
+    background-size: cover;
+}
+.home_mem{
+    background-image: url("../images/mem_logo.jpg");
     background-size: cover;
 }
 .home_skew_border{
@@ -757,7 +760,7 @@ input::-ms-input-placeholder {
 }
 .main_home_slider i.nextprevright:hover{
     color: #fff;
-    background: #e74c3c;
+        background: #e74c3c;
 }
 
 .input-area{
@@ -911,18 +914,38 @@ input::-ms-input-placeholder {
 /*=================================================================
                         list section
 ===================================================================*/
-.list_content{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
 .list img{
     display: inline-block;
     width: 275px;
     height: 200px;
     vertical-align: top;
     position: relative;
+    margin-right: 20px;
+}
+.list a:link{
+    color: black;
+}
+.list a:visited{
+    color: black;
+}
+.list a:hover{
+    color: #e74c3c;
+}
+
+/*=================================================================
+                        info section
+===================================================================*/
+.cam_info{
+    margin-top: 50px;
+}
+.cam_info table{
+    height: 330px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.cam_info th{
+    width: 100px;
 }
 
 /*=================================================================

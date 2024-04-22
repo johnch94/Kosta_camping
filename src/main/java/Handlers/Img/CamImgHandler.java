@@ -37,38 +37,27 @@ public class CamImgHandler implements Handler {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(is);
 			Element root = doc.getDocumentElement();
-			NodeList nodes = root.getElementsByTagName("item");
-			String contI = "";
-			String serial = "";
+			NodeList nodes = root.getElementsByTagName("items");
 			String imgUrl = "";
 			ArrayList<Img> ll = new ArrayList<>();
-			
+
 			for (int i = 0; i < nodes.getLength(); i++) {
 				Element itemEle = (Element) nodes.item(i);
-				NodeList nodes2 = itemEle.getElementsByTagName("contentId");
-				for(int j=0; j<nodes2.getLength(); j++) {
-					 contI = (String) nodes2.item(0).getTextContent();
-				}
-				NodeList nodes3 = itemEle.getElementsByTagName("serialnum");
-				for(int j=0; j<nodes3.getLength(); j++) {
-					 serial = (String) nodes3.item(0).getTextContent();
-				}
-				NodeList nodes4 = itemEle.getElementsByTagName("imageUrl");
+				NodeList nodes4 = itemEle.getElementsByTagName("item");
 				for(int j=0; j<nodes4.getLength(); j++) {
-					 imgUrl = (String) nodes4.item(0).getTextContent();
+					Element img =(Element)nodes4.item(j);
+					imgUrl = img.getElementsByTagName("imageUrl").item(0).getTextContent();
+					ll.add(new Img(null, null, imgUrl));
 				}
-				
-				ll.add(new Img(contI,serial,imgUrl));
-				
 			}
-			
 			JSONArray jsonStr = new JSONArray();
-			for(int i=0; i<ll.size(); i++) {
-				JSONObject imgs = new JSONObject();
-				imgs.put("contentId", ll.get(0).getContentId());
-				imgs.put("serialnum", ll.get(1).getSerialnum());
-				imgs.put("imageUrl", ll.get(2).getImageUrl());
+			JSONObject imgs = new JSONObject();
+			int cnt=1;
+			for(Img i : ll){
+				String imageurlname = "imageUrl" + cnt;
+				imgs.put(imageurlname, i.getImageUrl());
 				jsonStr.add(imgs);
+				cnt++;
 			}
 			response.getWriter().write(jsonStr.toJSONString());
 			return null;
@@ -76,20 +65,14 @@ public class CamImgHandler implements Handler {
 			System.out.println(e);
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e);
 			e.printStackTrace();
 		} catch (SAXException e) {
 			System.out.println(e);
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return null;
-
 	}
-
 }

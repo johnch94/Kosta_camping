@@ -8,6 +8,23 @@ Author URI: http://www.bootstrapthemes.co
 /* 해당 문서는 반응형 웹 구성을 위한 css */
 
 /* Portrait tablets and medium desktops */
+@media (min-width: 1199px){
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 480px;
+    }
+}
 @media (max-width: 1199px) {
     body {
         font-size: 1rem;
@@ -30,6 +47,21 @@ Author URI: http://www.bootstrapthemes.co
     }
     .scrooldown {
         bottom: 0%;
+    }
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 480px;
     }
 }
 
@@ -65,6 +97,21 @@ Author URI: http://www.bootstrapthemes.co
     }
     .scrooldown {
         bottom: 2%;
+    }
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 480px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -129,6 +176,21 @@ Author URI: http://www.bootstrapthemes.co
     }
     .collapsing {
         overflow: hidden!important;
+    }
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 480px;
     }
 }
 
@@ -202,7 +264,21 @@ Author URI: http://www.bootstrapthemes.co
     .copyright_text{
         text-align: center;
     }
-
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 480px;
+    }
 
 
 }
@@ -225,6 +301,21 @@ Author URI: http://www.bootstrapthemes.co
         bottom: 4%;
         left:46%;
     }
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+    .myDiv{
+        display: inline-block;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 300px;
+    }
 }
 
 
@@ -233,21 +324,27 @@ Author URI: http://www.bootstrapthemes.co
 
 @media (max-width: 320px) {
 
-
     html {
         font-size: 60.5%;
     }
     .pricing_head .pricing_price {
         left: 25%;
     }
-
-
-
-
-
-
-
-
+    .list_content{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+    .myDiv{
+         display: inline-block;
+         font-size: 15px;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         width: 300px;
+    }
 
 
 }

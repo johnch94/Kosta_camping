@@ -17,7 +17,7 @@ public class CamBoardDao {
 
   public void insert(CamBoard d) {
     Connection conn = db.conn();
-    String sql = "insert into CamBoard values(Board_sequence.nextval,?,?,sysdate,?,?)";
+    String sql = "insert into Cam_Board values(Board_sequence.nextval,?,?,sysdate,?,?)";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, d.getMnum());
@@ -39,7 +39,7 @@ public class CamBoardDao {
 
   public void delete(int num) {
     Connection conn = db.conn();
-    String sql = "delete CamBoard where bnum=?";
+    String sql = "delete Cam_Board where bnum=?";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, num);
@@ -57,7 +57,7 @@ public class CamBoardDao {
   }
   public void update(CamBoard c) {
     Connection conn = db.conn();
-    String sql = "update CamBoard set title=?, img=?, content=? where bnum=?";
+    String sql = "update Cam_Board set title=?, img=?, content=? where bnum=?";
     int cnt;
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class CamBoardDao {
   }
   public CamBoard select(int num) {
     Connection conn = db.conn();
-    String sql = "select * from CamBoard where bnum=?";
+    String sql = "select * from Cam_Board where bnum=?";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, num);
@@ -101,7 +101,7 @@ public class CamBoardDao {
   }
   public ArrayList<CamBoard> selectall() {
     Connection conn = db.conn();
-    String sql = "select * from CamBoard order by bnum";
+    String sql = "select * from Cam_Board order by bnum";
     ArrayList<CamBoard> list = new ArrayList<>();
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class CamBoardDao {
   }
   public ArrayList<CamBoard> selectByMnum(int num) {
     Connection conn = db.conn();
-    String sql = "select * from CamBoard where mnum=? order by bnum";
+    String sql = "select * from Cam_Board where mnum=? order by bnum";
     ArrayList<CamBoard> list = new ArrayList<>();
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);

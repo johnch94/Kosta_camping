@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/plugins.css" />
     <!--Theme custom css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/member.css">
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css" />
 
@@ -54,19 +55,21 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
-                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px"/>
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative"/>
+                                        <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
+
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/index.jsp">HOME</a></li>
-                                        <li><a href="/index.jsp">추천 관광지</a></li>
-                                        <li><a href="#portfolio">캠핑</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
                                         <li><a href="#pricing">장터</a></li>
                                         <li></li>
@@ -86,12 +89,14 @@
                         </nav>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </header>
     <!--End of header -->
     <!-- title section -->
-    <section id="home_camping" class="home_camping">
+    <section id="home_camping" class="home_mem">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
                 <h1>회원가입</h1>
@@ -100,34 +105,41 @@
     </section>
     <!--End of title -->
     <!--home Section -->
-    <section style="background-color: rgba(0,0,0,0.11)">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8 box-center" style="height: 500px; background-color: white">
-                    <div>
-                        <b>ID</b>
-                        <span><input type="text"></span>
-                    </div>
-                    <div>
-                        <b>PW</b>
-                        <span><input type="text"></span>
-                    </div>
-                    <div>
-                        <b>NAME</b>
-                        <span><input type="text"></span>
-                    </div>
-                    <div>
-                        <b>TEL</b>
-                        <span><input type="text"></span>
-                    </div>
-                    <div>
-                        <b>E-MAIL</b>
-                        <span><input type="text"></span>
+    <section style="background-color: rgba(0,0,0,0.05)">
+        <form action="${pageContext.request.contextPath}/mem/add.do">
+            <div class="container" style="box-sizing: border-box">
+                <div class="member">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 box-center" style="height: 700px; background-color: white">
+                        <div class="field">
+                            <b>ID</b>
+                            <span><input type="text" name="id"></span>
+                        </div>
+                        <div class="field">
+                            <b>PW</b>
+                            <span><input type="password" name="pwd"></span>
+                        </div>
+                        <div class="field">
+                            <b>PW CHECK</b>
+                            <span><input type="password" name="pwd_chk"></span>
+                        </div>
+                        <div class="field">
+                            <b>NAME</b>
+                            <span><input type="text" name="name"></span>
+                        </div>
+                        <div class="field">
+                            <b>TEL</b>
+                            <span><input type="tel" name="tel"></span>
+                        </div>
+                        <div class="field">
+                            <b>E-MAIL</b>
+                            <span><input type="email" name="email"></span>
+                        </div>
+                        <input type="submit" value="가입하기">
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
     <!--End of home section -->
 
@@ -171,6 +183,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.easing.1.3.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.masonry.min.js"></script>
 
+<script src="${pageContext.request.contextPath}/assets/js/plugins.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 
 <!--slick slide js -->
