@@ -129,7 +129,7 @@
                             <hr style="margin: 10px 10px" />
 
 
-
+								<div id="contentId">${list.contentId}</div>
                                  <div id="mapX" style="display:none">${list.mapX}</div>
                                 <div id="mapY" style="display:none">${list.mapY}</div><!-- 위치 -->
                                 <div><a href="${list.resveUrl}" style="display: inline-block; padding: 15px 45px; background-color: #1EC800; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight:bold">예약하기</a></div> <!-- 예약 URL -->
@@ -197,10 +197,10 @@
     </section>
     <!--End of home section -->
  <!-- Start of weather section -->
-    <h1>오늘날씨</h1>
+ <img id="imageUrl1" src="">
+ <div id="ttt" style="font-color:black;"></div>
     <section style="background-color:white; margin:auto; border-width:1px; border-style:solid;">				
     								<div class="weather-forecast">
-    								<div id="wlat"></div><div id="wlon"></div>
                                           	  <div class="forecast-day" style="margin:auto">
                                                 <span id="date1" style="color: black; font-size:15px; margin: auto;">날짜</span>
         										<img id="icon1" src="" style="display: block; margin: auto;">
@@ -248,6 +248,7 @@
 								     			<p class="weather" id="tempFeel6" style="font-size:25px; margin: auto;">기온</p>
 								       		    <span id="minTemp6" style="color: black;">최저온도</span><span style="color: black;">~</span><span id="maxTemp6" style="color: black;">최고온도</span>
 								              	<div id="humidity6" style="color: black;">습도</div>
+                                        </div>
                                         </div>
                            </section>
     <!-- End of weather section -->
@@ -324,6 +325,27 @@ window.onload = () => {
     };
     req.open('GET', '${pageContext.request.contextPath}/weather/detailswea.do?wlat=' + wlat + '&wlon=' + wlon);
     req.send();
+    
+    let contentId = document.getElementById('contentId').innerText;
+    const req2 = new XMLHttpRequest();
+   	 req2.onload=() =>{
+   		if (req2.status === 200) {
+   	        try {
+    	let data = JSON.parse(req2.responseText);
+        data.forEach((item, index) => {
+        		if(index < 2){
+        		document.getElementById('imageUrl'+ (index + 1)).src = item.imageUrl;
+        		document.getElementById('ttt').innerHTML = item.imageUrl;
+        		}
+             }
+        );
+     } catch (e) {
+         e.e;
+      }
+  } 
+    }
+    req2.open('GET', '${pageContext.request.contextPath}/camimg/imglist.do?contentId=' + contentId);
+    req2.send();
 }
 </script>
 </body>
