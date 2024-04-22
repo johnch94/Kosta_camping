@@ -11,11 +11,10 @@ import javax.servlet.http.HttpSession;
 public class MemLoginHandler implements Handler {
   @Override
   public String process(HttpServletRequest request, HttpServletResponse response) {
-    String view = "/index.jsp"; // get 요청일때 이동할 페이지
+    String view = ""; // get 요청일때 이동할 페이지
     if(request.getMethod().equals("POST")){
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
-
       CamMemberService service = new CamMemberService();
       CamMember m = service.getMemById(id);
       String msg = "";
@@ -33,7 +32,8 @@ public class MemLoginHandler implements Handler {
       }
       request.setAttribute("msg", msg);
     }else {
-      request.setAttribute("view", "/mem/login.jsp");
+      request.setAttribute("view", "/mem/memLogin.jsp");
     }
-    return view;  }
+    return "redirect:/index.jsp";
+  }
 }

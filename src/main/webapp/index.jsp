@@ -48,10 +48,12 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="#home">
-                                        <img src="assets/images/cam_logo.png" style="width: 55px; height: 52px"/>
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
+                                        <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
+
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -59,18 +61,18 @@
 
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
-                                        <li><a href="#tour">추천 관광지</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
                                         <li><a href="#pricing">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
-<%--                                            비로그인--%>
+                                            <%--                                            비로그인--%>
                                             <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
                                             <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
-<%--                                            로그인--%>
+                                            <%--                                            로그인--%>
                                             <li><a href="${pageContext.request.contextPath}/mem/info.do">내정보 확인</a></li>
                                             <li><a href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a></li>
                                         </c:if>
@@ -113,37 +115,37 @@
                                         <div class="separator"></div>
                                         	<div class="weather-forecast">
                                           	  <div class="forecast-day">
-                                                <span id="date1" style="color: white; font-size:20px margin: auto;">날짜</span>
+                                                <span id="date1" style="color: white; font-size:20px; margin: auto;">날짜</span>
         										<img id="icon1" src="" style="display: block; margin: auto;">
         										<p class="weather" id="temp1" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
        											<span id="minTemp1" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp1" style="color: white;">최고온도</span>
    											  </div>
   									  		  <div class="forecast-day">
-     								   			<span id="date2" style="color: white; font-size:20px margin: auto;">날짜</span>
+     								   			<span id="date2" style="color : white; font-size:20px; margin: auto;">날짜</span>
      								 		    <img id="icon2" src="" style="display: block; margin: auto;">
 								        		<p class="weather" id="temp2" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
 								     			<span id="minTemp2" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp2" style="color: white;">최고온도</span>
 								    		  </div>
 								    		  <div class="forecast-day">
-								        		<span id="date3" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<span id="date3" style="color: white; font-size:20px; margin: auto;">날짜</span>
 								        		<img id="icon3" src="" style="display: block; margin: auto;">
 								     			<p class="weather" id="temp3" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
 								        		<span id="minTemp3" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp3" style="color: white;">최고온도</span>
 								   			  </div>
 								    		  <div class="forecast-day">
-								        		<span id="date4" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<span id="date4" style="color: white; font-size:20px; margin: auto;">날짜</span>
 								       			<img id="icon4" src="" style="display: block; margin: auto;">
 								 			    <p class="weather" id="temp4" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
 								       			<span id="minTemp4" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp4" style="color: white;">최고온도</span>
 								    		  </div>
 								    		  <div class="forecast-day">
-								        		<span id="date5" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<span id="date5" style="color: white; font-size:20px; margin: auto;">날짜</span>
 								        		<img id="icon5" src="" style="display: block; margin: auto;">
 								   				<p class="weather" id="temp5" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
 								       			<span id="minTemp5" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp5" style="color: white;">최고온도</span>
 								   			  </div>
 								    		  <div class="forecast-day">
-								        		<span id="date6" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<span id="date6" style="color: white; font-size:20px; margin: auto;">날짜</span>
 								        		<img id="icon6" src="" style="display: block; margin: auto;">
 								     			<p class="weather" id="temp6" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
 								       		    <span id="minTemp6" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp6" style="color: white;">최고온도</span>
@@ -171,6 +173,7 @@
     </section>
     <!--End of home section -->
     <!--tour section-->
+    <section id="tour">
     <div class="container" style="margin-top: 50px; margin-bottom: -30px">
         <div class="row">
             <div class="text-center">
@@ -224,6 +227,7 @@
             </div>
         </div>
     </div>
+    </section>
     <!--End of tour section-->
     <!--Footer section-->
     <section class="footer">

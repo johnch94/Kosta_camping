@@ -17,7 +17,7 @@ public class CamMemberDao {
 
   public void insert(CamMember d) {
     Connection conn = db.conn();
-    String sql = "insert into CamMember values(Member_sequence.nextval,?,?,?,?,?)";
+    String sql = "insert into Cam_Member values(Member_sequence.nextval,?,?,?,?,?)";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, d.getId());
@@ -40,7 +40,7 @@ public class CamMemberDao {
 
   public void delete(String id) {
     Connection conn = db.conn();
-    String sql = "delete CamMember where id=?";
+    String sql = "delete Cam_Member where id=?";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, id);
@@ -58,7 +58,7 @@ public class CamMemberDao {
   }
   public void update(CamMember c) {
     Connection conn = db.conn();
-    String sql = "update CamMember set pwd=?, name=?, mail=?, tel=?, id=? where num=?";
+    String sql = "update Cam_Member set pwd=?, name=?, mail=?, tel=?, id=? where num=?";
     int cnt;
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -82,7 +82,7 @@ public class CamMemberDao {
   }
   public CamMember select(int num) {
     Connection conn = db.conn();
-    String sql = "select * from CamMember where num=?";
+    String sql = "select * from Cam_Member where num=?";
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, num);
@@ -104,7 +104,7 @@ public class CamMemberDao {
   }
   public ArrayList<CamMember> selectall() {
     Connection conn = db.conn();
-    String sql = "select * from CamMember";
+    String sql = "select * from Cam_Member";
     ArrayList<CamMember> list = new ArrayList<>();
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -127,14 +127,16 @@ public class CamMemberDao {
 
   public CamMember selectById(String id){
     Connection conn = db.conn();
-    String sql = "select * from CamMember where id=?";
+    String sql = "select * from Cam_Member where id=?";
+    CamMember mem = null;
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setString(1, id);
       ResultSet rs = pstmt.executeQuery();
       if(rs.next()) {
-        return new CamMember(rs.getInt(1), rs.getString(2), rs.getString(3),
+        mem = new CamMember(rs.getInt(1), rs.getString(2), rs.getString(3),
             rs.getString(4), rs.getString(5), rs.getString(6));
+        System.out.println(mem);
       }
     } catch (SQLException e) {
       e.printStackTrace();
@@ -145,6 +147,6 @@ public class CamMemberDao {
         e.printStackTrace();
       }
     }
-    return null;
+    return mem;
   }
 }

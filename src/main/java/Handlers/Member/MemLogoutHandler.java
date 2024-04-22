@@ -11,6 +11,6 @@ public class MemLogoutHandler implements Handler {
   public String process(HttpServletRequest request, HttpServletResponse response) {
     HttpSession session = request.getSession(false);
     session.invalidate();
-    return "/index.jsp";
+    return "redirect:/index.jsp";
   }
 }
