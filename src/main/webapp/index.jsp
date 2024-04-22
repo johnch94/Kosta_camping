@@ -295,6 +295,7 @@
 
 <script type="text/javascript">
 window.onload = () => {
+    // wlat, wlon 은 카카오 map api를 통해 입력해 현재위치의 날씨값 반영
     let wlat = '36.07221';
     let wlon = '128.53836';
     const req = new XMLHttpRequest();
