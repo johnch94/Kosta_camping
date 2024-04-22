@@ -1,25 +1,18 @@
 package VOS.Image;
-
-import java.util.ArrayList;
-
-
-
 public class Img {
 	private String  contentId; //콘텐츠 ID
 	private String serialnum; //이미지 일련번호
 	private String imageUrl; //이미지 URL 
-	private ArrayList<Img> list;
 	
 	public Img() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Img(String contentId, String serialnum, String imageUrl, ArrayList<Img> list) {
+	public Img(String contentId, String serialnum, String imageUrl) {
 		super();
 		this.contentId = contentId;
 		this.serialnum = serialnum;
 		this.imageUrl = imageUrl;
-		this.list = list;
 	}
 
 	public String getContentId() {
@@ -46,20 +39,13 @@ public class Img {
 		this.imageUrl = imageUrl;
 	}
 
-	public ArrayList<Img> getList() {
-		return list;
-	}
-
-	public void setList(ArrayList<Img> list) {
-		this.list = list;
-	}
-
 	@Override
 	public String toString() {
-		return "Img [contentId=" + contentId + ", serialnum=" + serialnum + ", imageUrl=" + imageUrl + ", list=" + list
-				+ "]";
+		return "Img [contentId=" + contentId + ", serialnum=" + serialnum + ", imageUrl=" + imageUrl + "]";
 	}
-	
+
+
+
 	
 		
 	

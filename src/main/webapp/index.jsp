@@ -58,9 +58,9 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/index.jsp">HOME</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
                                         <li><a href="#tour">추천 관광지</a></li>
-                                        <li><a href="/camping/list.do">캠핑</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
                                         <li><a href="#pricing">장터</a></li>
                                         <li></li>
@@ -111,41 +111,43 @@
                                         <h3>weather</h3>
                                         <h1>오늘날씨</h1>
                                         <div class="separator"></div>
-                                        <div class="weather-forecast">
-                                            <div class="forecast-day">
-                                                <span >날짜</span><span>시간</span>
-                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                                <p class="weather">기온</p>
-                                                <span >최저온도</span><span>~</span><span>최고온도</span>
-                                            </div>
-                                            <div class="forecast-day">
-                                                <span >날짜</span><span>시간</span>
-                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                                <p class="weather">기온</p>
-                                                <span >최저온도</span><span>~</span><span>최고온도</span>
-                                            </div>	<div class="forecast-day">
-                                            <span >날짜</span><span>시간</span>
-                                            <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                            <p class="weather">기온</p>
-                                            <span >최저온도</span><span>~</span><span>최고온도</span>
-                                        </div>	<div class="forecast-day">
-                                            <span >날짜</span><span>시간</span>
-                                            <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                            <p class="weather">기온</p>
-                                            <span >최저온도</span><span>~</span><span>최고온도</span>
-                                        </div>
-                                            <div class="forecast-day">
-                                                <span >날짜</span><span>시간</span>
-                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                                <p class="weather">기온</p>
-                                                <span >최저온도</span><span>~</span><span>최고온도</span>
-                                            </div>
-                                            <div class="forecast-day">
-                                                <span >날짜</span><span>시간</span>
-                                                <img src="https://openweathermap.org/img/wn/10d@2x.png">
-                                                <p class="weather">기온</p>
-                                                <span >최저온도</span><span>~</span><span>최고온도</span>
-                                            </div>
+                                        	<div class="weather-forecast">
+                                          	  <div class="forecast-day">
+                                                <span id="date1" style="color: white; font-size:20px margin: auto;">날짜</span>
+        										<img id="icon1" src="" style="display: block; margin: auto;">
+        										<p class="weather" id="temp1" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+       											<span id="minTemp1" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp1" style="color: white;">최고온도</span>
+   											  </div>
+  									  		  <div class="forecast-day">
+     								   			<span id="date2" style="color: white; font-size:20px margin: auto;">날짜</span>
+     								 		    <img id="icon2" src="" style="display: block; margin: auto;">
+								        		<p class="weather" id="temp2" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+								     			<span id="minTemp2" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp2" style="color: white;">최고온도</span>
+								    		  </div>
+								    		  <div class="forecast-day">
+								        		<span id="date3" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<img id="icon3" src="" style="display: block; margin: auto;">
+								     			<p class="weather" id="temp3" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+								        		<span id="minTemp3" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp3" style="color: white;">최고온도</span>
+								   			  </div>
+								    		  <div class="forecast-day">
+								        		<span id="date4" style="color: white; font-size:20px margin: auto;">날짜</span>
+								       			<img id="icon4" src="" style="display: block; margin: auto;">
+								 			    <p class="weather" id="temp4" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+								       			<span id="minTemp4" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp4" style="color: white;">최고온도</span>
+								    		  </div>
+								    		  <div class="forecast-day">
+								        		<span id="date5" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<img id="icon5" src="" style="display: block; margin: auto;">
+								   				<p class="weather" id="temp5" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+								       			<span id="minTemp5" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp5" style="color: white;">최고온도</span>
+								   			  </div>
+								    		  <div class="forecast-day">
+								        		<span id="date6" style="color: white; font-size:20px margin: auto;">날짜</span>
+								        		<img id="icon6" src="" style="display: block; margin: auto;">
+								     			<p class="weather" id="temp6" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
+								       		    <span id="minTemp6" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp6" style="color: white;">최고온도</span>
+								              </div>
                                         </div>
                                     </div>
                                 </div>
@@ -290,7 +292,34 @@
 
 <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
 <!-- 날씨 script -->
-<script src="${pageContext.request.contextPath }js/weather.js"></script>
 
+<script type="text/javascript">
+window.onload = () => {
+    // wlat, wlon 은 카카오 map api를 통해 입력해 현재위치의 날씨값 반영
+    let wlat = '36.07221';
+    let wlon = '128.53836';
+    const req = new XMLHttpRequest();
+    req.onload = () => {
+        if (req.status === 200) {
+            try {
+                let data = JSON.parse(req.responseText);
+                data.forEach((item, index) => {
+                    if (index < 6) { 
+                        document.getElementById('date'+ (index + 1)).innerHTML = item.dateTime;
+                        document.getElementById('icon'+ (index + 1)).src = 'https://openweathermap.org/img/wn/' + item.icon + '@2x.png';
+                        document.getElementById('temp'+ (index + 1)).innerHTML = item.temp+'°C';
+                        document.getElementById('minTemp'+ (index + 1)).innerHTML = '최저'+item.minTemp+'°C';
+                        document.getElementById('maxTemp'+ (index + 1)).innerHTML = '최고'+item.maxTemp+'°C';
+                    }
+                });
+            } catch (e) {
+               e.e;
+            }
+        } 
+    };
+    req.open('GET', '${pageContext.request.contextPath}/weather/listwea.do?wlat=' + wlat + '&wlon=' + wlon);
+    req.send();
+}
+</script>
 </body>
 </html>

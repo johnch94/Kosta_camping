@@ -17,7 +17,7 @@ import org.json.simple.parser.JSONParser;
 
 import Handlers.Handler;
 
-public class CamWeatherHandler implements Handler {
+public class CamWeatherDetailsHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -49,6 +49,8 @@ public class CamWeatherHandler implements Handler {
 				String finalDateForm = newDateForm.format(date);
 				String icon = (String) weather.get("icon");
 				Number temp = (Number) main.get("temp");
+				Number feels_like = (Number) main.get("feels_like");
+				Number humidity = (Number) main.get("humidity");
 				Number temp_min = (Number) main.get("temp_min");
 				Number temp_max = (Number) main.get("temp_max");
 				
@@ -56,12 +58,13 @@ public class CamWeatherHandler implements Handler {
 					weatherLists.put("dateTime", finalDateForm);
 					weatherLists.put("icon", icon);
 					weatherLists.put("temp", String.format("%.1f", temp.doubleValue() - 273.15));
+					weatherLists.put("feels_like", String.format("%.1f", feels_like.doubleValue() - 273.15));
+					weatherLists.put("humidity", String.format("%.1f", humidity.doubleValue()));
 					weatherLists.put("minTemp", String.format("%.1f", temp_min.doubleValue() - 273.15));
 					weatherLists.put("maxTemp", String.format("%.1f", temp_max.doubleValue() - 273.15));
 					result.add(weatherLists);
 				}
 			}
-
 			response.getWriter().write(result.toJSONString());
 			return null;
 			

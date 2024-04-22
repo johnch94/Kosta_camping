@@ -51,6 +51,8 @@
             <artifactId>cos</artifactId>
             <version>05Nov2002</version>
         </dependency>
+       <dependency><groupId>com.google.code.geocoder-java</groupId><artifactId>geocoder-java</artifactId><version>0.16</version>
+       </dependency>
     </dependencies>
 
     <build>
@@ -60,6 +62,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
             </plugin>
+            
         </plugins>
     </build>
 </project>
