@@ -693,7 +693,7 @@ input::-ms-input-placeholder {
 }
 .main_home{
     padding-top: 250px;
-    padding-bottom: 250px;
+    padding-bottom: 200px;
     display: block;
 }
 
@@ -765,6 +765,8 @@ input::-ms-input-placeholder {
 
 .input-area{
     margin-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .input-box{
     max-width: 584px;
@@ -891,14 +893,22 @@ input::-ms-input-placeholder {
     top: 5px;
 }
 /*===================================================================*/
-.weather-forecast {
-    display: flex; /* flexbox를 사용하여 아이템들을 가로로 배열 */
-    justify-content: center;
-}
-
 .forecast-day {
-    flex: 0 0 auto; /* 컨테이너가 늘어날 수 있지만 줄어들지도 늘어나지도 않음 */
-    margin-right: 10px; /* 날짜 사이에 일정한 간격 추가 */
+    margin: 15px;
+    text-align: center;
+}
+.forecast-day img{
+    margin: auto;
+}
+.forecast-day span{
+    color: white;
+    font-size: 20px;
+}
+.forecast-day p{
+    font-size: 40px;
+    margin-left: 5px;
+    padding: 0px;
+    margin-right: 0px;
 }
 /*=================================================================
 
@@ -914,7 +924,6 @@ input::-ms-input-placeholder {
 /*=================================================================
                         list section
 ===================================================================*/
-
 .list img{
     display: inline-block;
     width: 275px;
@@ -941,13 +950,36 @@ input::-ms-input-placeholder {
 }
 .cam_info table{
     height: 330px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 20px;
     font-size: 16px;
+    border-top: black 2px solid;
+    border-bottom: black 2px solid;
+    border-collapse: collapse;
 }
 .cam_info th{
     width: 100px;
+    padding-left: 5px;
+    padding-right: 10px;
 }
-
+.cam_info tr{
+    border-bottom: black 1px solid;
+}
+.cam_info tr:last-child{
+    border-bottom: none;
+}
+.cam_info hr{
+    background: #575757;
+    height: 0.3px;
+    border: 0px;
+}
+.cam_list_title {
+    margin-top: 50px;
+    color: #e74c3c;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
 /*=================================================================
                         footer section
 ===================================================================*/
@@ -991,8 +1023,6 @@ input::-ms-input-placeholder {
     padding:0px 10px;
     color:#e74c3c;
 }
-
-
 
 /* scrollup */
 

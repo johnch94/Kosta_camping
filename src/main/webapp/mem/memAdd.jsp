@@ -56,7 +56,7 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
-                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative"/>
+                                        <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
                                         <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>

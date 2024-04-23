@@ -47,6 +47,7 @@ public class CamInfoHandler implements Handler {
             JSONArray item = (JSONArray) items.get("item");
 
             ArrayList<CamInfo> list = new ArrayList<>();
+            String[] split = null;
             for (Object object : item) {
                 JSONObject o = new JSONObject();
                 o = (JSONObject) object;
@@ -83,7 +84,7 @@ public class CamInfoHandler implements Handler {
                 String wtrplCo = (String) o.get("wtrplCo");
                 String brazierCl = (String) o.get("brazierCl");
                 String sbrsCl = (String) o.get("sbrsCl");
-                String[] split = sbrsCl.split(",");
+                split = sbrsCl.split(",");
                 String posbFcltyCl = (String) o.get("posbFcltyCl");
                 String exprnProgrmAt = (String) o.get("exprnProgrmAt");
                 String exprnProgrm = String.valueOf(o.get("exprnProgrm"));
@@ -103,6 +104,7 @@ public class CamInfoHandler implements Handler {
             }
 
             request.setAttribute("list", list);
+            request.setAttribute("split", split);
             request.setAttribute("keyword", keyword);
 
         } catch (MalformedURLException e) {

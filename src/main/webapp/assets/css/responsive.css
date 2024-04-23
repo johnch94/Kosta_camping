@@ -24,6 +24,21 @@ Author URI: http://www.bootstrapthemes.co
         text-overflow: ellipsis;
         width: 480px;
     }
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 @media (max-width: 1199px) {
     body {
@@ -62,6 +77,21 @@ Author URI: http://www.bootstrapthemes.co
         overflow: hidden;
         text-overflow: ellipsis;
         width: 480px;
+    }
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -112,6 +142,21 @@ Author URI: http://www.bootstrapthemes.co
         overflow: hidden;
         text-overflow: ellipsis;
         width: 480px;
+    }
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -191,6 +236,21 @@ Author URI: http://www.bootstrapthemes.co
         overflow: hidden;
         text-overflow: ellipsis;
         width: 480px;
+    }
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -279,8 +339,21 @@ Author URI: http://www.bootstrapthemes.co
         text-overflow: ellipsis;
         width: 480px;
     }
-
-
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
@@ -316,6 +389,21 @@ Author URI: http://www.bootstrapthemes.co
         text-overflow: ellipsis;
         width: 300px;
     }
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
@@ -346,6 +434,20 @@ Author URI: http://www.bootstrapthemes.co
          width: 300px;
     }
 
-
+    .cam_imgTable{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .cam_list_info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cam_list_info_div{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
