@@ -1,8 +1,8 @@
-package handlers.follow;
+package Handlers.follow;
 
 import board.Cam_BoardService;
 import follow.FollowService;
-import handlers.Handler;
+import Handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
