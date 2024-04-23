@@ -1,15 +1,15 @@
-package handlers.cam_board;
+package Handlers.Cam_Board;
 
-import java.util.ArrayList;
+import board.Cam_Board;
+import board.Cam_BoardService;
+import board.Cam_Comment;
+import board.Cam_CommentService;
+import follow.FollowService;
+import handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import cam_board.Cam_Board;
-import cam_board.Cam_BoardService;
-import cam_comment.Cam_Comment;
-import cam_comment.Cam_CommentService;
-import handlers.Handler;
+import java.util.ArrayList;
 
 public class Cam_BoardDetailHandler implements Handler {
 
@@ -23,7 +23,9 @@ public class Cam_BoardDetailHandler implements Handler {
 			Cam_Board cb = service.getByNum(bnum);
 			Cam_CommentService cservice = new Cam_CommentService();
 			ArrayList<Cam_Comment> clist = cservice.getComments(bnum);
-			
+			FollowService fservice = new FollowService();
+			boolean boo = fservice.isFollow(cb.getWriter(),bnum);
+			request.setAttribute("boo", boo);
 			request.setAttribute("clist", clist);
 			request.setAttribute("cb", cb);
 			view = "/cam_board/detail.jsp";

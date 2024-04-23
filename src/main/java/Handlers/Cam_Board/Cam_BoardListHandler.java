@@ -1,13 +1,12 @@
-package handlers.cam_board;
+package Handlers.Cam_Board;
 
-import java.util.ArrayList;
+import board.Cam_Board;
+import board.Cam_BoardService;
+import handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import cam_board.Cam_Board;
-import cam_board.Cam_BoardService;
-import handlers.Handler;
+import java.util.ArrayList;
 
 public class Cam_BoardListHandler implements Handler {
 

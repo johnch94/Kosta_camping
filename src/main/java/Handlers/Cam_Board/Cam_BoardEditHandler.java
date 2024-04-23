@@ -1,16 +1,14 @@
-package handlers.cam_board;
+package Handlers.Cam_Board;
 
-import java.io.IOException;
+import board.Cam_Board;
+import board.Cam_BoardService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import cam_board.Cam_Board;
-import cam_board.Cam_BoardService;
-import handlers.Handler;
+import java.io.IOException;
 
 public class Cam_BoardEditHandler implements Handler {
 
@@ -21,8 +19,8 @@ public class Cam_BoardEditHandler implements Handler {
 		
 		if(request.getMethod().equals("GET")) {
 			int bnum = Integer.parseInt(request.getParameter("bnum"));
-			
-			Cam_BoardService service = new Cam_BoardService(); 
+
+			Cam_BoardService service = new Cam_BoardService();
 			Cam_Board cb = service.getByNum(bnum);
 			
 			request.setAttribute("cb", cb);

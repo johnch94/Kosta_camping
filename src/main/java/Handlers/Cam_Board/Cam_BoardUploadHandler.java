@@ -1,16 +1,14 @@
-package handlers.cam_board;
+package Handlers.Cam_Board;
 
-import java.io.File;
-import java.io.IOException;
+import board.Cam_BoardService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import cam_board.Cam_BoardService;
-import handlers.Handler;
+import java.io.File;
+import java.io.IOException;
 
 public class Cam_BoardUploadHandler implements Handler {
 

@@ -26,6 +26,13 @@
 </head>
 <body>
     <h3>상세 페이지</h3>
+    <c:if test="${boo }">
+    <div><a href="${pageContext.request.contextPath}/cam_board/follow.do?id=${cb.writer}&bnum=${cb.bnum}">❤️</a> ${cb.fnt}
+        </c:if>
+        <c:if test="${not boo }">
+        <div><a href="${pageContext.request.contextPath}/cam_board/delfollow.do?id=${cb.writer}&bnum=${cb.bnum}">💪</a> ${cb.fnt}
+            </c:if>
+        ️</div>
     <table>
         <thead>
             <tr>
@@ -72,7 +79,9 @@
         <input type="hidden" value="${sessionScope.loginId }" name="writer">
         <input type="hidden" value="${cb.bnum }" name="bnum">
         <div>내용:</div>
-        <textarea name="body"></textarea>
+        <label>
+            <textarea name="body"></textarea>
+        </label>
         <div><input type="submit"></div>
     </form>
 
