@@ -1,4 +1,4 @@
-package cam_comment;
+package VOS.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import VOS.Cam_Comment;
 import conn.DBConnect;
 
 public class Cam_CommentDao {

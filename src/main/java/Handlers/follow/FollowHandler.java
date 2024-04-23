@@ -1,11 +1,11 @@
 package Handlers.follow;
 
+import Handlers.Handler;
 import board.Cam_Board;
 import board.Cam_BoardService;
 import follow.Follow;
 import follow.FollowDao;
 import follow.FollowService;
-import handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 public class FollowHandler implements Handler {
 
     @Override
-    public String process(HttpServletRequest req, HttpServletResponse res) throws UnsupportedEncodingException {
+    public String process(HttpServletRequest req, HttpServletResponse res) {
             String id = req.getParameter("id");
             System.out.println("id = " + id);
             int bnum = Integer.parseInt(req.getParameter("bnum"));
