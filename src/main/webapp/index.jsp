@@ -64,7 +64,7 @@
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
@@ -257,16 +257,6 @@
             </div>
         </div>
     </section><!-- End off footer Section-->
-
-
-
-
-
-
-
-
-
-
 
 </div>
 

@@ -1,10 +1,10 @@
-package handlers.cam_comment;
+package Handlers.Cam_Comment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cam_comment.Cam_CommentService;
-import handlers.Handler;
+import VOS.Service.Cam_CommentService;
+import Handlers.Handler;
 
 public class Cam_CommentDelHandler implements Handler {
 

@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 public class DelFollowHandler implements Handler {
     @Override
-    public String process(HttpServletRequest req, HttpServletResponse res) throws UnsupportedEncodingException {
+    public String process(HttpServletRequest req, HttpServletResponse res) {
         int bnum = Integer.parseInt(req.getParameter("bnum"));
         String id = req.getParameter("id");
         FollowService followService = new FollowService();
