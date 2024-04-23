@@ -5,7 +5,7 @@ import board.Cam_BoardService;
 import board.Cam_Comment;
 import board.Cam_CommentService;
 import follow.FollowService;
-import handlers.Handler;
+import Handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

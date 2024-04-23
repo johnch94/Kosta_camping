@@ -2,7 +2,7 @@ package Handlers.Cam_Board;
 
 import board.Cam_Board;
 import board.Cam_BoardService;
-import handlers.Handler;
+import Handlers.Handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
