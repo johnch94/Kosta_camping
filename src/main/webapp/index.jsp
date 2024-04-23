@@ -157,8 +157,10 @@
                                         <h1>키워드 검색</h1>
                                         <div class="separator"></div>
                                         <div class="input-area">
-                                            <i class="fa fa-search search-button"></i>
-                                            <input type="text" class="input-box" placeholder="키워드 검색" style="color: black"/>
+                                            <form action="${pageContext.request.contextPath }/go/list.do">
+                                                <i class="fa fa-search search-button"></i>
+                                                <input type="text" class="input-box" placeholder="키워드 검색" style="color: black"/>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
