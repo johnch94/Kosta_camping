@@ -160,7 +160,7 @@
                                         <div class="separator"></div>
                                         <div class="input-area">
                                             <i class="fa fa-search search-button"></i>
-                                            <form action="${pageContext.request.contextPath}/go/list.do">
+                                            <form action="${pageContext.request.contextPath }/go/list.do">
                                                 <input type="text" id="searchInput" name="kw" class="input-box" placeholder="캠핑장 이름 검색"/></form>
                                         </div>
                                     </div>
