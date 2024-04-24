@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import VOS.Cam_Comment;
+import VOS.Cam_Board.Cam_Comment;
 import VOS.Service.Cam_CommentService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

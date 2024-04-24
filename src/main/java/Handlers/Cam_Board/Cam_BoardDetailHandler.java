@@ -1,6 +1,6 @@
 package Handlers.Cam_Board;
 
-import VOS.Cam_Comment;
+import VOS.Cam_Board.Cam_Comment;
 import VOS.Service.Cam_CommentService;
 import board.Cam_Board;
 import board.Cam_BoardService;
