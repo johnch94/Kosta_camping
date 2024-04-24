@@ -9,6 +9,7 @@ public class List {
     private String sbrsCl;
     private String firstImageUrl;
     private String intro;
+    private String tel;
     private String autoSiteCo;         // 주요시설 자동차야영장
     private String glampSiteCo;       // 주요시설 글램핑
     private String caravSiteCo;       // 주요시설 카라반
@@ -27,7 +28,16 @@ public class List {
     private String animalCmgCl;         // 애완동물 출입
     private String createdtime;         // 등록일
     private String modifiedtime;
-    public List(String contentId, String facltNm, String featureNm, String addr1, String addr2, String sbrsCl, String firstImageUrl, String intro, String autoSiteCo, String glampSiteCo, String caravSiteCo, String indvdlCaravSiteCo, String glampInnerFclty, String caravInnerFclty, String openPdCl, String openDeCl, String toiletCo, String swrmCo, String wtrplCo, String brazierCl, String posbFcltyCl) {
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public List(String contentId, String facltNm, String featureNm, String addr1, String addr2, String sbrsCl, String firstImageUrl, String intro, String autoSiteCo, String glampSiteCo, String caravSiteCo, String indvdlCaravSiteCo, String glampInnerFclty, String caravInnerFclty, String openPdCl, String openDeCl, String toiletCo, String swrmCo, String wtrplCo, String brazierCl, String posbFcltyCl, String tel) {
         this.contentId = contentId;
         this.facltNm = facltNm;
         this.featureNm = featureNm;
@@ -49,6 +59,7 @@ public class List {
         this.wtrplCo = wtrplCo;
         this.brazierCl = brazierCl;
         this.posbFcltyCl = posbFcltyCl;
+        this.tel = tel;
     }
 
     private String lineIntro;
@@ -69,7 +80,7 @@ public class List {
         this.lineIntro = lineIntro;
     }
 
-    public List(String contentId, String facltNm, String featureNm, String intro, String lineIntro, String addr1, String addr2, String sbrsCl, String firstImageUrl) {
+    public List(String contentId, String facltNm, String featureNm, String intro, String lineIntro, String addr1, String addr2, String sbrsCl, String firstImageUrl, String tel) {
         this.contentId = contentId;
         this.facltNm = facltNm;
         this.featureNm = featureNm;
@@ -79,6 +90,7 @@ public class List {
         this.addr2 = addr2;
         this.sbrsCl = sbrsCl;
         this.firstImageUrl = firstImageUrl;
+        this.tel = tel;
     }
 
     public List() {
@@ -143,13 +155,13 @@ public class List {
     @Override
     public String toString() {
         return "SearchList{" +
-                "contentId='" + contentId + '\'' +
-                ", facltNm='" + facltNm + '\'' +
-                ", featureNm='" + featureNm + '\'' +
-                ", addr1='" + addr1 + '\'' +
-                ", addr2='" + addr2 + '\'' +
-                ", sbrsCl='" + sbrsCl + '\'' +
-                ", firstImageUrl='" + firstImageUrl + '\'' +
-                '}';
+            "contentId='" + contentId + '\'' +
+            ", facltNm='" + facltNm + '\'' +
+            ", featureNm='" + featureNm + '\'' +
+            ", addr1='" + addr1 + '\'' +
+            ", addr2='" + addr2 + '\'' +
+            ", sbrsCl='" + sbrsCl + '\'' +
+            ", firstImageUrl='" + firstImageUrl + '\'' +
+            '}';
     }
 }

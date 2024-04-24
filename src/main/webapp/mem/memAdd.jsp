@@ -106,7 +106,7 @@
     <!--End of title -->
     <!--home Section -->
     <section style="background-color: rgba(0,0,0,0.05)">
-        <form action="${pageContext.request.contextPath}/mem/add.do">
+        <form action="${pageContext.request.contextPath}/mem/add.do" method="post">
             <div class="container" style="box-sizing: border-box">
                 <div class="member">
                     <div class="col-sm-2"></div>

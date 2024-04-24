@@ -1,6 +1,8 @@
-package cam_board;
+package VOS.Service;
 
 import java.util.ArrayList;
+import VOS.Dao.Cam_BoardDao;
+import VOS.Cam_Board.Cam_Board;
 
 public class Cam_BoardService {
 	private Cam_BoardDao dao;

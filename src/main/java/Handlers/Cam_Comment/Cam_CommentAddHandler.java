@@ -1,16 +1,16 @@
-package handlers.cam_comment;
+package Handlers.Cam_Comment;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import VOS.Cam_Board.Cam_Comment;
+import VOS.Service.Cam_CommentService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import cam_comment.Cam_Comment;
-import cam_comment.Cam_CommentService;
-import handlers.Handler;
+import Handlers.Handler;
 
 public class Cam_CommentAddHandler implements Handler {
 
@@ -23,7 +23,7 @@ public class Cam_CommentAddHandler implements Handler {
 			String body = request.getParameter("body");
 			int bnum = Integer.parseInt(request.getParameter("bnum"));
 			String writer = request.getParameter("writer");
-			
+
 			Cam_CommentService service = new Cam_CommentService();
 			service.addComment(new Cam_Comment(0, body, bnum, writer, null));
 			request.setAttribute("bnum", bnum);

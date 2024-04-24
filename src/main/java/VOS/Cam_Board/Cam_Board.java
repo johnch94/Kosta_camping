@@ -1,4 +1,4 @@
-package cam_board;
+package VOS.Cam_Board;
 
 import java.sql.Date;
 

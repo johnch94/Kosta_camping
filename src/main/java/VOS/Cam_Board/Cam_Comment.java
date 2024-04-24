@@ -1,4 +1,4 @@
-package cam_comment;
+package VOS.Cam_Board;
 
 import java.sql.Date;
 

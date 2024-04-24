@@ -64,7 +64,7 @@
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
                                         <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
@@ -113,43 +113,41 @@
                                         <h3>weather</h3>
                                         <h1>오늘날씨</h1>
                                         <div class="separator"></div>
-                                        	<div class="weather-forecast">
-                                          	  <div class="forecast-day">
-                                                <span id="date1" style="color: white; font-size:20px; margin: auto;">날짜</span>
-        										<img id="icon1" src="" style="display: block; margin: auto;">
-        										<p class="weather" id="temp1" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-       											<span id="minTemp1" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp1" style="color: white;">최고온도</span>
-   											  </div>
-  									  		  <div class="forecast-day">
-     								   			<span id="date2" style="color : white; font-size:20px; margin: auto;">날짜</span>
-     								 		    <img id="icon2" src="" style="display: block; margin: auto;">
-								        		<p class="weather" id="temp2" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-								     			<span id="minTemp2" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp2" style="color: white;">최고온도</span>
-								    		  </div>
-								    		  <div class="forecast-day">
-								        		<span id="date3" style="color: white; font-size:20px; margin: auto;">날짜</span>
-								        		<img id="icon3" src="" style="display: block; margin: auto;">
-								     			<p class="weather" id="temp3" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-								        		<span id="minTemp3" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp3" style="color: white;">최고온도</span>
-								   			  </div>
-								    		  <div class="forecast-day">
-								        		<span id="date4" style="color: white; font-size:20px; margin: auto;">날짜</span>
-								       			<img id="icon4" src="" style="display: block; margin: auto;">
-								 			    <p class="weather" id="temp4" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-								       			<span id="minTemp4" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp4" style="color: white;">최고온도</span>
-								    		  </div>
-								    		  <div class="forecast-day">
-								        		<span id="date5" style="color: white; font-size:20px; margin: auto;">날짜</span>
-								        		<img id="icon5" src="" style="display: block; margin: auto;">
-								   				<p class="weather" id="temp5" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-								       			<span id="minTemp5" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp5" style="color: white;">최고온도</span>
-								   			  </div>
-								    		  <div class="forecast-day">
-								        		<span id="date6" style="color: white; font-size:20px; margin: auto;">날짜</span>
-								        		<img id="icon6" src="" style="display: block; margin: auto;">
-								     			<p class="weather" id="temp6" style="font:40px 'Roboto', sans-serif; margin: auto;">기온</p>
-								       		    <span id="minTemp6" style="color: white;">최저온도</span><span style="color: white;">~</span><span id="maxTemp6" style="color: white;">최고온도</span>
-								              </div>
+                                        	<div class="cam_list_info">
+                                                <div style="display: flex; flex-direction: row; margin-top: 10px">
+                                                  <div class="forecast-day">
+                                                    <span id="date1">날짜</span>
+                                                    <img id="icon1" src="">
+                                                    <p id="temp1">기온</p>
+                                                  </div>
+                                                  <div class="forecast-day">
+                                                    <span id="date2">날짜</span>
+                                                    <img id="icon2" src="">
+                                                    <p id="temp2">기온</p>
+                                                  </div>
+                                                  <div class="forecast-day">
+                                                    <span id="date3">날짜</span>
+                                                    <img id="icon3" src="">
+                                                    <p id="temp3">기온</p>
+                                                  </div>
+                                                </div>
+                                                <div style="display: flex; flex-direction: row; margin-top: 10px">
+                                                  <div class="forecast-day">
+                                                    <span id="date4">날짜</span>
+                                                    <img id="icon4" src="">
+                                                    <p id="temp4">기온</p>
+                                                  </div>
+                                                  <div class="forecast-day">
+                                                    <span id="date5">날짜</span>
+                                                    <img id="icon5" src="">
+                                                    <p id="temp5">기온</p>
+                                                  </div>
+                                                  <div class="forecast-day">
+                                                    <span id="date6">날짜</span>
+                                                    <img id="icon6" src="">
+                                                    <p id="temp6">기온</p>
+                                                  </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -159,9 +157,10 @@
                                         <h1>키워드 검색</h1>
                                         <div class="separator"></div>
                                         <div class="input-area">
-                                            <i class="fa fa-search search-button"></i>
                                             <form action="${pageContext.request.contextPath }/go/list.do">
-                                                <input type="text" id="searchInput" name="kw" class="input-box" placeholder="캠핑장 이름 검색"/></form>
+                                                <i class="fa fa-search search-button"></i>
+                                                <input type="text" class="input-box" placeholder="키워드 검색" style="color: black" name="kw"/>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +174,7 @@
     <!--End of home section -->
     <!--tour section-->
     <section id="tour">
-    <div class="container" style="margin-top: 50px; margin-bottom: -30px">
+    <div class="container" style="margin-top: 100px; margin-bottom: -30px">
         <div class="row">
             <div class="text-center">
                 <h2 style="margin-bottom: 80px">추천 관광지</h2>
@@ -261,16 +260,6 @@
         </div>
     </section><!-- End off footer Section-->
 
-
-
-
-
-
-
-
-
-
-
 </div>
 
 <!-- START SCROLL TO TOP  -->
@@ -313,8 +302,6 @@ window.onload = () => {
                         document.getElementById('date'+ (index + 1)).innerHTML = item.dateTime;
                         document.getElementById('icon'+ (index + 1)).src = 'https://openweathermap.org/img/wn/' + item.icon + '@2x.png';
                         document.getElementById('temp'+ (index + 1)).innerHTML = item.temp+'°C';
-                        document.getElementById('minTemp'+ (index + 1)).innerHTML = '최저'+item.minTemp+'°C';
-                        document.getElementById('maxTemp'+ (index + 1)).innerHTML = '최고'+item.maxTemp+'°C';
                     }
                 });
             } catch (e) {

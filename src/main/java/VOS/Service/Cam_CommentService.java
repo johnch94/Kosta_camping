@@ -1,4 +1,7 @@
-package cam_comment;
+package VOS.Service;
+
+import VOS.Cam_Board.Cam_Comment;
+import VOS.Dao.Cam_CommentDao;
 
 import java.util.ArrayList;
 
