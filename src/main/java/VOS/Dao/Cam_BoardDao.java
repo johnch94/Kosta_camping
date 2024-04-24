@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import VOS.Cam_Board;
+import VOS.Cam_Board.Cam_Board;
 import conn.DBConnect;
 
 public class Cam_BoardDao {
