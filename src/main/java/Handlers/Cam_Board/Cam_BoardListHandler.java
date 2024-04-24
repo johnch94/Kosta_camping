@@ -1,12 +1,13 @@
-package Handlers.Cam_Board;
+package handlers.cam_board;
 
-import board.Cam_Board;
-import board.Cam_BoardService;
-import Handlers.Handler;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+
+import cam_board.Cam_Board;
+import cam_board.Cam_BoardService;
+import handlers.Handler;
 
 public class Cam_BoardListHandler implements Handler {
 
@@ -15,11 +16,25 @@ public class Cam_BoardListHandler implements Handler {
 		// TODO Auto-generated method stub
 		Cam_BoardService service = new Cam_BoardService();
 		ArrayList<Cam_Board> list = service.getAll();
-		
-		
-		request.setAttribute("list", list);
-		
-		return "/cam_board/list.jsp";
-	}
+		ArrayList<Cam_Board> sliceList = null;
+		int pageNum = 1;
+		pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		if (list.size() >= 8) {
+			int startIndex = (pageNum - 1) * 8;
+			int endIndex = Math.min(startIndex + 8, list.size());
+			sliceList = new ArrayList<>(list.subList(startIndex, endIndex));
+			
 
+			System.out.println(sliceList);
+
+			request.setAttribute("list", sliceList);
+		} else {
+			request.setAttribute("list", list);
+		}
+
+		request.setAttribute("totalPage", Math.ceil((double) list.size() / 8));
+		request.setAttribute("pageNum", pageNum);
+
+		return "/cam_board/listtest.jsp";
+	}
 }
