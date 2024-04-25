@@ -55,29 +55,30 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                                         <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
-                                            <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
+                                        <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
-                                        <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/tour/tourlist.do">관광</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/listtest.do?pageNum=1">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
-                                            <%--비로그인--%>
+                                            <%--                                            비로그인--%>
                                             <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
                                             <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
-                                            <%--로그인--%>
+                                            <%--                                            로그인--%>
                                             <li><a href="${pageContext.request.contextPath}/mem/info.do">내정보 확인</a></li>
                                             <li><a href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a></li>
                                         </c:if>

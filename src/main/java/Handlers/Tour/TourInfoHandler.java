@@ -73,8 +73,7 @@ public class TourInfoHandler implements Handler {
 			
 			list.add(new TourVo(addr1, addr2,cat1,cat2,contentId, contentType, firstimage, firstimage2, mapX, mapY, tel, title));
 		}
-		
-	
+
 		request.setAttribute("contenttypeid", contentType);
 		request.setAttribute("list", list);
 		request.setAttribute("pageNum", pageNum);
@@ -92,8 +91,6 @@ public class TourInfoHandler implements Handler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return "/tour/tourlist.jsp";
 	}
-
 }

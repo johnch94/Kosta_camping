@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 public class MemLoginHandler implements Handler {
   @Override
   public String process(HttpServletRequest request, HttpServletResponse response) {
-    String view = ""; // get 요청일때 이동할 페이지
+    String view = "/mem/memLogin.jsp"; // get 요청일때 이동할 페이지
     if(request.getMethod().equals("POST")){
       String id = request.getParameter("id");
       String pwd = request.getParameter("pwd");
@@ -34,6 +34,6 @@ public class MemLoginHandler implements Handler {
     }else {
       request.setAttribute("view", "/mem/memLogin.jsp");
     }
-    return "redirect:/index.jsp";
+    return "redirect:"+view;
   }
 }

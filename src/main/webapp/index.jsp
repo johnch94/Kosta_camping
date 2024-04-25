@@ -48,23 +48,22 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                                         <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
                                         <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
-
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp#home">HOME</a></li>
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
-                                        <li><a href="#pricing">관광</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/camping/list.do">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/tour/tourlist.do">관광</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/listtest.do?pageNum=1">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
@@ -82,9 +81,7 @@
                         </nav>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </header>
     <!--End of header -->
@@ -110,9 +107,14 @@
                                 </div>
                                 <div class="single_home_slider">
                                     <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                        <h3>weather</h3>
-                                        <h1>오늘날씨</h1>
+                                        <h3>내가 있는 곳</h3>
+                                        <h1>오늘 날씨</h1>
                                         <div class="separator"></div>
+                                        <div style="display: none">
+                                            <div id="xxx"></div>
+                                            <div>/</div>
+                                            <div id="yyy"></div>
+                                        </div>
                                         	<div class="cam_list_info">
                                                 <div style="display: flex; flex-direction: row; margin-top: 10px">
                                                   <div class="forecast-day">
@@ -153,8 +155,10 @@
                                 </div>
                                 <div class="single_home_slider">
                                     <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                        <h3>keyword</h3>
-                                        <h1>키워드 검색</h1>
+                                        <h3>#강릉 #여름 #바다</h3>
+                                        <div>
+                                            <h1 style="display: inline-block; color: #fc4b35">키워드</h1><h1 style="display: inline-block">&nbsp;검색</h1>
+                                        </div>
                                         <div class="separator"></div>
                                         <div class="input-area">
                                             <form action="${pageContext.request.contextPath }/go/list.do">
@@ -289,25 +293,39 @@
 
 <script type="text/javascript">
 window.onload = () => {
-    // wlat, wlon 은 카카오 map api를 통해 입력해 현재위치의 날씨값 반영
-    let wlat = '36.07221';
-    let wlon = '128.53836';
+    navigator.geolocation.getCurrentPosition(function (position){
+        var testX = position.coords.latitude,
+            testY = position.coords.longitude;
+        var X = testX.toString().substring(0,9),
+            Y = testY.toString().substring(0,9);
+        var wlon = parseFloat(Y);
+        var wlat = parseFloat(X);
+        console.log(wlon);
+        console.log(wlat);
+        document.getElementById("xxx").innerText = wlat;
+        document.getElementById("yyy").innerText = wlon;
+    });
+    weather(wlat, wlon);
+}
+const weather = (xxx, yyy) =>{
+    // var wlat = xxx;
+    // var wlon = yyy;
     const req = new XMLHttpRequest();
     req.onload = () => {
         if (req.status === 200) {
             try {
                 let data = JSON.parse(req.responseText);
                 data.forEach((item, index) => {
-                    if (index < 6) { 
+                    if (index < 6) {
                         document.getElementById('date'+ (index + 1)).innerHTML = item.dateTime;
                         document.getElementById('icon'+ (index + 1)).src = 'https://openweathermap.org/img/wn/' + item.icon + '@2x.png';
                         document.getElementById('temp'+ (index + 1)).innerHTML = item.temp+'°C';
                     }
                 });
             } catch (e) {
-               e.e;
+                e.e;
             }
-        } 
+        }
     };
     req.open('GET', '${pageContext.request.contextPath}/weather/listwea.do?wlat=' + wlat + '&wlon=' + wlon);
     req.send();

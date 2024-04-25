@@ -1,10 +1,10 @@
-package handlers.cam_board;
+package Handlers.Cam_Board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cam_board.Cam_BoardService;
-import handlers.Handler;
+import board.Cam_BoardService;
+import Handlers.Handler;
 
 public class Cam_BoardDelHandler implements Handler {
 

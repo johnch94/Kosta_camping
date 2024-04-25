@@ -55,12 +55,11 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                                         <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
                                         <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
-
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -70,8 +69,8 @@
                                         <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
-                                        <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/tour/tourlist.do">관광</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/listtest.do?pageNum=1">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
@@ -89,9 +88,7 @@
                         </nav>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </header>
     <!--End of header -->

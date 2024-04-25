@@ -68,6 +68,8 @@ public class CamInfoHandler implements Handler {
                 String addr2 = (String) o.get("addr2");
                 String mapX = (String) o.get("mapX");
                 String mapY = (String) o.get("mapY");
+                mapX = mapX.substring(0,10);
+                mapY = mapY.substring(0,10);
                 String tel = (String) o.get("tel");
                 String resveUrl = (String) o.get("resveUrl");
                 String gnrlSiteCo = (String) o.get("gnrlSiteCo");

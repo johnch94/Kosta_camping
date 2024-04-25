@@ -35,6 +35,77 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css" />
 
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <!-- mem add js -->
+    <script type="text/javascript">
+        const check = () => {
+            join = false;
+            if(f.id.value.length<=0){
+                alert("id는 필수 입력 사항");
+                f.id.focus();
+                event.preventDefault();
+                return;
+            }
+            if(f.pwd.value.length<=0){
+                alert("pwd는 필수 입력 사항");
+                f.pwd.focus();
+                event.preventDefault();
+                return;
+            }
+            if(f.name.value.length<=0){
+                alert("이름을 입력해주세요.");
+                f.pwd.focus();
+                event.preventDefault();
+                return;
+            }
+            if(f.tel.value.length<=0){
+                alert("전화번호를 입력해주세요.");
+                f.pwd.focus();
+                event.preventDefault();
+                return;
+            }
+            if(f.email.value.length<=0){
+                alert("email을 입력해주세요.");
+                f.pwd.focus();
+                event.preventDefault();
+                return;
+            }
+            if(f.pwd.value != f.pwd_chk.value){
+                alert("패스워드가 일치하지 않습니다.");
+                f.pwd_chk.focus();
+                event.preventDefault();
+                return;
+            }
+            if(!flag){
+                alert("id 중복체크 필요");
+                f.id.focus();
+                event.preventDefault();
+                return;
+            }
+            f.submit();//폼을 action에 지정된 서버로 제출
+
+        }
+
+        // id 중복체크 결과 저장
+        let flag = false;
+        const a=()=>{ // id 중복체크
+            flag = false;
+            const req = new XMLHttpRequest();
+            req.onload = () => {
+                let obj = JSON.parse(req.responseText);
+                let txt = "중복된 아이디";
+                if(obj.flag){
+                    txt = "사용가능한 아이디";
+                    flag = true;
+                }
+                alert(txt);
+                document.getElementById('res').innerHTML = txt;
+            }
+            let id = document.getElementById('id').value;
+            req.open('get', '/mem/idcheck.do?id='+id);
+            req.send();
+        }
+    </script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -55,12 +126,11 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                                         <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
                                         <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
                                 </div>
-
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -70,8 +140,8 @@
                                         <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
                                         <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
-                                        <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/tour/tourlist.do">관광</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/listtest.do?pageNum=1">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
@@ -89,9 +159,7 @@
                         </nav>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </header>
     <!--End of header -->
@@ -106,36 +174,43 @@
     <!--End of title -->
     <!--home Section -->
     <section style="background-color: rgba(0,0,0,0.05)">
-        <form action="${pageContext.request.contextPath}/mem/add.do" method="post">
+        <form action="${pageContext.request.contextPath}/mem/add.do" method="post" name="f">
+            <div style="display: none" id="flag">1</div>
             <div class="container" style="box-sizing: border-box">
                 <div class="member">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-8 box-center" style="height: 700px; background-color: white">
                         <div class="field">
-                            <b>ID</b>
-                            <span><input type="text" name="id"></span>
+                            <div style="display: flex; justify-content: flex-end; width: 300px">
+                                <b>ID</b>
+                                <input type="button" value="중복체크" onclick="a()" style="width: 50px; height: 25px; font-size: 10px; padding: 0px; position: relative;">
+                            </div>
+                            <span>
+                                <input type="text" name="id" id="id">
+                                <div id="res" style="display: none"></div>
+                            </span>
                         </div>
                         <div class="field">
                             <b>PW</b>
-                            <span><input type="password" name="pwd"></span>
+                            <span><input type="password" name="pwd" id="pwd"></span>
                         </div>
                         <div class="field">
                             <b>PW CHECK</b>
-                            <span><input type="password" name="pwd_chk"></span>
+                            <span><input type="password" name="pwd_chk" id="pwd_chk"></span>
                         </div>
                         <div class="field">
                             <b>NAME</b>
-                            <span><input type="text" name="name"></span>
+                            <span><input type="text" name="name" id="name"></span>
                         </div>
                         <div class="field">
                             <b>TEL</b>
-                            <span><input type="tel" name="tel"></span>
+                            <span><input type="tel" name="tel" id="tel"></span>
                         </div>
                         <div class="field">
                             <b>E-MAIL</b>
-                            <span><input type="email" name="email"></span>
+                            <span><input type="email" name="email" id="email"></span>
                         </div>
-                        <input type="submit" value="가입하기">
+                        <input type="submit" value="가입하기" onclick="check()">
                     </div>
                 </div>
             </div>
@@ -188,46 +263,6 @@
 
 <!--slick slide js -->
 <script src="${pageContext.request.contextPath}/assets/css/slick/slick.min.js"></script>
-
-<!-- mem add js -->
-<script type="text/javascript">
-    const check = () => {
-        if(f.id.value.length<=0){
-            alert("id는 필수 입력 사항");
-            f.id.focus();
-            return;
-        }
-        if(f.pwd.value.length<=0){
-            alert("pwd는 필수 입력 사항");
-            f.pwd.focus();
-            return;
-        }
-        if(!flag){
-            alert("id 중복체크 필요");
-            return;
-        }
-        f.submit();//폼을 action에 지정된 서버로 제출
-    }
-
-    // id 중복체크 결과 저장
-    let flag = false;
-    const a=()=>{ // id 중복체크
-        flag = false;
-        const req = new XMLHttpRequest();
-        req.onload = () => {
-            let obj = JSON.parse(req.responseText);
-            let txt = "중복된 아이디";
-            if(obj.flag){
-                txt = "사용가능한 아이디";
-                flag = true;
-            }
-            document.getElementById('res').innerHTML = txt;
-        }
-        let id = document.getElementById('id').value;
-        req.open('get', '/mem/idcheck.do?id='+id);
-        req.send();
-    }
-</script>
 
 </body>
 </html>

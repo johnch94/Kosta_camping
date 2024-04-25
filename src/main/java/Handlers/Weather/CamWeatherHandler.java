@@ -25,6 +25,8 @@ public class CamWeatherHandler implements Handler {
 		String key = "d8837c0fc8f973c07fdd90ac194e7d7a";
 		String lat = request.getParameter("wlat");
 		String lon = request.getParameter("wlon");
+		System.out.println(lat);
+		System.out.println(lon);
 		String path = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key
 				+ "&lang=kr";
 

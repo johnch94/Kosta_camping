@@ -12,6 +12,7 @@ public class IdCheckHandler implements Handler {
   @Override
   public String process(HttpServletRequest request, HttpServletResponse response) {
     String id = request.getParameter("id");
+    System.out.println(id);
     CamMemberService service = new CamMemberService();
     CamMember m = service.getMemById(id);
     boolean flag = false;
@@ -21,6 +22,7 @@ public class IdCheckHandler implements Handler {
     JSONObject obj = new JSONObject();
     obj.put("flag", flag);
     String res = obj.toJSONString();
+    System.out.println(flag);
     return "responsebody/"+res;
   }
 }

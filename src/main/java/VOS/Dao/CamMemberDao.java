@@ -56,9 +56,9 @@ public class CamMemberDao {
       }
     }
   }
-  public void update(CamMember c) {
+  public void update(CamMember c, String id) {
     Connection conn = db.conn();
-    String sql = "update Cam_Member set pwd=?, name=?, mail=?, tel=?, id=? where num=?";
+    String sql = "update Cam_Member set pw=?, name=?, mail=?, tel=? where id=?";
     int cnt;
     try {
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -66,8 +66,7 @@ public class CamMemberDao {
       pstmt.setString(2, c.getName());
       pstmt.setString(3, c.getMail());
       pstmt.setString(4, c.getTel());
-      pstmt.setString(5, c.getId());
-      pstmt.setInt(6, c.getNum());
+      pstmt.setString(5, id);
       cnt = pstmt.executeUpdate();
       System.out.println(cnt + " 줄이 수정됨");
     } catch (SQLException e) {
