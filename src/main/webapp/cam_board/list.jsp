@@ -108,7 +108,8 @@
 	<!--home Section -->
 	<section class="py-5">
 		<div style="width: 100%; display: flex; justify-content: flex-end">
-			<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: 20px">게시글 작성</button>
+			<div></div>
+			<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: ">게시글 작성</button>
 		</div>
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
