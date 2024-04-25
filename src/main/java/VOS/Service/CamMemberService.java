@@ -16,8 +16,8 @@ public class CamMemberService {
   public void delMem(String id){
     dao.delete(id);
   }
-  public void updateMem(CamMember c){
-    dao.update(c);
+  public void updateMem(CamMember c, String id){
+    dao.update(c, id);
   }
   public CamMember getMem(int num){
     return dao.select(num);

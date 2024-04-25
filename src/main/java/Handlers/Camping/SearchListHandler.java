@@ -77,6 +77,6 @@ public class SearchListHandler implements Handler {
                 throw new RuntimeException(e);
             }
 
-        return "/list/searchlist.jsp";
+        return "/camping/searchlist.jsp";
     }
 }

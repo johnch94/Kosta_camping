@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 2024-04-16
-  Time: 오전 10:46
+  Date: 2024-04-18
+  Time: 오전 11:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -30,9 +30,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/plugins.css" />
     <!--Theme custom css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/member.css">
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css" />
+
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <!-- mem add js -->
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -91,100 +96,53 @@
     </header>
     <!--End of header -->
     <!-- title section -->
-    <section id="home_touring" class="home_tour">
+    <section id="home_camping" class="home_mem">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
-                <h1>관광지 목록</h1>
+                <h1>내 정보 확인</h1>
             </div>
         </div>
     </section>
     <!--End of title -->
     <!--home Section -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10" style="margin-bottom: 100px;">
-                    <div class="list" style="margin-top: 30px;">
-                        <div style="margin-bottom: 30px; display: flex; justify-content: center">
-                            <form class="tourbutton" id="tourType" action="${pageContext.request.contextPath}/tour/tourlist.do" method="POST">
-                                <input type="hidden" name="contentTypeId" id="contentTypeId">
-                                <input type="hidden" name="pageNum" value="1">
-                                <input type="button" value="관광지" onclick="tourid(12)">
-                                <input type="button" value="문화시설" onclick="tourid(14)">
-                                <input type="button" value="공연,축제" onclick="tourid(15)">
-                                <input type="button" value="여행코스" onclick="tourid(25)">
-                                <input type="button" value="레저스포츠" onclick="tourid(28)">
-                                <input type="button" value="쇼핑" onclick="tourid(38)">
-                                <input type="button" value="음식점" onclick="tourid(39)">
-                            </form>
-                            <div id="checkType" style="display:none">${contenttypeid}</div>
-                        </div>
-                        <c:if test="${not empty list}">
-                            <c:forEach var="tour" items="${list}">
-                                <div class="list_content">
-                                    <div>
-                                        <c:if test="${not empty tour.firstimage}">
-                                            <img src="${tour.firstimage}">
-                                        </c:if>
-                                        <c:if test="${empty tour.firstimage}">
-                                            <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg">
-                                        </c:if>
-                                    </div>
-                                    <div style="height: 200px">
-                                        <div>
-                                            <a href="${pageContext.request.contextPath}/tour/tourdetail.do?contentId=${tour.contentId}&mapX=${tour.mapX}&mapY=${tour.mapY}" style="font-size: 25px"><b>${tour.title}</b></a>
-                                        </div><br>
-                                        <div>🚀${tour.addr1}${tour.addr2}</div><br>
-                                        <div class="myDiv">
-                                            <c:if test="${tour.cat1 == 'A01'}">🏞️자연</c:if>
-                                            <c:if test="${tour.cat1 == 'A02'}">🏞️인문(문화/예술/역사)</c:if>
-                                            <c:if test="${tour.cat1 == 'A03'}">🏞️레저스포츠</c:if>
-                                            <c:if test="${tour.cat1 == 'A04'}">🏞️쇼핑</c:if>
-                                            <c:if test="${tour.cat1 == 'A05'}">🏞️음식</c:if>
-                                            <c:if test="${tour.cat1 == 'C01'}">🏞️추천코스</c:if>
-                                            <div style="display:inline-block"></div>
-                                        </div>
-                                        <br>
-                                        <div style="font-size: 15px; word-break: break-all">
-                                            <div style="margin-top: 20px; margin-bottom: 20px"></div>
-                                        </div>
-                                        <br>
-                                    </div>
-                                </div>
-                                <hr width=”100%” color=”red” noshade />
-                            </c:forEach>
-                            <!-- 페이지 인덱스 -->
-                            <div style="text-align: center;">
-                                <!-- 이전 페이지로 이동 -->
-                                <input type="button" value="처음으로" onclick="previousPage(1, '${contenttypeid}')">
-                                <!-- 페이지 번호로 이동 -->
-                                <c:set var="startPage" value="${pageNum - 2 }" />
-                                <c:set var="endPage" value="${pageNum + 2 }" />
-                                <c:if test="${startPage < 1 }">
-                                    <c:set var="startPage" value="1" />
-                                    <c:set var="endPage" value="5" />
-                                </c:if>
-                                <c:if test="${endPage > totalCount }">
-                                    <c:set var="endPage" value="${totalCount }" />
-                                    <c:set var="startPage" value="${totalCount - 4 }" />
-                                </c:if>
-                                <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                    <input type="button" value="${i }" onclick="goToPage(${i} , '${contenttypeid}')">
-                                </c:forEach>
-                                <!-- 다음 페이지로 이동 -->
-                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}', '${contenttypeid}')"><br/>
-                                현재 페이지: ${pageNum}
+    <section style="background-color: rgba(0,0,0,0.05)">
+        <form action="${pageContext.request.contextPath}/mem/info.do" method="post" name="f">
+            <div style="display: none" id="flag">1</div>
+            <div class="container" style="box-sizing: border-box">
+                <div class="member">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 box-center" style="height: 700px; background-color: white">
+                        <form action="">
+                            <div class="field">
+                                <b>ID</b>
+                                <span>
+                                    <input type="text" name="id" id="id" value="${mem.id}" readonly>
+                                    <div id="res" style="display: none"></div>
+                                </span>
                             </div>
-                        </c:if>
-
-                        <c:if test="${empty list}">
-                            <p>No camping sites found.</p>
-                        </c:if>
+                            <div class="field">
+                                <b>PW</b>
+                                <span><input type="password" name="pwd" id="pwd" value="${mem.pw}"
+                                onmouseover="pwA()" onmouseout="pwB()"></span>
+                            </div>
+                            <div class="field">
+                                <b>NAME</b>
+                                <span><input type="text" name="name" id="name" value="${mem.name}"></span>
+                            </div>
+                            <div class="field">
+                                <b>TEL</b>
+                                <span><input type="tel" name="tel" id="tel" value="${mem.tel}"></span>
+                            </div>
+                            <div class="field">
+                                <b>E-MAIL</b>
+                                <span><input type="email" name="email" id="email" value="${mem.mail}"></span>
+                            </div>
+                            <input type="submit" value="수정하기" onclick="check()">
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
     <!--End of home section -->
 
@@ -197,7 +155,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <div class="flowus">
-                                    <a href="https://github.com/johnch94/Kosta_touring"><i class="fa fa-github"></i></a>
+                                    <a href="https://github.com/johnch94/Kosta_camping"><i class="fa fa-github"></i></a>
                                     <%--                                    <a href=""><i class="fa fa-facebook"></i></a>--%>
                                     <%--                                    <a href=""><i class="fa fa-twitter"></i></a>--%>
                                     <%--                                    <a href=""><i class="fa fa-google-plus"></i></a>--%>
@@ -220,76 +178,6 @@
     </section><!-- End off footer Section-->
 </div>
 
-<!-- list page js -->
-<script type="text/javascript">
-    let pageNum = 1;
-    let contentTypeId = '${contenttypeid}';
-    let totalCount = '${totalCount}';
-
-    const previousPage = (pageNum, contentTypeId) => {
-
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-        const contentInput = document.createElement('input');
-        contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
-        form.appendChild(contentInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-
-    const nextPage = (pageNum, contentTypeId) => {
-
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-        const contentInput = document.createElement('input');
-        contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
-        form.appendChild(contentInput);
-
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-
-    const goToPage = (pageNum, contentTypeId) => {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
-
-        const numInput = document.createElement('input');
-        numInput.type = 'hidden';
-        numInput.name = 'pageNum';
-        numInput.value = pageNum;
-        form.appendChild(numInput);
-        const contentInput = document.createElement('input');
-        contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
-        form.appendChild(contentInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
-
 <script src="${pageContext.request.contextPath}/assets/js/vendor/jquery-1.11.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/vendor/bootstrap.min.js"></script>
 
@@ -303,11 +191,51 @@
 
 <!--slick slide js -->
 <script src="${pageContext.request.contextPath}/assets/css/slick/slick.min.js"></script>
-<script>
-    function tourid(contentTypeId) {
-        document.getElementById('contentTypeId').value = contentTypeId;
-        document.getElementById('tourType').submit();
+
+<script type="text/javascript">
+    let join = false;
+    const check = () => {
+        if(f.id.value.length<=0){
+            alert("id는 필수 입력 사항");
+            f.id.focus();
+            event.preventDefault();
+            return;
+        }
+        if(f.pwd.value.length<=0){
+            alert("pwd는 필수 입력 사항");
+            f.pwd.focus();
+            event.preventDefault();
+            return;
+        }
+        if(f.name.value.length<=0){
+            alert("이름을 입력해주세요.");
+            f.pwd.focus();
+            event.preventDefault();
+            return;
+        }
+        if(f.tel.value.length<=0){
+            alert("전화번호를 입력해주세요.");
+            f.pwd.focus();
+            event.preventDefault();
+            return;
+        }
+        if(f.email.value.length<=0){
+            alert("email을 입력해주세요.");
+            f.pwd.focus();
+            event.preventDefault();
+            return;
+        }
+        f.submit();//폼을 action에 지정된 서버로 제출
+    }
+
+    const pwA = ()=>{
+        document.getElementById("pwd").type = "";
+    }
+    const pwB = ()=>{
+        document.getElementById("pwd").type = "password";
     }
 </script>
 </body>
 </html>
+
+

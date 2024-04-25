@@ -39,6 +39,11 @@ Author URI: http://www.bootstrapthemes.co
         margin-left: auto;
         margin-right: auto;
     }
+    .info_map{
+        width: 70%;
+        height: 350px;
+        border: black 0.5px solid;
+    }
 }
 @media (max-width: 1199px) {
     body {
@@ -92,6 +97,11 @@ Author URI: http://www.bootstrapthemes.co
         width: 50%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .info_map{
+        width: 70%;
+        height: 350px;
+        border: black 0.5px solid;
     }
 }
 
@@ -157,6 +167,11 @@ Author URI: http://www.bootstrapthemes.co
         width: 50%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .info_map{
+        width: 70%;
+        height: 350px;
+        border: black 0.5px solid;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -251,6 +266,11 @@ Author URI: http://www.bootstrapthemes.co
         width: 50%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .info_map{
+        width: 70%;
+        height: 350px;
+        border: black 0.5px solid;
     }
 }
 
@@ -354,6 +374,11 @@ Author URI: http://www.bootstrapthemes.co
         margin-left: auto;
         margin-right: auto;
     }
+    .info_map{
+        width: 70%;
+        height: 350px;
+        border: black 0.5px solid;
+    }
 }
 
 
@@ -404,6 +429,11 @@ Author URI: http://www.bootstrapthemes.co
         margin-left: auto;
         margin-right: auto;
     }
+    .info_map{
+        width: 100%;
+        height: 350px;
+        border: black 0.5px solid;
+    }
 }
 
 
@@ -448,6 +478,11 @@ Author URI: http://www.bootstrapthemes.co
         width: 100%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .info_map{
+        width: 100%;
+        height: 350px;
+        border: black 0.5px solid;
     }
 }
 

@@ -36,6 +36,10 @@
 
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script src="https://kit.fontawesome.com/de9b677ac7.js" crossorigin="anonymous"></script>
+
+    <!-- kakao map api -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fbe64bacc6adfc8c04f2abe21ed24a86"></script>
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -52,14 +56,13 @@
                             <div class="container-fluid">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                         <span class="sr-only">Toggle navigation</span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp#home">
+                                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
                                         <img src="${pageContext.request.contextPath}/assets/images/cam_logo.png" style="width: 55px; height: 52px; position: relative; margin-top: -7px"/>
                                         <img src="${pageContext.request.contextPath}/assets/images/Main-logo.png" style="width: 350px; position: absolute; left: 0; top: 0; margin-left: -20px; margin-top: -10px">
                                     </a>
@@ -71,15 +74,15 @@
 
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="${pageContext.request.contextPath}/index.jsp">HOME</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/index.jsp">추천 관광지</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp#tour">추천 관광지</a></li>
                                         <li><a href="${pageContext.request.contextPath}/camping/list.do">캠핑</a></li>
-                                        <li><a href="#pricing">관광</a></li>
-                                        <li><a href="#pricing">장터</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/tour/tourlist.do">관광</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/camping/listtest.do?pageNum=1">장터</a></li>
                                         <li></li>
                                         <c:if test="${empty sessionScope.loginId}">
                                             <%--                                            비로그인--%>
-                                            <li><a href="${pageContext.request.contextPath}/mem/add.do">회원가입</a></li>
-                                            <li><a href="${pageContext.request.contextPath}/mem/login.do">로그인</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memAdd.jsp">회원가입</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/mem/memLogin.jsp">로그인</a></li>
                                         </c:if>
                                         <c:if test="${not empty sessionScope.loginId}">
                                             <%--                                            로그인--%>
@@ -115,8 +118,8 @@
                     <%-- list 속성에 담긴 캠핑 정보 출력 --%>
                     <c:forEach var="list" items="${list}">
                         <div style="display: none" id="contentId">${list.contentId}</div>
-                        <div id="mapX" style="display:none">${list.mapX}</div>
-                        <div id="mapY" style="display:none">${list.mapY}</div>
+                        <div id="mapX" style="display: none">${list.mapX}</div>
+                        <div id="mapY" style="display: none">${list.mapY}</div>
                         <!-- 위치 -->
 
                         <div class="cam_list_title" style="margin-top:0px">
@@ -175,11 +178,11 @@
                                 <i class="fa-regular fa-compass"></i>
                                 <b>캠핑장 소개</b>
                             </div>
-                            <div style="font-size: 20px">${list.lineIntro}</div>
+                            <div style="font-size: 20px; line-height: 30px; text-indent: 10px">${list.lineIntro}</div>
                             <!-- 한 줄 소개 -->
-                            <div style="font-size: 20px">${list.intro}</div>
+                            <div style="font-size: 20px; line-height: 30px; text-indent: 10px">${list.intro}</div>
                             <!-- 상세 소개 -->
-                            <div style="font-size: 20px">${list.featureNm}</div>
+                            <div style="font-size: 20px; line-height: 30px; text-indent: 10px">${list.featureNm}</div>
                             <!-- 특징명 -->
                         </div>
 
@@ -329,44 +332,51 @@
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">일반 캠핑장 수</div>
-                                    <c:if test="${list.gnrlSiteCo != 0}">
-                                        <div style="display: inline-block;">${list.gnrlSiteCo}</div>
+                                    <div style="display: inline-block;">${list.gnrlSiteCo}</div>
+                                    <c:if test="${empty list.gnrlSiteCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">자동차 캠핑장 수</div>
-                                    <c:if test="${list.autoSiteCo != 0}">
-                                        <div style="display: inline-block;">${list.autoSiteCo}</div>
+                                    <div style="display: inline-block;">${list.autoSiteCo}</div>
+                                    <c:if test="${empty list.autoSiteCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">글램핑장 수</div>
-                                    <c:if test="${list.glampSiteCo != 0}">
-                                        <div style="display: inline-block;">${list.glampSiteCo}</div>
+                                    <div style="display: inline-block;">${list.glampSiteCo}</div>
+                                    <c:if test="${empty list.glampSiteCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">카라반 수</div>
-                                    <c:if test="${list.caravSiteCo != 0}">
-                                        <div style="display: inline-block;">${list.caravSiteCo}</div>
+                                    <div style="display: inline-block;">${list.caravSiteCo}</div>
+                                    <c:if test="${empty list.caravSiteCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">개별 카라반 수</div>
-                                    <c:if test="${list.indvdlCaravSiteCo != 0}">
-                                        <div style="display: inline-block;">${list.indvdlCaravSiteCo}</div>
+                                    <div style="display: inline-block;">${list.indvdlCaravSiteCo}</div>
+                                    <c:if test="${empty list.indvdlCaravSiteCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">글램핑 내부시설</div>
-                                    <c:if test="${list.glampInnerFclty != 0}">
-                                        <div style="display: inline-block;">${list.glampInnerFclty}</div>
+                                    <div style="display: inline-block;">${list.glampInnerFclty}</div>
+                                    <c:if test="${empty list.glampInnerFclty}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">카라반 내부시설</div>
-                                    <c:if test="${list.caravInnerFclty != 0}">
-                                        <div style="display: inline-block;">${list.caravInnerFclty}</div>
+                                    <div style="display: inline-block;">${list.caravInnerFclty}</div>
+                                    <c:if test="${empty list.caravInnerFclty}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
@@ -376,20 +386,23 @@
                                 </div>
                                 <div class="cam_list_info_div">
                                     <div style="display: inline-block; width: 150px;">화장실 수</div>
-                                    <c:if test="${list.toiletCo != 0}">
-                                        <div style="display: inline-block;">${list.toiletCo}</div>
+                                    <div style="display: inline-block;">${list.toiletCo}</div>
+                                    <c:if test="${empty list.toiletCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">샤워실 수</div>
-                                    <c:if test="${list.swrmCo != 0}">
-                                        <div style="display: inline-block;">${list.swrmCo}</div>
+                                    <div style="display: inline-block;">${list.swrmCo}</div>
+                                    <c:if test="${empty list.swrmCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">개수대 수</div>
-                                    <c:if test="${list.wtrplCo != 0}">
-                                        <div style="display: inline-block;">${list.wtrplCo}</div>
+                                    <div style="display: inline-block;">${list.wtrplCo}</div>
+                                    <c:if test="${empty list.wtrplCo}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
@@ -402,8 +415,9 @@
                                     <hr>
 
                                     <div style="display: inline-block; width: 150px;">체험 프로그램명</div>
-                                    <c:if test="${list.exprnProgrm != 0}">
-                                        <div style="display: inline-block;">${list.exprnProgrm}</div>
+                                    <div style="display: inline-block;">${list.exprnProgrm}</div>
+                                    <c:if test="${empty list.exprnProgrm}">
+                                        <div style="display: inline-block;">-</div>
                                     </c:if>
                                     <hr>
 
@@ -444,6 +458,19 @@
         </div>
     </section>
     <!--End of img section -->
+    <!--Map section-->
+    <section>
+        <div class="container">
+            <div class="cam_list_title">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <b>${keyword} 위치</b>
+            </div>
+            <div style="display: flex; justify-content: center">
+                <div id="map" class="info_map"></div>
+            </div>
+        </div>
+    </section>
+    <!--End of img section-->
     <!-- Start of weather section -->
     <section style="margin-top: 50px; margin-bottom: 100px">
         <div class="container">
@@ -586,6 +613,19 @@
         }
         req2.open('GET', '${pageContext.request.contextPath}/camping/imglist.do?contentId=' + contentId);
         req2.send();
+        let mapX = document.getElementById("mapX").innerText;
+        let mapY = document.getElementById("mapY").innerText;
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new kakao.maps.LatLng(mapY, mapX), //지도의 중심좌표.
+            level: 3 //지도의 레벨(확대, 축소 정도)
+        };
+        var marker = new kakao.maps.Marker({
+           position: new kakao.maps.LatLng(mapY, mapX)
+        });
+
+        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+        marker.setMap(map);
     }
 </script>
 </body>

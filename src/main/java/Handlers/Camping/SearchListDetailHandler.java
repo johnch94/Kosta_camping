@@ -24,7 +24,7 @@ public class SearchListDetailHandler implements Handler {
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
         int pageNum = 1;
-        String view = "/list/searchlistdetail.jsp";
+        String view = "/camping/searchlistdetail.jsp";
         if(req.getMethod().equals("POST")){
             pageNum = Integer.parseInt(req.getParameter("num"));
             System.out.println(pageNum);

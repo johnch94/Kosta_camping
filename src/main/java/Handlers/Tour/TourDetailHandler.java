@@ -36,10 +36,11 @@ public class TourDetailHandler implements Handler {
 			Element root = doc.getDocumentElement();
 			NodeList nodes = root.getElementsByTagName("item");
 			ArrayList<TourDetailVo> tour_detail = new ArrayList<>();
+			String title = null;
 			for (int i = 0; i < nodes.getLength(); i++) {
 				Element tourEle = (Element) nodes.item(i);
 				String contentTypeId = tourEle.getElementsByTagName("contenttypeid").item(0).getTextContent();
-				String title = tourEle.getElementsByTagName("title").item(0).getTextContent();
+				title = tourEle.getElementsByTagName("title").item(0).getTextContent();
 				String tel = tourEle.getElementsByTagName("tel").item(0).getTextContent();
 				String homepage = tourEle.getElementsByTagName("homepage").item(0).getTextContent();
 				String addr1 = tourEle.getElementsByTagName("addr1").item(0).getTextContent();
@@ -48,6 +49,7 @@ public class TourDetailHandler implements Handler {
 				tour_detail.add(
 						new TourDetailVo(contentid, contentTypeId, title, tel, homepage, addr1, zipcode, overview, mapX, mapY));
 			}
+			request.setAttribute("title", title);
 			request.setAttribute("tour_detail", tour_detail);
 			request.setAttribute("contentid", contentid);
 		} catch (FileNotFoundException e) {
