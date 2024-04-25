@@ -105,83 +105,96 @@
     <section id="home_camping" class="home_camping">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
-                <h1>Sub Title</h1>
+                <h1 style="display: inline-block">"</h1>
+                <h1 style="display: inline-block; color: #ff6457; text-shadow: none">${keyword}</h1>
+                <h1 style="display: inline-block">"&nbsp;검색 결과</h1>
             </div>
         </div>
     </section>
+    <!-- search section -->
+    <section>
+        <div class="container">
+            <div class="input-area">
+                <form action="${pageContext.request.contextPath}/go/list.do">
+                    <i class="fa fa-search search-button" style="padding-top: 15px; padding-left: 15px"></i>
+                    <input type="text" id="searchInput" name="kw" class="input-box" placeholder="키워드 검색" style="border-color: #e74c3c;">
+                </form>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!-- End of search section -->
     <!--home Section -->
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 " style="height: 3250px">
-                    <div class="input-area">
-                        <i class="fa fa-search search-button"></i>
-                        <form action="${pageContext.request.contextPath}/go/listdetail.do">
-                            <input type="text" id="searchInput" name="kw" class="input-box" placeholder="캠핑장 이름 검색"/></form>
-                    </div>
-                    <c:if test="${not empty list}">
-                        <c:forEach var="camp" items="${list}">
-                            <div style="float: left; margin: 10px;">
-                                <c:if test="${not empty camp.firstImageUrl}">
-                                    <img src="${camp.firstImageUrl}" style="display:inline-block; vertical-align:top; width:250px ; height:250px">
-                                </c:if>
-                                <c:if test="${empty camp.firstImageUrl}">
-                                    <img src="${pageContext.request.contextPath }/no_img/coming_soon.jpg" style="display:inline-block;vertical-align:top; width:190px ; height:190px">
-                                </c:if>
-                            </div>
-                            <div  style="display:inline-block;height: 75px;margin-top:7px;margin-left: 15px">
-                                <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}&id=${camp.contentId}" style="font-size: 25px">🚗${camp.facltNm}</a>
-                            </div><br>
-                            <div style="display:inline-block;height: 7px;font-size: 15px;margin-left: 15px">🚀${camp.addr1} ${camp.addr2}☄️tel)${camp.tel}</div><br>
-
-
-                            <div id="myDiv" style="display:inline-block;height: 70px; width:500px;font-size: 15px;margin-left: 15px">
-                                🏞️${camp.lineIntro}
-                                <c:if test="${empty camp.lineIntro}">
-                                    ${camp.intro}
-                                    <c:if test="${empty camp.intro}">
-                                        ${camp.featureNm}
-                                        <c:if test="${empty camp.featureNm }">
-                                            <div style="display:inline-block;height: 90px">...</div>
-                                        </c:if>
+                <div class="col-sm-10" style="margin-bottom: 100px;">
+                    <div class="list" style="margin-top: 20px">
+                        <c:if test="${not empty list}">
+                            <c:forEach var="camp" items="${list}">
+                                <div class="list_content">
+                                    <c:if test="${not empty camp.firstImageUrl}">
+                                        <img src="${camp.firstImageUrl}">
                                     </c:if>
-                                </c:if>
-                            </div><br>
-                            <div style="display:inline-block;height: 70px;font-size: 15px;margin-left: 15px">🛸${camp.sbrsCl}
-                                <c:if test="${empty camp.sbrsCl }">
-                                    <div style="display:inline-block;height: 70px">...</div>
-                                </c:if>
-                            </div><br>
-                            <hr width=”500px” color=”black” noshade />
-                        </c:forEach>
-
-                        <div style="text-align: center;">
-                            <!-- 이전 페이지로 이동 -->
-                            <input type="button" value="처음으로" onclick="previousPage(1)">
-                            <!-- 페이지 번호로 이동 -->
-                            <c:set var="startPage" value="${num - 2 }" />
-                            <c:set var="endPage" value="${num + 2 }" />
-                            <c:if test="${startPage < 1 }">
-                                <c:set var="startPage" value="1" />
-                                <c:set var="endPage" value="5" />
-                            </c:if>
-                            <c:if test="${endPage > totalPages }">
-                                <c:set var="endPage" value="${totalPages }" />
-                                <c:set var="startPage" value="1" />
-                            </c:if>
-                            <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                <input type="button" value="${i }" onclick="goToPage(${i})">
+                                    <c:if test="${empty camp.firstImageUrl}">
+                                        <img src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg">
+                                    </c:if>
+                                    <div style="height: 200px">
+                                        <div>
+                                            <a href="${pageContext.request.contextPath}/go/info.do?kw=${camp.facltNm}" style="font-size: 25px"><b>${camp.facltNm}</b></a>
+                                        </div><br>
+                                        <div>🚀${camp.addr1}${camp.addr2}</div><br>
+                                        <div class="myDiv">
+                                            🏞️${camp.lineIntro}
+                                            <c:if test="${empty camp.lineIntro}">
+                                                ${camp.intro}
+                                                <c:if test="${empty camp.intro}">
+                                                    ${camp.featureNm}
+                                                    <c:if test="${empty camp.featureNm }">
+                                                        <div style="display:inline-block">...</div>
+                                                    </c:if>
+                                                </c:if>
+                                            </c:if>
+                                        </div>
+                                        <br>
+                                        <div style="font-size: 15px; word-break: break-all">🛸${camp.sbrsCl}
+                                            <c:if test="${empty camp.sbrsCl }">
+                                                <div style="margin-top: 20px; margin-bottom: 20px">...</div>
+                                            </c:if>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <hr width=”100%” color=”red” noshade />
                             </c:forEach>
-                            <!-- 다음 페이지로 이동 -->
-                            <input type="button" value="마지막으로" onclick="nextPage('${totalPages}')"><br/>
-                            현재 페이지: ${num}
-                        </div>
-                    </c:if>
+                            <!-- 페이지 인덱스 -->
+                            <div style="text-align: center;">
+                                <!-- 이전 페이지로 이동 -->
+                                <input type="button" value="처음으로" onclick="previousPage(1)">
+                                <!-- 페이지 번호로 이동 -->
+                                <c:set var="startPage" value="${pageNum - 2 }" />
+                                <c:set var="endPage" value="${pageNum + 2 }" />
+                                <c:if test="${startPage < 1 }">
+                                    <c:set var="startPage" value="1" />
+                                    <c:set var="endPage" value="5" />
+                                </c:if>
+                                <c:if test="${endPage > totalCount }">
+                                    <c:set var="endPage" value="${totalCount }" />
+                                    <c:set var="startPage" value="${totalCount - 4 }" />
+                                </c:if>
+                                <c:forEach var="i" begin="${startPage }" end="${endPage }">
+                                    <input type="button" value="${i }" onclick="goToPage(${i})">
+                                </c:forEach>
+                                <!-- 다음 페이지로 이동 -->
+                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}')"><br/>
+                                현재 페이지: ${pageNum}
+                            </div>
+                        </c:if>
 
-                    <c:if test="${empty list}">
-                        <p>No camping sites found.</p>
-                    </c:if>
-
+                        <c:if test="${empty list}">
+                            <p>No camping sites found.</p>
+                        </c:if>
+                    </div>
                 </div>
             </div>
         </div>

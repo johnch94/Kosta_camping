@@ -100,8 +100,10 @@
                                         <h1>이름 검색</h1>
                                         <div class="separator"></div>
                                         <div class="input-area">
-                                            <i class="fa fa-search search-button"></i>
-                                            <input type="text" class="input-box" placeholder="캠핑장 이름 검색"/>
+                                            <form action="/go/listdetail.do">
+                                                <i class="fa fa-search search-button"></i>
+                                                <input type="text" class="input-box" placeholder="캠핑장 이름 검색" name="kw"/>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +165,7 @@
                                         <div class="input-area">
                                             <form action="${pageContext.request.contextPath }/go/list.do">
                                                 <i class="fa fa-search search-button"></i>
-                                                <input type="text" class="input-box" placeholder="키워드 검색" style="color: black" name="kw"/>
+                                                <input type="text" class="input-box" placeholder="키워드 검색" name="kw"/>
                                             </form>
                                         </div>
                                     </div>
