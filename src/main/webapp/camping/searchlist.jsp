@@ -154,7 +154,59 @@
                             </div><br>
                             <hr width=”500px” color=”black” noshade />
                         </c:forEach>
-
+                        <div style="text-align: right;"><a href="${pageContext.request.contextPath}/tour/keydetail.do?keyword=${keyword}">더보기...</a></div> 
+ <hr style="border:0; height:1px; background: #000;">
+  							<h2>관광지</h2>                    
+                        	<div id="mapX1" style="display:none"></div>
+                        	<div id="mapY1" style="display:none"></div>
+                        	<div id="id1" style="display:none"></div>	
+                            <div style="float: left; margin: 10px;">                            
+                                <img id="tourim1" src="" style="display:inline-block; vertical-align:top; width:250px ; height:250px">                
+                            </div>
+                            <div  style="display:inline-block;height: 75px;margin-top:7px;margin-left: 15px">
+                            <a id="totitle1" href="" style="font-size: 25px"></a>
+                            </div><br>
+                            <div id= "addr1" style="display:inline-block;height: 7px;font-size: 15px;margin-left: 15px"></div><br>
+                       		<div id="myDiv" style="display:inline-block;height: 70px; width:500px;font-size: 15px;margin-left: 15px">
+    						<div id="cat1" style="display:inline-block;height: 90px">...</div>                
+                            </div><br>
+                            <div style="display:inline-block;height: 70px;font-size: 15px;margin-left: 15px">     
+                            </div><br>
+                            <hr width=”500px” color=”black” noshade />
+                            
+                            <div id="mapX2" style="display:none"></div>
+                        	<div id="mapY2" style="display:none"></div>
+                        	<div id="id2" style="display:none"></div>	
+                            <div style="float: left; margin: 10px;">                            
+                                <img id="tourim2" src="" style="display:inline-block; vertical-align:top; width:250px ; height:250px">                
+                            </div>
+                            <div  style="display:inline-block;height: 75px;margin-top:7px;margin-left: 15px">
+                            <a id="totitle2" href="" style="font-size: 25px"></a>
+                            </div><br>
+                            <div id= "addr2" style="display:inline-block;height: 7px;font-size: 15px;margin-left: 15px"></div><br>
+                       		<div id="myDiv" style="display:inline-block;height: 70px; width:500px;font-size: 15px;margin-left: 15px">
+    						<div id="cat2" style="display:inline-block;height: 90px">...</div>                
+                            </div><br>
+                            <div style="display:inline-block;height: 70px;font-size: 15px;margin-left: 15px">     
+                            </div><br>
+                            <hr width=”500px” color=”black” noshade />
+                            
+                            <div id="mapX3" style="display:none"></div>
+                        	<div id="mapY3" style="display:none"></div>
+                        	<div id="id3" style="display:none"></div>	
+                            <div style="float: left; margin: 10px;">                            
+                                <img id="tourim3" src="" style="display:inline-block; vertical-align:top; width:250px ; height:250px">                
+                            </div>
+                            <div  style="display:inline-block;height: 75px;margin-top:7px;margin-left: 15px">
+                            <a id="totitle3" href="" style="font-size: 25px"></a>
+                            </div><br>
+                            <div id= "addr3" style="display:inline-block;height: 7px;font-size: 15px;margin-left: 15px"></div><br>
+                       		<div id="myDiv" style="display:inline-block;height: 70px; width:500px;font-size: 15px;margin-left: 15px">
+    						<div id="cat3" style="display:inline-block;height: 90px">...</div>                
+                            </div><br>
+                            <div style="display:inline-block;height: 70px;font-size: 15px;margin-left: 15px">     
+                            </div><br>
+                            <hr width=”500px” color=”black” noshade />
 <%--                        <div style="text-align: center;">--%>
 <%--                            <!-- 이전 페이지로 이동 -->--%>
 <%--                            <input type="button" value="처음으로" onclick="previousPage(1)">--%>
@@ -301,6 +353,62 @@
         document.body.appendChild(form);
         form.submit();
     }
+</script>
+<script type="text/javascript"> 
+window.onload = () => {
+    let keyword = '${keyword}';
+    const req = new XMLHttpRequest();
+    req.onload = () => {
+        if (req.status === 200) {
+            try {
+                let data = JSON.parse(req.responseText);
+                data.forEach((item, index) => {
+                	if(index < 3){
+            			if (item.imgs !== "") {
+                            document.getElementById('tourim'+(index + 1)).src = item.tourl;
+                        } else {
+                            
+                            document.getElementById('tourim'+(index + 1)).src = "${pageContext.request.contextPath }/assets/images/coming_soon.jpg";
+                        }
+            			
+            			let id = item.id;
+            			let mapX = item.mapY;
+            			let mapY = item.mapX;
+            			document.getElementById('addr'+(index + 1)).innerHTML = item.addr1 + item.addr2;
+            			document.getElementById('totitle'+(index + 1)).innerHTML = '🚗'+item.totitle;    
+            			document.getElementById('totitle'+(index + 1)).href = "${pageContext.request.contextPath}/tour/tourdetail.do?contentId="+id+"&mapX="+mapY+"&mapY="+mapX	;
+            			let catE = document.getElementById('cat' +(index + 1));
+            			switch (item.cat1) {
+                        case 'A01':
+                        	catE.innerHTML = "🏞️자연";
+                            break;
+                        case 'A02':
+                        	catE.innerHTML = "🏞️인문(문화/예술/역사)";
+                            break;
+                        case 'A03':
+                        	catE.innerHTML = "🏞️레저스포츠";
+                            break;
+                        case 'A04':
+                        	catE.innerHTML = "🏞️쇼핑";
+                            break;
+                        case 'A05':
+                        	catE.innerHTML = "🏞️음식";
+                            break;
+                        case 'C01':
+                        	catE.innerHTML = "🏞️추천코스";
+                            break;
+                   		 }
+	
+            		}
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        } 
+    };
+    req.open('GET', '${pageContext.request.contextPath}/tour/tourkeyword.do?keyword=' + keyword);
+    req.send();
+};
 </script>
 </body>
 </html>
