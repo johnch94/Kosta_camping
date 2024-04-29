@@ -17,7 +17,7 @@ public class Cam_BoardDao {
 	
 	public void insert(Cam_Board cb) {
 		Connection conn = db.conn();
-		String sql = "INSERT INTO cam_board VALUES(num, ?, ?, ?, ?, now(), ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO cam_board VALUES(seq_board.nextval, ?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class Cam_BoardDao {
 	public ArrayList<Cam_Board> selectAll() {
 		Connection conn = db.conn();
 		ArrayList<Cam_Board> list = new ArrayList<Cam_Board>();
-		String sql = "SELECT * FROM cam_board ORDER BY bnum";
+		String sql = "SELECT * FROM cam_board ORDER BY bnum desc";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
