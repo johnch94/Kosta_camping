@@ -194,7 +194,7 @@
                 	<div id="contentid1" style="display:none"></div>
                 	<div id="mapX1" style="display:none"></div>
                 	<div id="mapY1" style="display:none"></div>
-                  	<a id="href1" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg1" src=""></div></a>
+                  	<a id="href1" href=""><img id="recomimg1" src="" style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></a>
                     <h4 id="recomtitle1">관광지 1</h4>
                     <div class="separator3"></div>
                     <p id="recomcat1">Lorem Ipsum is simply dummy text of the printing and typesetting let.
@@ -208,7 +208,7 @@
                		<div id="contentid2" style="display:none"></div>
                 	<div id="mapX2" style="display:none"></div>
                 	<div id="mapY2" style="display:none"></div>
-                    <a id="href2" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg2" src=""></div></a>
+                    <a id="href2" href=""><img id="recomimg2" src="" style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></a>
                     <h4 id="recomtitle2">관광지 1</h4>
                     <div class="separator3"></div>
                     <p id="recomcat2">Lorem Ipsum is simply dummy text of the printing and typesetting let.
@@ -222,7 +222,7 @@
                 	<div id="contentid3" style="display:none"></div>
                 	<div id="mapX3" style="display:none"></div>
                 	<div id="mapY3" style="display:none"></div>
-                   	<a id="href3" href=""> <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg3" src=""></div></a>
+             		 <a id="href3" href=""><img id="recomimg3" src="" style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></a>
                     <h4 id="recomtitle3">관광지 1</h4>
                     <div class="separator3"></div>
                     <p id="recomcat3">Lorem Ipsum is simply dummy text of the printing and typesetting let.
@@ -236,7 +236,7 @@
              	    <div id="contentid4" style="display:none"></div>
                 	<div id="mapX4" style="display:none"></div>
                 	<div id="mapY4" style="display:none"></div>
-                    <a id="href4" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg4" src=""></div></a>
+                    <a id="href4" href=""><img id="recomimg4" src="" style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></a>
                     <h4 id="recomtitle4">관광지 1</h4>
                     <div class="separator3"></div>
                     <p id="recomcat4">Lorem Ipsum is simply dummy text of the printing and typesetting let.
@@ -389,8 +389,8 @@ const weather = (xxx, yyy) =>{
 			    req4.send();
 			    
 			    
-			    let id4 = '39';
-			    let pageNum4 = '1540';
+			    let id4 = '12';
+			    let pageNum4 = '167';
 				const req5 = new XMLHttpRequest();
 				    req5.onload = () => {
 				    	 if (req5.status === 200) {
