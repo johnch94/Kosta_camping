@@ -114,10 +114,10 @@
 						<div>
 							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: 15px">내 글 확인</button>
 						</div>
+						<div>
+							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'">게시글 작성</button>
+						</div>
 					</c:if>
-					<div>
-						<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'">게시글 작성</button>
-					</div>
 				</div>
 				<c:forEach var="s" items="${list}">
 					<div class="col mb-5" style="margin-top: 15px">
