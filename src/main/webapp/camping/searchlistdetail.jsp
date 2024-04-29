@@ -110,8 +110,7 @@
                 <h1 style="display: inline-block">"&nbsp;검색 결과</h1>
             </div>
         </div>
-    </section>
-    <!-- search section -->
+    </section>    <!-- search section -->
     <section>
         <div class="container">
             <div class="input-area">

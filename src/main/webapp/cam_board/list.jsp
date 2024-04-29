@@ -107,14 +107,20 @@
 	<!--End of title -->
 	<!--home Section -->
 	<section class="py-5">
-		<div style="width: 100%; display: flex; justify-content: flex-end">
-			<div></div>
-			<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: ">게시글 작성</button>
-		</div>
 		<div class="container px-4 px-lg-5 mt-5">
-			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
+			<div class="row gx-4 gx-lg-5 justify-content-start">
+				<div style="width: 100%; display: flex; flex-direction: row; justify-content: center; padding: 15px">
+					<c:if test="${not empty sessionScope.loginId}">
+						<div>
+							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: 15px">내 글 확인</button>
+						</div>
+					</c:if>
+					<div>
+						<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'">게시글 작성</button>
+					</div>
+				</div>
 				<c:forEach var="s" items="${list}">
-					<div class="col mb-5">
+					<div class="col mb-5" style="margin-top: 15px">
 						<div class="card h-100">
 							<!-- Product image-->
 							<img class="card-img-top" src="${s.img1 }" alt="..." />
@@ -136,7 +142,7 @@
 						</div>
 					</div>
 				</c:forEach>
-				<div style="text-align: center;">
+				<div style="text-align: center; margin-bottom: 20px">
 					<!-- 이전 페이지로 이동 -->
 					<input type="button" value="처음으로" onclick="previousPage(1)">
 					<!-- 페이지 번호로 이동 -->
