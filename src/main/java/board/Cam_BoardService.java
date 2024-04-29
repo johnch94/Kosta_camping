@@ -38,7 +38,9 @@ public class Cam_BoardService {
 	public void editImg(int num, String col, String fname) {
 		dao.updateImg(num, col, fname);
 	}
-	
+	public ArrayList<Cam_Board> getByWriter(String writer) {
+		return dao.selectById(writer);
+	}
 	public void delete(int bnum) {
 		dao.delete(bnum);
 	}

@@ -24,13 +24,22 @@ public class SearchListDetailHandler implements Handler {
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
         int pageNum = 1;
+        String keyword = "";
         String view = "/camping/searchlistdetail.jsp";
         if(req.getMethod().equals("POST")){
             pageNum = Integer.parseInt(req.getParameter("pageNum"));
             System.out.println(pageNum);
         }
         String serviceKey = "SZf%2BRflDYMf6sMf5DXZ17HAUiVff2aDe9Kp669N3GIMbikpuGzqOuduXjuKnmx93PkYHfg6xul3DHmB%2Fy6bCZg%3D%3D";
-        String keyword = req.getParameter("kw");
+        String kw = req.getParameter("kw");
+        char[] chars = kw.toCharArray();
+        String s = String.valueOf(chars[0]);
+
+        if(s.equals("#")){
+            keyword = kw.substring(1,chars.length);
+        }else{
+            keyword = kw;
+        }
         String encoded = null;
         try {
             encoded = URLEncoder.encode(keyword, "UTF-8");
@@ -70,7 +79,7 @@ public class SearchListDetailHandler implements Handler {
             System.out.println(list.size());
             System.out.println(totalPages);
             req.setAttribute("list", list);
-            req.setAttribute("keyword", keyword);
+            req.setAttribute("keyword", kw);
             req.setAttribute("pageNum",pageNum);
             req.setAttribute("totalPages", totalPages);
         } catch (MalformedURLException | ClassCastException | ParseException e) {
