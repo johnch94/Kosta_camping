@@ -122,7 +122,7 @@
 						</div>
 						<div class="field">
 							<b>Area</b>
-							<span><input type="text" name="area"></span>
+							<span><input type="text" name="area" placeholder="ex) 서울"></span>
 						</div>
 						<div class="field">
 							<b>Price</b>

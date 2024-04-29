@@ -48,7 +48,7 @@ public class Cam_BoardAddHandler implements Handler {
                 }
 
                 Cam_BoardService service = new Cam_BoardService();
-                service.addCam_Board(new Cam_Board(0, writer, area, price, title, null, content, img1, 0, img2, img3));
+                service.addCam_Board(new Cam_Board(0, writer, area, price, title, null, content, "/kosta_img/"+img1, 0, "/kosta_img/"+img2, "/kosta_img/"+img3));
 
                 view = "redirect:/cam_board/list.do";
 
