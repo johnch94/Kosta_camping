@@ -226,6 +226,7 @@
         </div>
     </section>
     <!--End of img section-->
+    
     <!-- Start of weather section -->
     <section style="margin-top: 50px; margin-bottom: 100px">
         <div class="container">
