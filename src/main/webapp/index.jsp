@@ -302,16 +302,12 @@ window.onload = () => {
             Y = testY.toString().substring(0,9);
         var wlon = parseFloat(Y);
         var wlat = parseFloat(X);
-        console.log(wlon);
-        console.log(wlat);
-        document.getElementById("xxx").innerText = wlat;
-        document.getElementById("yyy").innerText = wlon;
+        weather(wlat, wlon);
     });
-    weather(wlat, wlon);
-}
+   
 const weather = (xxx, yyy) =>{
-    // var wlat = xxx;
-    // var wlon = yyy;
+    var wlat = xxx;
+    var wlon = yyy;
     const req = new XMLHttpRequest();
     req.onload = () => {
         if (req.status === 200) {
@@ -331,6 +327,7 @@ const weather = (xxx, yyy) =>{
     };
     req.open('GET', '${pageContext.request.contextPath}/weather/listwea.do?wlat=' + wlat + '&wlon=' + wlon);
     req.send();
+  }
 }
 </script>
 </body>
