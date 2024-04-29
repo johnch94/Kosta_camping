@@ -6,84 +6,120 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
+        .container {
+            width: 80%;
+            margin: 0 auto;
         }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
+        .detail-section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
         }
-        th {
-            background-color: #f2f2f2;
+        .detail-section h3 {
+            margin-top: 0;
         }
-        img {
+        .detail-section img {
             width: 200px;
             height: 200px;
+        }
+        .comment {
+            margin-bottom: 10px;
+        }
+        .comment .writer {
+            font-weight: bold;
+        }
+        .comment .date {
+            color: #888;
+        }
+        .comment form {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h3>상세 페이지</h3>
-    <c:if test="${boo }">
-    <div><a href="${pageContext.request.contextPath}/cam_board/follow.do?id=${cb.writer}&bnum=${cb.bnum}">❤️</a> ${cb.fnt}
-        </c:if>
-        <c:if test="${not boo }">
-        <div><a href="${pageContext.request.contextPath}/cam_board/delfollow.do?id=${cb.writer}&bnum=${cb.bnum}">💪</a> ${cb.fnt}
+<div class="container">
+    <a href="${pageContext.request.contextPath }/cam_board/list.do">목록으로</a>
+    <div class="detail-section">
+        <h3>${cb.title}</h3>
+        <div class="follow" style="text-align: right">
+            <c:if test="${boo }">
+                <a href="${pageContext.request.contextPath}/cam_board/follow.do?id=${cb.writer}&bnum=${cb.bnum}">❤️</a> ${cb.fnt}
             </c:if>
-        ️</div>
-    <table>
-        <thead>
-            <tr>
-                <th>bnum</th><th>writer</th><th>area</th><th>price</th><th>title</th><th>wdate</th><th>content</th><th>img1</th><th>img2</th><th>img3</th><th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>${cb.bnum }</td>
-                <td>${cb.writer }</td>
-                <td>${cb.area }</td>
-                <td>${cb.price }</td>
-                <td>${cb.title }</td>
-                <td>${cb.wdate }</td>
-                <td>${cb.content }</td>
-                <td><img src="${cb.img1 }"></td>
-                <td><img src="${cb.img2 }"></td>
-                <td><img src="${cb.img3 }"></td>
-                <td>
-                    <c:if test="${cb.writer == sessionScope.loginId }">
-                        <a href="${pageContext.request.contextPath }/cam_board/edit.do?bnum=${cb.bnum }">수정</a>
-                        <a href="">삭제</a>
-                        <a href="${pageContext.request.contextPath }/cam_board/list.do">목록으로</a>
-                    </c:if>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <c:if test="${not boo }">
+                <a href="${pageContext.request.contextPath}/cam_board/delfollow.do?id=${cb.writer}&bnum=${cb.bnum}">💪</a> ${cb.fnt}
+            </c:if>
+        </div>
+        <div class="detail-info">
+            <div style="display: inline-block"><strong>writer:</strong> ${cb.writer }</div><div style="border-left: 1px solid #5e5e5e;padding-left: 10px; margin-left: 10px; display:inline-block;height : 15px;"></div>
+            <div style="display: inline-block">${cb.area }</div><div style="border-left: 1px solid #000;padding-left: 10px; margin-left: 10px; display:inline-block;height : 15px;"></div>
+            <div style="display: inline-block">가격: ${cb.price }</div>
 
-    <h3>댓글</h3>
-    <c:forEach var="s" items="${clist }">
-        <div>${s.writer }</div>
-        <div>${s.body }</div>
-        <div>${s.wdate }</div>
-        <c:if test="${cb.writer eq sessionScope.loginId }">
-            <form action="${pageContext.request.contextPath }/cam_comment/del.do?cnum=${s.cnum}&bnum=${cb.bnum}" method="post">
-                <input type="submit" value="삭제">
-            </form>
-        </c:if>
-    </c:forEach>
+            <div style="display: inline-block">게시일: ${cb.wdate }</div>
 
-    <h3>댓글 달기</h3>
-    <form action="${pageContext.request.contextPath }/cam_comment/add.do" method="post">
-        <input type="hidden" value="${sessionScope.loginId }" name="writer">
-        <input type="hidden" value="${cb.bnum }" name="bnum">
-        <div>내용:</div>
-        <label>
-            <textarea name="body"></textarea>
-        </label>
-        <div><input type="submit"></div>
-    </form>
+            <hr style="margin: 15px 1px">
+            <div style="display: inline-block"><strong style="font-size: 20px;color: red;">판매가</strong>: ${cb.price }원</div>
+            <hr style="margin: 15px 1px">
+            <div class="images">
+                <c:if test="${!cb.img1.contains('null') }">
+                	<img src="${cb.img1}">
+                </c:if>
+                <c:if test="${cb.img1.contains('null') }">
+                	<img src="${pageContext.request.contextPath }/no_img/coming_soon.jpg">
+                </c:if>
+                <c:if test="${!cb.img2.contains('null') }">
+                	<img src="${cb.img2}">
+                </c:if>
+                <c:if test="${cb.img2.contains('null') }">
+                	<img src="${pageContext.request.contextPath }/no_img/coming_soon.jpg">
+                </c:if>
+                <c:if test="${!cb.img3.contains('null') }">
+                	<img src="${cb.img3}">
+                </c:if>
+                <c:if test="${cb.img3.contains('null') }">
+                	<img src="${pageContext.request.contextPath }/no_img/coming_soon.jpg">
+                </c:if>
+            </div>
+            <div>${cb.content }</div>
+            <div class="actions">
+                <c:if test="${cb.writer == sessionScope.loginId }">
+                    <a href="${pageContext.request.contextPath }/cam_board/edit.do?bnum=${cb.bnum }">수정</a>
+                    <a href="${pageContext.request.contextPath }/cam_board/delete.do?bnum=${cb.bnum}">삭제</a>
+                </c:if>
+            </div>
+        </div>
+    </div>
+	
+	<div class="detail-section">
+        <h3>댓글 달기</h3>
+        <form action="${pageContext.request.contextPath }/cam_comment/add.do" method="post">
+            <input type="hidden" value="${sessionScope.loginId }" name="writer">
+            <input type="hidden" value="${cb.bnum }" name="bnum">
+            <div>내용:</div>
+            <label>
+                <textarea name="body" style="width:1150px; height:75px"></textarea>
+            </label>
+            <div><input type="submit"></div>
+        </form>
+    </div>
+	
+    <div class="detail-section">
+    
+        <h3>댓글</h3>
+        <c:forEach var="s" items="${clist }">
+            <div class="comment">
+                <div class="writer">${s.writer }</div>
+                <div class="body">${s.body }</div>
+                <div class="date">${s.wdate }</div>
+                <c:if test="${cb.writer eq sessionScope.loginId }">
+                    <form action="${pageContext.request.contextPath }/cam_comment/del.do?cnum=${s.cnum}&bnum=${cb.bnum}" method="post">
+                        <input type="submit" value="삭제">
+                    </form>
+                </c:if>
+            </div>
+        </c:forEach>
+    </div>
 
+    
+</div>
 </body>
 </html>
