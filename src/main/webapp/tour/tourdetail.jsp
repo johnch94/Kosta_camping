@@ -55,9 +55,6 @@
 	}
     
     </script>
-    
-    
-    
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
