@@ -187,14 +187,17 @@
             </div>
         </div>
     </div>
-    <div class="container" style="margin-bottom: 50px">
-        <div class="col-sm-3">
+    <div class="container" style="margin-bottom: 50px"> 	
+  		<div class="col-sm-3">
             <div class="single_feature">
                 <div class="flex_center" style="margin-top: 50px;">
-                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
-                    <h4>관광지 1</h4>
+                	<div id="contentid1" style="display:none"></div>
+                	<div id="mapX1" style="display:none"></div>
+                	<div id="mapY1" style="display:none"></div>
+                  	<a id="href1" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg1" src=""></div></a>
+                    <h4 id="recomtitle1">관광지 1</h4>
                     <div class="separator3"></div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                    <p id="recomcat1">Lorem Ipsum is simply dummy text of the printing and typesetting let.
                         Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
@@ -202,10 +205,13 @@
         <div class="col-sm-3">
             <div class="single_feature">
                 <div class="flex_center" style="margin-top: 50px;">
-                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
-                    <h4>관광지 1</h4>
+               		<div id="contentid2" style="display:none"></div>
+                	<div id="mapX2" style="display:none"></div>
+                	<div id="mapY2" style="display:none"></div>
+                    <a id="href2" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg2" src=""></div></a>
+                    <h4 id="recomtitle2">관광지 1</h4>
                     <div class="separator3"></div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                    <p id="recomcat2">Lorem Ipsum is simply dummy text of the printing and typesetting let.
                         Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
@@ -213,10 +219,13 @@
         <div class="col-sm-3">
             <div class="single_feature">
                 <div class="flex_center" style="margin-top: 50px;">
-                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
-                    <h4>관광지 1</h4>
+                	<div id="contentid3" style="display:none"></div>
+                	<div id="mapX3" style="display:none"></div>
+                	<div id="mapY3" style="display:none"></div>
+                   	<a id="href3" href=""> <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg3" src=""></div></a>
+                    <h4 id="recomtitle3">관광지 1</h4>
                     <div class="separator3"></div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                    <p id="recomcat3">Lorem Ipsum is simply dummy text of the printing and typesetting let.
                         Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
@@ -224,10 +233,13 @@
         <div class="col-sm-3">
             <div class="single_feature">
                 <div class="flex_center" style="margin-top: 50px;">
-                    <div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"></div>
-                    <h4>관광지 1</h4>
+             	    <div id="contentid4" style="display:none"></div>
+                	<div id="mapX4" style="display:none"></div>
+                	<div id="mapY4" style="display:none"></div>
+                    <a id="href4" href=""><div style="width: 150px; height: 150px; background-color: black; margin-bottom: 30px"><img id="recomimg4" src=""></div></a>
+                    <h4 id="recomtitle4">관광지 1</h4>
                     <div class="separator3"></div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting let.
+                    <p id="recomcat4">Lorem Ipsum is simply dummy text of the printing and typesetting let.
                         Lorem Ipsum has been the industry.</p>
                 </div>
             </div>
@@ -306,6 +318,99 @@ window.onload = () => {
     });
    
 const weather = (xxx, yyy) =>{
+	let id = '12';
+	let pageNum = '4';
+	const req2 = new XMLHttpRequest();
+	    req2.onload = () => {
+	    	 if (req2.status === 200) {
+	             try {
+	                 let data = JSON.parse(req2.responseText);
+	                 data.forEach((item, index) => {
+	                     if (index < 1) {
+	                         document.getElementById('recomtitle1').innerHTML = item.title;
+	                         document.getElementById('recomimg1').src = item.firstimage;
+	                         document.getElementById('recomcat1').innerHTML = item.cat1;
+	                         document.getElementById('href1').href = '${pageContext.request.contextPath}/tour/tourdetail.do?contentId=' + item.contentid + '&mapX=' + item.mapX + '&mapY=' + item.mapY;
+	                         cosole.log(item.contentid)
+	                     }
+	                 });
+	             } catch (e) {
+	                 e.e;
+	             }
+	         }
+	    };
+	    req2.open('GET', '${pageContext.request.contextPath}/tour/recomtour.do?id='+id+'&pageNum='+pageNum);
+	    req2.send();
+	
+	    let id2 = '14';
+	    let pageNum2 = '2200';
+		const req3 = new XMLHttpRequest();
+		    req3.onload = () => {
+		    	 if (req3.status === 200) {
+		             try {
+		                 let data = JSON.parse(req3.responseText);
+		                 data.forEach((item, index) => {
+		                     if (index < 1) {
+		                         document.getElementById('recomtitle2').innerHTML = item.title;
+		                         document.getElementById('recomimg2').src = item.firstimage;
+		                         document.getElementById('recomcat2').innerHTML = item.cat1;
+		                         document.getElementById('href2').href = '${pageContext.request.contextPath}/tour/tourdetail.do?contentId=' + item.contentid + '&mapX=' + item.mapX + '&mapY=' + item.mapY;
+		                     }
+		                 });
+		             } catch (e) {
+		                 e.e;
+		             }
+		         }
+		    };
+		    req3.open('GET', '${pageContext.request.contextPath}/tour/recomtour.do?id='+id2+'&pageNum='+pageNum2);
+		    req3.send();
+		    
+		    let id3 = '15';
+		    let pageNum3 = '9';
+			const req4 = new XMLHttpRequest();
+			    req4.onload = () => {
+			    	 if (req4.status === 200) {
+			             try {
+			                 let data = JSON.parse(req4.responseText);
+			                 data.forEach((item, index) => {
+			                     if (index < 1) {
+			                         document.getElementById('recomtitle3').innerHTML = item.title;
+			                         document.getElementById('recomimg3').src = item.firstimage;
+			                         document.getElementById('recomcat3').innerHTML = item.cat1;
+			                         document.getElementById('href3').href = '${pageContext.request.contextPath}/tour/tourdetail.do?contentId=' + item.contentid + '&mapX=' + item.mapX + '&mapY=' + item.mapY;
+			                     }
+			                 });
+			             } catch (e) {
+			                 e.e;
+			             }
+			         }
+			    };
+			    req4.open('GET', '${pageContext.request.contextPath}/tour/recomtour.do?id='+id3+'&pageNum='+pageNum3);
+			    req4.send();
+			    
+			    
+			    let id4 = '39';
+			    let pageNum4 = '1540';
+				const req5 = new XMLHttpRequest();
+				    req5.onload = () => {
+				    	 if (req5.status === 200) {
+				             try {
+				                 let data = JSON.parse(req5.responseText);
+				                 data.forEach((item, index) => {
+				                     if (index < 1) {
+				                         document.getElementById('recomtitle4').innerHTML = item.title;
+				                         document.getElementById('recomimg4').src = item.firstimage;
+				                         document.getElementById('recomcat4').innerHTML = item.cat1;
+				                         document.getElementById('href4').href = '${pageContext.request.contextPath}/tour/tourdetail.do?contentId=' + item.contentid + '&mapX=' + item.mapX + '&mapY=' + item.mapY;
+				                     }
+				                 });
+				             } catch (e) {
+				                 e.e;
+				             }
+				         }
+				    };
+				    req5.open('GET', '${pageContext.request.contextPath}/tour/recomtour.do?id='+id4+'&pageNum='+pageNum4);
+				    req5.send();
     var wlat = xxx;
     var wlon = yyy;
     const req = new XMLHttpRequest();
@@ -326,9 +431,10 @@ const weather = (xxx, yyy) =>{
         }
     };
     req.open('GET', '${pageContext.request.contextPath}/weather/listwea.do?wlat=' + wlat + '&wlon=' + wlon);
-    req.send();
-  }
+    req.send(); 
+  } 
 }
+
 </script>
 </body>
 </html>
