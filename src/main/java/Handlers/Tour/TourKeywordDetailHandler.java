@@ -27,18 +27,20 @@ public class TourKeywordDetailHandler implements Handler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {	
-		
+		int pageNum = 1;
 		String keyword = request.getParameter("keyword");
-		
+		if(request.getMethod().equals("POST")) {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		}
 		String encodKeyword = "";
 		try {
              encodKeyword = URLEncoder.encode(keyword, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-		
+
 		String key = "SdeOzBODvCDlqYbh6xnuIifdMoGefFkydegygHP3jmHIH3dLH99Plz%2FBTKEsFv0Lem1%2FbMHPImBnr8ei95GLLA%3D%3D";
-		String path = "https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey="+key+"&MobileApp=AppTest&MobileOS=ETC&pageNo=1&numOfRows=10&listYN=Y&keyword=" + encodKeyword;
+		String path = "https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey="+key+"&MobileApp=AppTest&MobileOS=ETC&pageNo="+pageNum+"&numOfRows=10&listYN=Y&keyword=" + encodKeyword;
 
 		try {
 		URL url = new URL(path);
@@ -49,8 +51,13 @@ public class TourKeywordDetailHandler implements Handler {
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document doc = builder.parse(is);
 		Element root = doc.getDocumentElement();
+		NodeList bodyList= root.getElementsByTagName("body");
 		NodeList itemList  = root.getElementsByTagName("item");
-		
+		int totalCount = 1;
+		for(int i=0; i <bodyList.getLength(); i++) {
+			Element bodyData = (Element) bodyList.item(i);
+			totalCount = Integer.parseInt(bodyData.getElementsByTagName("totalCount").item(0).getTextContent());
+		}
 		ArrayList<TourVo> tourlist = new ArrayList<>();
 		String contentType = "";
 		for(int i=0; i<itemList.getLength(); i++) {
@@ -73,6 +80,8 @@ public class TourKeywordDetailHandler implements Handler {
 		
 		request.setAttribute("list", tourlist);
 		request.setAttribute("keyword", keyword);
+		request.setAttribute("pageNum", pageNum);
+		request.setAttribute("totalCount", (int) Math.ceil( (double) totalCount) / 10);
 
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block

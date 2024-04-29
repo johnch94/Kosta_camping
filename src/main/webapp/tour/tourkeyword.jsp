@@ -94,7 +94,9 @@
     <section id="home_touring" class="home_tour">
         <div class="overlay" style="height: 300px">
             <div class="cam_subtitle">
-                <h1>캠핑장 목록</h1>
+                <h1 style="display: inline-block">"</h1>
+                <h1 style="display: inline-block; color: #ff6457; text-shadow: none">${keyword}</h1>
+                <h1 style="display: inline-block">"&nbsp;검색 결과</h1>
             </div>
         </div>
     </section>
@@ -106,20 +108,20 @@
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10" style="margin-bottom: 100px;">
                     <div class="list" style="margin-top: 50px">
-                      <div>
-			 		    <form class="tourbutton" id="tourType" action="${pageContext.request.contextPath}/tour/tourlist.do" method="POST">
-					    <input type="hidden" name="contentTypeId" id="contentTypeId">
-					    <input type="hidden" name="pageNum" value="1">
-					    <input type="button" value="관광지" onclick="tourid(12)">
-					    <input type="button" value="문화시설" onclick="tourid(14)">
-					    <input type="button" value="행사,공연,축제" onclick="tourid(15)">
-					    <input type="button" value="여행코스" onclick="tourid(25)">
-					    <input type="button" value="레저스포츠" onclick="tourid(28)">
-					    <input type="button" value="쇼핑" onclick="tourid(38)">
-					    <input type="button" value="음식점" onclick="tourid(39)">
-						</form>
- 						<div id="checkType" style="display:none">${contenttypeid}</div>
-          			  </div>
+<!--                       <div> -->
+<%-- 			 		    <form class="tourbutton" id="tourType" action="${pageContext.request.contextPath}/tour/tourlist.do" method="POST"> --%>
+<!-- 					    <input type="hidden" name="contentTypeId" id="contentTypeId"> -->
+<!-- 					    <input type="hidden" name="pageNum" value="1"> -->
+<!-- 					    <input type="button" value="관광지" onclick="tourid(12)"> -->
+<!-- 					    <input type="button" value="문화시설" onclick="tourid(14)"> -->
+<!-- 					    <input type="button" value="행사,공연,축제" onclick="tourid(15)"> -->
+<!-- 					    <input type="button" value="여행코스" onclick="tourid(25)"> -->
+<!-- 					    <input type="button" value="레저스포츠" onclick="tourid(28)"> -->
+<!-- 					    <input type="button" value="쇼핑" onclick="tourid(38)"> -->
+<!-- 					    <input type="button" value="음식점" onclick="tourid(39)"> -->
+<!-- 						</form> -->
+<%--  						<div id="checkType" style="display:none">${contenttypeid}</div> --%>
+<!--           			  </div> -->
                         <c:if test="${not empty list}">
                             <c:forEach var="tour" items="${list}">
                                 <div class="list_content">
@@ -155,7 +157,7 @@
                             <!-- 페이지 인덱스 -->
                             <div style="text-align: center;">
                                 <!-- 이전 페이지로 이동 -->
-                                <input type="button" value="처음으로" onclick="previousPage(1, '${contenttypeid}')">
+                                <input type="button" value="처음으로" onclick="previousPage(1, '${keyword}')">
                                 <!-- 페이지 번호로 이동 -->
                                 <c:set var="startPage" value="${pageNum - 2 }" />
                                 <c:set var="endPage" value="${pageNum + 2 }" />
@@ -168,10 +170,10 @@
                                     <c:set var="startPage" value="${totalCount - 4 }" />
                                 </c:if>
                                 <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                    <input type="button" value="${i }" onclick="goToPage(${i} , '${contenttypeid}')">
+                                    <input type="button" value="${i }" onclick="goToPage(${i} , '${keyword}')">
                                 </c:forEach>
                                 <!-- 다음 페이지로 이동 -->
-                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}', '${contenttypeid}')"><br/>
+                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}', '${keyword}')"><br/>
                                 현재 페이지: ${pageNum}
                             </div>
                         </c:if>
@@ -221,14 +223,14 @@
 <!-- list page js -->
 <script type="text/javascript">
     let pageNum = 1;
-    let contentTypeId = '${contenttypeid}';
+    let keyword = '${keyword}';
     let totalCount = '${totalCount}';
     
     const previousPage = (pageNum, contentTypeId) => {
 
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
+        form.action = '${pageContext.request.contextPath}/tour/keydetail.do';
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
@@ -237,8 +239,8 @@
         form.appendChild(numInput);
         const contentInput = document.createElement('input');
         contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
+        contentInput.name = 'keyword';
+        contentInput.value = keyword;
         form.appendChild(contentInput);
 
         document.body.appendChild(form);
@@ -249,7 +251,7 @@
 
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
+        form.action = '${pageContext.request.contextPath}/tour/keydetail.do';
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
@@ -258,8 +260,8 @@
         form.appendChild(numInput);
         const contentInput = document.createElement('input');
         contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
+        contentInput.name = 'keyword';
+        contentInput.value = keyword;
         form.appendChild(contentInput);
 
 
@@ -270,7 +272,7 @@
     const goToPage = (pageNum, contentTypeId) => {
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = '${pageContext.request.contextPath}/tour/tourlist.do';
+        form.action = '${pageContext.request.contextPath}/tour/keydetail.do';
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
@@ -279,8 +281,8 @@
         form.appendChild(numInput);
         const contentInput = document.createElement('input');
         contentInput.type = 'hidden';
-        contentInput.name = 'contentTypeId';
-        contentInput.value = contentTypeId;
+        contentInput.name = 'keyword';
+        contentInput.value = keyword;
         form.appendChild(contentInput);
 
         document.body.appendChild(form);
@@ -301,12 +303,12 @@
 
 <!--slick slide js -->
 <script src="${pageContext.request.contextPath}/assets/css/slick/slick.min.js"></script>
-<script>
-function tourid(contentTypeId) {
-    document.getElementById('contentTypeId').value = contentTypeId;
-    document.getElementById('tourType').submit();
-}
-</script>
+<!-- <script> 
+// function tourid(contentTypeId) {
+//     document.getElementById('contentTypeId').value = contentTypeId;
+//     document.getElementById('tourType').submit();
+// }
+</script> -->
 </body>
 </html>
 
