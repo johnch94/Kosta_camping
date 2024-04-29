@@ -26,7 +26,7 @@ public class SearchListDetailHandler implements Handler {
         int pageNum = 1;
         String view = "/camping/searchlistdetail.jsp";
         if(req.getMethod().equals("POST")){
-            pageNum = Integer.parseInt(req.getParameter("num"));
+            pageNum = Integer.parseInt(req.getParameter("pageNum"));
             System.out.println(pageNum);
         }
         String serviceKey = "SZf%2BRflDYMf6sMf5DXZ17HAUiVff2aDe9Kp669N3GIMbikpuGzqOuduXjuKnmx93PkYHfg6xul3DHmB%2Fy6bCZg%3D%3D";
@@ -66,11 +66,12 @@ public class SearchListDetailHandler implements Handler {
                 list.add(new List(contentId,facltNm,featureNm,intro,lineIntro ,addr1,addr2,sbrsCl,firstImageUrl,tel));
             }
             int totalPages = (int) Math.ceil((double) totalCount/10);
+            System.out.println("totalPages = " + totalPages);
             System.out.println(list.size());
             System.out.println(totalPages);
             req.setAttribute("list", list);
             req.setAttribute("keyword", keyword);
-            req.setAttribute("num",pageNum);
+            req.setAttribute("pageNum",pageNum);
             req.setAttribute("totalPages", totalPages);
         } catch (MalformedURLException | ClassCastException | ParseException e) {
             return "redirect:/index.jsp";
