@@ -203,7 +203,7 @@
                 	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
                 <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri4" src="" style="width:220px ; height:250px;"
                 	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri5" src="" style="width:220px ; height:250px;"
+                <div s6tyle="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri5" src="" style="width:220px ; height:250px;"
                 	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
                 <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri6" src="" style="width:220px ; height:250px;"
                 	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
