@@ -167,8 +167,7 @@
                                 </div>
                                 <!-- 위치 -->
                                 <div style="display: flex ;justify-content: center">
-                                    <a href="${list.resveUrl}"
-                                       style="display: inline-block; padding: 15px 45px; background-color: #e74c3c; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight:bold; font-size: 20px">예약하기</a>
+                                    <a href="${list.resveUrl}" class="resveMouseover">예약하기</a>
                                 </div>
                                 <!-- 예약 URL -->
                             </div>
@@ -182,7 +181,7 @@
                             <!-- 한 줄 소개 -->
                             <div style="font-size: 20px; line-height: 30px; text-indent: 10px">${list.intro}</div>
                             <!-- 상세 소개 -->
-                            <div style="font-size: 20px; line-height: 30px; text-indent: 10px">${list.featureNm}</div>
+                            <div style="font-size: 20px;">${list.featureNm}</div>
                             <!-- 특징명 -->
                         </div>
 

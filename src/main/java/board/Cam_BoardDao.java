@@ -17,7 +17,7 @@ public class Cam_BoardDao {
 	
 	public void insert(Cam_Board cb) {
 		Connection conn = db.conn();
-		String sql = "INSERT INTO cam_board VALUES(num, ?, ?, ?, ?, now(), ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO cam_board VALUES(seq_board.nextval, ?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class Cam_BoardDao {
 	public ArrayList<Cam_Board> selectAll() {
 		Connection conn = db.conn();
 		ArrayList<Cam_Board> list = new ArrayList<Cam_Board>();
-		String sql = "SELECT * FROM cam_board ORDER BY bnum";
+		String sql = "SELECT * FROM cam_board ORDER BY bnum desc";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -268,4 +268,27 @@ public class Cam_BoardDao {
 			}
 		}
 	}
+	public ArrayList<Cam_Board> selectById(String writer){
+		Connection conn = db.conn();
+		String sql = "SELECT * FROM cam_board where writer = ? order by bnum";
+		Cam_Board cb = new Cam_Board();
+		ArrayList<Cam_Board> list = new ArrayList<>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,writer);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new Cam_Board(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),rs.getString(11)));
+			}
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+		return list;
+    }
 }

@@ -110,8 +110,7 @@
                 <h1 style="display: inline-block">"&nbsp;검색 결과</h1>
             </div>
         </div>
-    </section>
-    <!-- search section -->
+    </section>    <!-- search section -->
     <section>
         <div class="container">
             <div class="input-area">
@@ -178,15 +177,15 @@
                                     <c:set var="startPage" value="1" />
                                     <c:set var="endPage" value="5" />
                                 </c:if>
-                                <c:if test="${endPage > totalCount }">
-                                    <c:set var="endPage" value="${totalCount }" />
-                                    <c:set var="startPage" value="${totalCount - 4 }" />
+                                <c:if test="${endPage > totalPages }">
+                                    <c:set var="endPage" value="${totalPages }" />
+                                    <c:set var="startPage" value="1" />
                                 </c:if>
                                 <c:forEach var="i" begin="${startPage }" end="${endPage }">
                                     <input type="button" value="${i }" onclick="goToPage(${i})">
                                 </c:forEach>
                                 <!-- 다음 페이지로 이동 -->
-                                <input type="button" value="마지막으로" onclick="nextPage('${totalCount}')"><br/>
+                                <input type="button" value="마지막으로" onclick="nextPage('${totalPages}')"><br/>
                                 현재 페이지: ${pageNum}
                             </div>
                         </c:if>
@@ -248,8 +247,8 @@
     let pageNum = 1;
     let totalPages = ${totalPages};
     let keyword = '${keyword}';
-    let num = ${num};
-    let currentPage = ${num}; // 현재 페이지 번호를 저장할 변수
+    let num = ${pageNum};
+    let currentPage = ${pageNum}; // 현재 페이지 번호를 저장할 변수
     const previousPage = (num) => {
 
         const form = document.createElement('form');
@@ -258,7 +257,7 @@
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
-        numInput.name = 'num';
+        numInput.name = 'pageNum';
         numInput.value = 1;
         form.appendChild(numInput);
 
@@ -280,7 +279,7 @@
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
-        numInput.name = 'num';
+        numInput.name = 'pageNum';
         numInput.value = totalPages;
         form.appendChild(numInput);
 
@@ -301,7 +300,7 @@
 
         const numInput = document.createElement('input');
         numInput.type = 'hidden';
-        numInput.name = 'num';
+        numInput.name = 'pageNum';
         numInput.value = num;
         form.appendChild(numInput);
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cam_BoardService {
 	private Cam_BoardDao dao;
 	
-	public static String path = "/Users/kangjaehyeok/IdeaProjects/go/src/main/webapp/img";
+	public static String path = "C:\\Users\\정윤석\\IdeaProjects\\test\\kosta_img";
 	
 	public Cam_BoardService() {
 		dao = new Cam_BoardDao();
@@ -38,7 +38,9 @@ public class Cam_BoardService {
 	public void editImg(int num, String col, String fname) {
 		dao.updateImg(num, col, fname);
 	}
-	
+	public ArrayList<Cam_Board> getByWriter(String writer) {
+		return dao.selectById(writer);
+	}
 	public void delete(int bnum) {
 		dao.delete(bnum);
 	}

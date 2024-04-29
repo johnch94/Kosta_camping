@@ -304,7 +304,7 @@
     let pageNum = 1;
     let totalPages = ${totalPages};
     let keyword = '${keyword}';
-    let num = ${num};
+    let num = ${pageNum};
     let currentPage = ${num}; // 현재 페이지 번호를 저장할 변수
     const previousPage = (num) => {
 

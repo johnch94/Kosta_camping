@@ -823,7 +823,6 @@ input::-ms-input-placeholder {
     justify-content: center;
     align-items: center;
 }
-
 /*=================================================================
                         weather css
 ===================================================================*/
@@ -951,6 +950,17 @@ input::-ms-input-placeholder {
     align-items: center;
     justify-content: center;
 }
+.index_tour img{
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    margin-bottom: 30px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+.index_tour img:hover{
+    border: #e74c3c 5px solid;
+}
 /*=================================================================
                         list section
 ===================================================================*/
@@ -1013,7 +1023,7 @@ input::-ms-input-placeholder {
 }
 
 /*=================================================================
-                        mem section
+                        board section
 ===================================================================*/
 
 
@@ -1066,9 +1076,9 @@ input::-ms-input-placeholder {
   }
 
 .resveMouseover:hover {
-    transform: scale(1.1);
-    background-color : yellow;
-    color: black;
+    background-color : white;
+    color: #e74c3c;
+    border: #e74c3c 2px solid;
   }
 /*=================================================================
                         footer section
