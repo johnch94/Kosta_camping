@@ -43,7 +43,7 @@
      <!-- 마우스 오버 시 이미지 확대 -->
     <script type="text/javascript">
     function zoomIn(event) {
-    	event.target.style.transform = "scale(1.2)";
+    	 event.target.style.transform = "scale(1.2)";
          	event.target.style.zIndex = 1;
     	   event.target.style.transition = "all 0.5s";
 	}
