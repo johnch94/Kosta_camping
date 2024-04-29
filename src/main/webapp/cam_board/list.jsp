@@ -112,7 +112,7 @@
 				<div style="width: 100%; display: flex; flex-direction: row; justify-content: center; padding: 15px">
 					<c:if test="${not empty sessionScope.loginId}">
 						<div>
-							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'" style="margin-right: 15px">내 글 확인</button>
+							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/mylist.do?pageNum=1'" style="margin-right: 15px">내 글 확인</button>
 						</div>
 						<div>
 							<button class="btn btn-secondary" onclick="location.href='${pageContext.request.contextPath }/cam_board/add.do'">게시글 작성</button>
@@ -123,25 +123,27 @@
 					<div class="col mb-5" style="margin-top: 15px">
 						<div class="card h-100">
 							<!-- Product image-->
-							<c:if test="${! s.img1 eq null}">
-								<img class="card-img-top" src="${s.img1 }" alt="..." />
-							</c:if>
-							<c:if test="${s.img1 eq null}">
-								<img class="card-img-top" src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg" alt="..." />
-							</c:if>
+							<div class="board_list">
+								<c:if test="${not empty s.img1}">
+									<img class="card-img-top" src="${pageContext.request.contextPath }${s.img1}" alt="..." style="width: 260px; height: 175px"/>
+								</c:if>
+								<c:if test="${empty s.img1}">
+									<img class="card-img-top" src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg" alt="..." />
+								</c:if>
+							</div>
 							<!-- Product details-->
 							<div class="card-body p-4">
 								<div class="text-center">
 									<!-- Product name-->
 									<h5 class="fw-bolder">${s.title}</h5>
 									<!-- Product price-->
-									$${s.price}
+									${s.price}&nbsp;원
 								</div>
 							</div>
 							<!-- Product actions-->
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center">
-									<a class="btn btn-outline-dark mt-auto" href="${pageContext.request.contextPath }//cam_board/detail.do?bnum=${s.bnum}">상세보기</a>
+									<a class="btn btn-outline-dark mt-auto" href="${pageContext.request.contextPath }/cam_board/detail.do?bnum=${s.bnum}">상세보기</a>
 								</div>
 							</div>
 						</div>

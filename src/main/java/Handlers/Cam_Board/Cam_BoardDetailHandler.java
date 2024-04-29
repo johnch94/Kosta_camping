@@ -40,8 +40,7 @@ public class Cam_BoardDetailHandler implements Handler {
 			service.edit(new Cam_Board(bnum, "", area, price, title, null, content, "", 0,  "", ""));
 			view = "redirect:/cam_board/detail.do?bnum=" + bnum;
 		}
-		
-		
+
 		return view;
 	}
 

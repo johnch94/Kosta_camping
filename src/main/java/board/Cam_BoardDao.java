@@ -234,7 +234,7 @@ public class Cam_BoardDao {
 	}
 	public void updateFntUp(int bnum){
 		Connection conn = db.conn();
-		String sql = "UPDATE cam_board SET fcnt=fcnt+1 WHERE bnum=?";
+		String sql = "UPDATE cam_board SET fnt=fnt+1 WHERE bnum=?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bnum);
@@ -252,7 +252,7 @@ public class Cam_BoardDao {
     }
 	public void updateFntDown(int bnum) {
 		Connection conn = db.conn();
-		String sql = "UPDATE cam_board SET fcnt=fcnt-1 WHERE bnum=?";
+		String sql = "UPDATE cam_board SET fnt=fnt-1 WHERE bnum=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bnum);

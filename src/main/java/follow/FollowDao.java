@@ -15,7 +15,7 @@ public class FollowDao {
     }
     public void insert(Follow follow)  {
         Connection conn = db.conn();
-        String sql = "insert into follow values(num,?,?)";
+        String sql = "insert into cam_follow values(seq_follow.nextval,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,follow.getMember_num());
@@ -34,7 +34,7 @@ public class FollowDao {
     }
     public void delete(String id,int bnum){
         Connection conn = db.conn();
-        String sql = "delete from follow where id=? and bnum=?";
+        String sql = "delete from cam_follow where id=? and bnum=?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,id);
@@ -53,7 +53,7 @@ public class FollowDao {
     }
     public ArrayList<Follow> selectByMember_Num(String id){
         Connection conn = db.conn();
-        String sql = "select * from follow where id=?";
+        String sql = "select * from cam_follow where id=?";
         ArrayList<Follow> follows = new ArrayList<>();
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class FollowDao {
     public boolean isFollow(String id,int bnum){
         Connection conn = db.conn();
         boolean boo = true;
-        String sql = "select * from follow where id=? and bnum=?";
+        String sql = "select * from cam_follow where id=? and bnum=?";
         Follow follow = null;
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
