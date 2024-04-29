@@ -1080,6 +1080,44 @@ input::-ms-input-placeholder {
     color: #e74c3c;
     border: #e74c3c 2px solid;
   }
+
+/*=================================================================
+                        board detail section
+===================================================================*/
+.detail-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+.detail-section h3 {
+    margin-top: 0;
+}
+.detail-section img {
+    width: 200px;
+    height: 200px;
+}
+.comment {
+    margin-bottom: 10px;
+}
+.comment .writer {
+    font-weight: bold;
+}
+.comment .date {
+    color: #888;
+}
+.comment form {
+    margin-top: 10px;
+}
+.detail-title h3,h2{
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.detail-image img{
+    border: 1px solid black;
+}
+
 /*=================================================================
                         footer section
 ===================================================================*/
