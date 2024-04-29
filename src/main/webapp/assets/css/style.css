@@ -1076,9 +1076,9 @@ input::-ms-input-placeholder {
   }
 
 .resveMouseover:hover {
-    transform: scale(1.1);
-    background-color : yellow;
-    color: black;
+    background-color : white;
+    color: #e74c3c;
+    border: #e74c3c 2px solid;
   }
 /*=================================================================
                         footer section

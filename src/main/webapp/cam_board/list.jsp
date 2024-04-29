@@ -123,7 +123,12 @@
 					<div class="col mb-5" style="margin-top: 15px">
 						<div class="card h-100">
 							<!-- Product image-->
-							<img class="card-img-top" src="${s.img1 }" alt="..." />
+							<c:if test="${! s.img1 eq null}">
+								<img class="card-img-top" src="${s.img1 }" alt="..." />
+							</c:if>
+							<c:if test="${s.img1 eq null}">
+								<img class="card-img-top" src="${pageContext.request.contextPath }/assets/images/coming_soon.jpg" alt="..." />
+							</c:if>
 							<!-- Product details-->
 							<div class="card-body p-4">
 								<div class="text-center">

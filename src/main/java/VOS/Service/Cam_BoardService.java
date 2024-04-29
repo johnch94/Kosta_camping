@@ -7,7 +7,7 @@ import VOS.Cam_Board.Cam_Board;
 public class Cam_BoardService {
 	private Cam_BoardDao dao;
 	
-	public static String path = "C:\\Users\\SAMSUNG\\PJ2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\pj2\\";
+	public static String path = "C:\\Users\\정윤석\\IdeaProjects\\test\\kosta_img";
 	
 	public Cam_BoardService() {
 		dao = new Cam_BoardDao();
