@@ -39,6 +39,22 @@
 
     <!-- kakao map api -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fbe64bacc6adfc8c04f2abe21ed24a86"></script>
+    
+     <!-- 마우스 오버 시 이미지 확대 -->
+    <script type="text/javascript">
+    function zoomIn(event) {
+    	 event.target.style.transform = "scale(1.2)";
+         	event.target.style.zIndex = 1;
+    	   event.target.style.transition = "all 0.5s";
+	}
+    
+    function zoomOut(event) {
+    	event.target.style.transform = "scale(1)";
+    	event.target.style.zIndex = 0;
+    	event.target.style.transition = "all 0.5s";
+	}
+    
+    </script>
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -180,15 +196,22 @@
                 <b>관광지 사진</b>
             </div>
             <div style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; flex-direction: row; height: 260px">
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri2" src="" style="width:220px ; height:250px"></div>
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri3" src="" style="width:220px ; height:250px"></div>
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri4" src="" style="width:220px ; height:250px"></div>
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri5" src="" style="width:220px ; height:250px"></div>
-                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri6" src="" style="width:220px ; height:250px"></div>
+                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri2" src="" style="width:220px ; height:250px;"
+                	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
+                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri3" src="" style="width:220px ; height:250px;"
+                	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
+                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri4" src="" style="width:220px ; height:250px;"
+                	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
+                <div s6tyle="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri5" src="" style="width:220px ; height:250px;"
+                	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
+                <div style="margin-left: 5px; margin-right: 5px; width: 200px; height: 150px;"><img id="tri6" src="" style="width:220px ; height:250px;"
+                	onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)"></div>
             </div>
         </div>
     </section>
-    <!--End of img section -->
+    <!--End of img section --> 
+    
+    
     <!--Map section-->
     <section>
         <div class="container">
@@ -202,6 +225,7 @@
         </div>
     </section>
     <!--End of img section-->
+    
     <!-- Start of weather section -->
     <section style="margin-top: 50px; margin-bottom: 100px">
         <div class="container">
