@@ -40,7 +40,6 @@
     <!-- kakao map api -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fbe64bacc6adfc8c04f2abe21ed24a86"></script>
     
-    
      <!-- 마우스 오버 시 이미지 확대 -->
     <script type="text/javascript">
     function zoomIn(event) {
