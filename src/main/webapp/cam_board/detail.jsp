@@ -106,7 +106,15 @@
     <section>
         <div class="container">
             <div class="detail-section">
-                <div class="detail-title"><h2>${cb.title}</h2></div>
+                <div style="display: flex; justify-content: space-between; flex-direction: row">
+                    <div class="detail-title"><h2>${cb.title}</h2></div>
+                    <div class="actions">
+                        <c:if test="${cb.writer == sessionScope.loginId }">
+                            <a href="${pageContext.request.contextPath }/cam_board/edit.do?bnum=${cb.bnum }">수정</a>
+                            <a href="${pageContext.request.contextPath }/cam_board/delete.do?bnum=${cb.bnum}">삭제</a>
+                        </c:if>
+                    </div>
+                </div>
                 <div class="follow" style="text-align: right">
                     <c:if test="${not empty sessionScope.loginId}">
                         <c:if test="${boo }">
@@ -146,13 +154,9 @@
                         </c:if>
                     </div>
                     <hr style="margin: 15px 1px">
+                    <p>&nbsp;</p>
                     <div>${cb.content }</div>
-                    <div class="actions">
-                        <c:if test="${cb.writer == sessionScope.loginId }">
-                            <a href="${pageContext.request.contextPath }/cam_board/edit.do?bnum=${cb.bnum }">수정</a>
-                            <a href="${pageContext.request.contextPath }/cam_board/delete.do?bnum=${cb.bnum}">삭제</a>
-                        </c:if>
-                    </div>
+                    <p>&nbsp;</p>
                 </div>
             </div>
 
@@ -171,15 +175,19 @@
             <div class="detail-section">
                 <div class="detail-title"><h3>댓글</h3></div>
                 <c:forEach var="s" items="${clist }">
-                    <div class="comment">
-                        <div class="writer">${s.writer }</div>
-                        <div class="body">${s.body }</div>
-                        <div class="date">${s.wdate }</div>
-                        <c:if test="${cb.writer eq sessionScope.loginId }">
-                            <form action="${pageContext.request.contextPath }/cam_comment/del.do?cnum=${s.cnum}&bnum=${cb.bnum}" method="post">
-                                <input type="submit" value="삭제">
-                            </form>
-                        </c:if>
+                    <div class="comment" style="display: flex; justify-content: space-between">
+                        <div>
+                            <div class="writer">${s.writer }</div>
+                            <div class="body">${s.body }</div>
+                            <div class="date">${s.wdate }</div>
+                        </div>
+                        <div>
+                            <c:if test="${s.writer eq sessionScope.loginId }">
+                                <form action="${pageContext.request.contextPath }/cam_comment/del.do?cnum=${s.cnum}&bnum=${cb.bnum}" method="post">
+                                    <input type="submit" value="삭제">
+                                </form>
+                            </c:if>
+                        </div>
                     </div>
                 </c:forEach>
             </div>

@@ -110,7 +110,9 @@
                 <div style="flex-direction: column">
                     <div style="text-align: center; margin-bottom: 30px"><i class="fa-regular fa-circle-check"style="color: red; font-size: 100px"></i></div>
                     <p style="font-size: 25px"><b>회원가입에 성공했습니다.</b></p>
-                    <button href="" value="HOME"></button>
+                    <div style="display: flex; justify-content: center; margin-top: 40px">
+                        <a class="resveMouseover" href="${pageContext.request.contextPath}/index.jsp">홈으로 가기</a>
+                    </div>
                 </div>
             </div>
         </div>

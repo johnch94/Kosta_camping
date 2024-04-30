@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import VOS.Cam_Board.Cam_Comment;
 import VOS.Service.Cam_CommentService;
@@ -22,7 +23,8 @@ public class Cam_CommentAddHandler implements Handler {
 		if(request.getMethod().equals("POST")) {
 			String body = request.getParameter("body");
 			int bnum = Integer.parseInt(request.getParameter("bnum"));
-			String writer = request.getParameter("writer");
+			HttpSession session = request.getSession(false);
+			String writer = (String) session.getAttribute("loginId");
 
 			Cam_CommentService service = new Cam_CommentService();
 			service.addComment(new Cam_Comment(0, body, bnum, writer, null));
