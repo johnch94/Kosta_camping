@@ -19,7 +19,6 @@ public class Cam_CommentDao {
 	public void insert(Cam_Comment cc) {
 		Connection conn = db.conn();
 		String sql = "INSERT INTO cam_comment VALUES(seq_comment.nextval, ?, ?, ?, sysdate)";
-		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
@@ -46,10 +45,8 @@ public class Cam_CommentDao {
 		Connection conn = db.conn();
 		String sql = "SELECT * FROM cam_comment WHERE bnum=? ORDER BY cnum";
 		ArrayList<Cam_Comment> list = new ArrayList<Cam_Comment>();
-		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setInt(1, bnum);
 			ResultSet rs = pstmt.executeQuery();
 			
